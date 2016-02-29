@@ -1,4 +1,4 @@
-\documentclass[14pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage[italian]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
@@ -7,27 +7,33 @@
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{scrextend}
-\usepackage[big,rilegatura=.4cm]{layaureo}
+\usepackage{url}
+\usepackage[big,binding=.4cm]{layaureo}
+
 \begin{document}
+	\title{Digital Forensics \\ Repertamento e analisi delle evidenze digitali}
+	\date{Marzo 2016}
+	\author{A cura del Capitano Alberto Azzalini \\ Comandante della Compagnia Carabinieri di Vipiteno}
+	\maketitle
 	\tableofcontents
-	\section{Digital Forensics}
-		\subsection{Premessa}
-			Nell'ambito dell'attività quotidiana delle forze di polizia è sempre più frequente, ormai, imbattersi nella necessità di conservare, analizzare e valutare materiale cosiddetto informatico o ad alta tecnologia. 
-			Già la ``semplice'' analisi di un tabulato di traffico telefonico (fonia o eventualmente anche dati) è di fatto una analisi forense, sebbene certamente non sofisticata quanto quella di un computer.
-			
-			Di fatto, oggi non esiste fenomeno giuridicamente rilevante che non abbia una componente digitale dalla quale estrarre informazioni utili alla ricostruzione dei fatti.
-			
-			Nel tempo, le procedure operative hanno subito notevoli cambiamenti, dovuti principalmente alle innovazioni intervenute sui mezzi di comunicazione informatica e sulle piattaforme sociali diffusesi negli ultimi tempi.
-			
-			Se ad esempio fino a qualche anno fa la regola nel repertare un \textit{personal computer} acceso era quella di spegnerlo senza particolari cautele (staccando molto semplicemente la spina) per poi procedere alla sigillatura delle porte e alla chiusura del plico.
-			
-			Oggi non si opera più in questo modo, almeno non sempre, in quanto si è visto che il contenuto della memoria volatile del computer può essere determinante o comunque di notevole importanza per le indagini. Come operare allora?
-			
-			Non esiste una regola unica e valida per tutte le occasioni, se non quella di applicare in ogni caso il buon senso, nel rispetto del Codice di Procedura Penale, e la sensibilità investigativa maturata nel corso di anni di indagini, anche tradizionali.
-			
-			In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analisi dei dati ricavati da un sistema informatico di qualsiasi natura: la mole delle informazioni da visionare è tale e tanta che ci vorrebbero anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare gigabyte e gigabyte di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un terabyte (1000 gigabyte) è ormai il taglio minimo per un computer desktop.
-	\subsection{Fonti normative}
-		Con la legge n. 48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
+
+	\section{Premessa}
+		Nell'ambito dell'attività quotidiana delle forze di polizia è sempre più frequente, ormai, imbattersi nella necessità di conservare, analizzare e valutare materiale cosiddetto informatico o ad alta tecnologia. 
+		Già la ``semplice'' analisi di un tabulato di traffico telefonico (fonia o eventualmente anche dati) è di fatto una analisi forense, sebbene certamente non sofisticata quanto quella di un computer.
+		
+		Di fatto, oggi non esiste fenomeno giuridicamente rilevante che non abbia una componente digitale dalla quale estrarre informazioni utili alla ricostruzione dei fatti.
+		
+		Nel tempo, le procedure operative hanno subito notevoli cambiamenti, dovuti principalmente alle innovazioni intervenute sui mezzi di comunicazione informatica e sulle piattaforme sociali diffusesi negli ultimi tempi.
+		
+		Se ad esempio fino a qualche anno fa la regola nel repertare un \textit{personal computer} acceso era quella di spegnerlo senza particolari cautele (staccando molto semplicemente la spina) per poi procedere alla sigillatura delle porte e alla chiusura del plico.
+		
+		Oggi non si opera più in questo modo, almeno non sempre, in quanto si è visto che il contenuto della memoria volatile del computer può essere determinante o comunque di notevole importanza per le indagini. Come operare allora?
+		
+		Non esiste una regola unica e valida per tutte le occasioni, se non quella di applicare in ogni caso il buon senso, nel rispetto del Codice di Procedura Penale, e la sensibilità investigativa maturata nel corso di anni di indagini, anche tradizionali.
+		
+		In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analisi dei dati ricavati da un sistema informatico di qualsiasi natura: la mole delle informazioni da visionare è tale e tanta che ci vorrebbero anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare gigabyte e gigabyte di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un terabyte (1000 gigabyte) è ormai il taglio minimo per un computer desktop.
+	\section{Fonti normative}
+		Con la legge n.48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
 		\begin{description}
 			\item[Art. 244 c.p.p.] Casi e forme delle ispezioni
 			\begin{enumerate}
@@ -95,9 +101,92 @@
 		
 		La scena del crimine è un puzzle che l'investigatore, siano o meno coinvolte tecnologie informatiche, deve riuscire a ricomporre. Ma la quantità di variabili e tasselli in gioco è sempre tale e tanta che, umanamente, non è possibile analizzare ogni singolo elemento: si devono stabilire delle priorità, in relazione alla tipologia di reato che si vuole e deve perseguire e al tipo di informazioni che si ritiene possano essere determinanti per l'indagine e, sulla base di tale scelta, selezionare gli elementi di interesse. 
 		
-		L'informatica è la scienza della gestione delle informazioni: la base di ogni sistema informatico e telematico sono i dati. Per questo motivo, all'investigatore che si trova a dover scegliere quali reperti siano prioritari rispetto ad altri deve essere ben chiaro il fine ultimo dell'attività di repertamento: raccogliere dati. Ora, nel perquisire il domicilio di un truffatore, di un pedofilo o di un terrorista, mi devo chiedere dove possano essere immagazzinate le informazioni che cerco: sarò di certo interessato ai dati contenuti nel suo computer ma, più probabilmente, le informazioni saranno archiviate altrove: perquisiamogli le tasche alla ricerca di chiavette USB (attenzione che queste ultime posso assumere forme più strane, non ultime quelle di pupazzetti che nascondo un chip di memoria), guardiamo nei cassetti e cerchiamo di trovare dischi esterni o ? se il nostro cliente è un po' all'antica, informaticamente parlando ? CD-ROM o DVD. Se fosse ancora più tradizionalista, magari ha stampato delle foto o dei documenti: usciamo quindi dalle vesti dell'investigatore forense e rivestiamoci da sbirro di strada e cerchiamo album, raccoglitori, scatole da scarpe e vediamo se non ci sono nascosti dentro documenti interessanti.
+		L'informatica è la scienza della gestione delle informazioni: la base di ogni sistema informatico e telematico sono i dati. Per questo motivo, all'investigatore che si trova a dover scegliere quali reperti siano prioritari rispetto ad altri deve essere ben chiaro il fine ultimo dell'attività di repertamento: raccogliere dati. Ora, nel perquisire il domicilio di un truffatore, di un pedofilo o di un terrorista, mi devo chiedere dove possano essere immagazzinate le informazioni che cerco: sarò di certo interessato ai dati contenuti nel suo computer ma, più probabilmente, le informazioni saranno archiviate altrove: perquisiamogli le tasche alla ricerca di chiavette USB (attenzione che queste ultime posso assumere forme più strane, non ultime quelle di pupazzetti che nascondo un chip di memoria), guardiamo nei cassetti e cerchiamo di trovare dischi esterni o -- se il nostro cliente è un po' all'antica, informaticamente parlando -- CD-ROM o DVD. Se fosse ancora più tradizionalista, magari ha stampato delle foto o dei documenti: usciamo quindi dalle vesti dell'investigatore forense e rivestiamoci da sbirro di strada e cerchiamo album, raccoglitori, scatole da scarpe e vediamo se non ci sono nascosti dentro documenti interessanti.
 		
 		\textit{Di questa ``analisi delle priorità'' dovremo tenere conto sia in fase di sopralluogo e quindi di raccolta del materiale, sia in fase di esame tecnico forense.}
 		
+		\subsection{Procedure operative}
 		
+		Nel seguito verranno analizzati alcuni casi di studio utili per capire come operare in condizioni ottimali.
+		
+		\subsubsection{Caso 1: computer spento}
+			Qualora sulla scena del crimine (o comunque sul luogo dell'eventuale perquisizione) sia presente un computer da sequestrare e lo stesso sia spento, siamo ovviamente nella condizione migliore.
+			
+			\textbf{Regola d'oro: }un computer spento non va MAI e poi MAI acceso.
+			
+			Dopo aver verificato che effettivamente sia spento (osservandolo accuratamente alla ricerca di LED o altre luci, ascoltando eventuali ventole attive, ecc.), si procederà a fotografare ed eventualmente video riprendere i componenti presenti, etichettandoli uno per uno (è buona prassi etichettare anche tutti i cavi che arrivano all'elaboratore). A quel punto è possibile rimuovere i cavi e cominciare ad impacchettare, sigillandone i plichi e applicando su ciascuno delle ulteriori etichette identificative, tutti i componenti di interesse.
+			
+			In questa fase è importantissimo annotarsi, magari fotografandone le etichette, tutti i numeri di serie o altre indicazioni presenti: tali codici identificativi andranno esplicitamente citati nel verbale delle operazioni e nel verbale di sequestro. 
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{pics/label1}
+				\caption{La tipica etichetta sul fondo di un portatile}
+				\label{fig:label1}
+			\end{figure}
+			
+			È in questa fase che inizia la catena di custodia (\textit{chain of custody}) del materiale fisico: da questo momento in poi è fondamentale che ogni passaggio di mano delle fonti di prova sia cronologicamente documentato e tracciabile al fine di garantire l'integrità fisica dei supporti e dei dati in essi contenuti. Ogni operazione potenzialmente a rischio di compromettere tale integrità deve essere registrata e condotta in maniera conforme alle pratiche consolidate nel settore.
+			Inutile aggiungere che, qualora si ritenga importante procedere anche ad un'analisi dattiloscopica sul materiale sequestrato, è indispensabile usare ogni cautela per evitare di disperdere eventuali impronte papillari dalle superfici latenti, utilizzando i normali guanti monouso e cercando di non ?strofinare? gli oggetti.
+			
+			Sulla scena del crimine o nel locale sottoposto a perquisizione dovranno essere ricercate password e credenziali utili ad accedere al computer e ai dati: quindi sarà importante mettere in sicurezza agendine, post-it, appunti e ogni altro oggetto atto a registrare dati sensibili.
+			
+			All'indagato o comunque alla persona sottoposta alla perquisizione potrà essere chiesto di rivelare password, PIN o altre informazioni utili per accedere alle informazioni, tuttavia è importantissimo ricordare l'obbligo della P.G. di informare sul diritto a non rispondere sancito dagli artt. 60 co. 3 e 350 c.p.p: in caso di mancata informazione, il dato ottenuto sarà inutilizzabile.
+			Su quest'ultimo punto vale sempre il brocardo latino \textit{``Nemo tenetur se detegere''}, ovvero nessuno può essere obbligato ad affermare o a fornire prova della propria responsabilità penale.
+		
+
+			In questa, come in tutte le situazioni esaminate nel seguito, va prestata massima attenzione alle modalità di imballaggio del materiale sequestrato. Non sarebbe utile a nessuno rientrare in sede con un computer il cui disco rigido si è danneggiato in fase di trasporto a causa di un imballo non accurato. Qualora si possa fin dal principio ipotizzare la necessità di sequestrare materiale informatico, è il caso di dotarsi preventivamente di idonei contenitori -- sono sufficienti anche degli scatoloni e dei giornali vecchi per creare una minima protezione agli urti. 
+
+			
+			In questa, come in tutte le situazioni esaminate nel seguito, va prestata massima attenzione alle modalità di imballaggio del materiale sequestrato. Non sarebbe utile a nessuno rientrare in sede con un computer il cui disco rigido si è danneggiato in fase di trasporto a causa di un imballo non accurato. Qualora si possa fin dal principio ipotizzare la necessità di sequestrare materiale informatico, è il caso di dotarsi preventivamente di idonei contenitori -- sono sufficienti anche degli scatoloni e dei giornali vecchi per creare una minima protezione agli urti. 
+			
+			Altra accortezza è quella di evitare di sottoporre il materiale sequestrato a campi elettromagnetici particolarmente forti, per scongiurare il rischio (peraltro solitamente remoto) di cancellazione accidentale dei dati.
+		
+			\subsubsection{Caso 2: computer acceso}
+			Qualora il computer da sequestrare fosse acceso, la situazione diventa più complicata. Un tempo si suggeriva di scollegare semplicemente il cavo si alimentazione (o staccare la batteria in caso di un portatile) e procedere al sequestro (come nel precedente caso 1).
+			
+			Tuttavia, nel tempo le \textit{best practice} si sono evolute e ora la regola è quella di prendere nota delle attività in corso nel computer al momento dell'intervento.
+			Per fare ciò esistono vari metodi, dal più semplice (andare a vedere ``a mano'' che finestre sono aperte, quali pagine si stanno visualizzando, eventualmente quali processi sono attivi sulla macchina) al più elaborato (inserire una apposita chiavetta USB con un software apposito per l'effettuazione di una ``live forensic'').
+			
+			Qualsiasi sia la strada scelta, è fondamentale prendere nota di ogni attività svolta sul computer acceso, possibilmente filmando tutta l'attività e corredando il video di una accurata descrizione vocale di quanto si sta facendo, un po' come il detective dei film americani che nel corso di un sopralluogo utilizza un mini registratore per fissare le proprie impressioni su di un nastro, a futura memoria.
+			
+			\paragraph{Sincronizziamo gli orologi\dots}
+			Tra le informazioni più importanti da annotare quando si procede a verificare un computer acceso va sempre letta l'ora e la data correnti del sistema, rapportandole a quelle effettive dell'intervento. Andrà annotato quindi qualcosa del tipo:
+			
+			\begin{itemize}
+				\item Data e ora del sistema: 25 marzo 2013 ore 12:43:10;
+				\item Data e ora dell'intervento: 25 marzo 2013 ore 12:40:57.
+			\end{itemize}
+			
+			Tale operazione è di fondamentale importanza per permettere di mettere in relazione gli orari delle eventuali operazioni della P.G. con i dati che verranno estratti dall'analisi successiva del computer.
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\linewidth]{pics/dataora}
+				\caption{L'ora del BIOS e quella di un tablet sincronizzata con NTP}
+				\label{fig:dataora}
+			\end{figure}
+
+			
+			Nell'esempio di cui alla figura \ref{fig:dataora}, è stata effettuata una foto della schermata del BIOS riportante data e ora del sistema, confrontata con quella indicata da un tablet sincronizzato con un NTP\footnote{Il Network Time Protocol, in sigla NTP, è un protocollo per sincronizzare gli orologi dei computer all'interno di una rete a commutazione di pacchetto. L'NTP è uno dei più vecchi protocolli tuttora in uso, ed è giunto alla sua quarta versione. Fu sviluppato presso l'Università del Delaware da Dave Mills, che ne segue tuttora lo sviluppo. Il funzionamento si basa sul rilevamento dei tempi di latenza nel transito dei pacchetti sulla rete. Utilizza il tempo coordinato universale ed è quindi indipendente dai fusi orari. Attualmente è in grado di sincronizzare gli orologi dei computer su internet entro un margine di 10 millisecondi e con una accuratezza di almeno 200 microsecondi all'interno di una LAN in condizioni ottimali. (\url{https://it.wikipedia.org/wiki/Network_Time_Protocol})} server: tablet e monitor sono stati immortalati nella stessa foto.
+			
+			È buona norma per l'operatore essere in grado di avere l'ora esatta, magari appunto installando una applicazione di sincronia NTP sul proprio telefono.
+			
+			A margine, è bene ricordare che l'ora del BIOS non necessariamente è l'ora del sistema operativo. Nel caso di computer acceso, si dovrà confrontare l'ora del sistema operativo con l'ora corrente, mentre in caso di computer spento, presa l'ora del BIOS, in sede di analisi forense deve essere verificata l'impostazione dell'orologio del sistema, ovvero su quale fuso è impostata e se lo stesso prende per buona l'ora hardware o vi applica una correzione corrispondente al fuso orario.
+			
+			\paragraph{Approfondimenti sui sistemi accesi}
+			\subparagraph{Perché è importante verificare l'attività in corso sul computer prima di spegnerlo e sequestrarlo?}
+			
+			Rispetto a qualche anno fa, il modo in cui i programmi e gli utenti interagiscono con il computer è molto cambiato. Senza che l'utente prenda accorgimenti particolari, molti dettagli (che a volte si rivelano fondamentali) dell'attività in corso non vengono salvati (la chat di facebook, ad esempio); esistono poi sistemi, quali la cosiddetta modalità di navigazione anonima, che servono proprio a non lasciare alcuna traccia delle pagine visitate.
+
+			Questo tipo di dati, importantissimi per documentare le ultime attività, andrebbero persi se non visionati prima di spegnere il sistema.
+			
+			\subparagraph{A cosa serve documentare l'attività e perché è così importante?}
+			Può certamente sembrare una domanda banale, ma viste le più o meno recenti notizie di cronaca su clamorosi errori svolti dalla Polizia Giudiziaria sul luogo del delitto, è meglio ribadire il concetto.
+			
+			Come già sottolineato, quasi ogni attività fatta su un dispositivo ad alta tecnologia, tipicamente su un computer, lascia una traccia che un buon analista forense è in grado di trovare, seguire e interpretare. Per l'analisi successiva al sequestro è importante che il tecnico sappia distinguere le attività dell'utilizzatore del computer da quelle svolte dagli operatori al momento del sequestro. 
+			
+			Anche documentare gli orari esatti di queste attività è importante: ipotizzando che la data e l'ora del sistema siano esatte (e se non lo sono sia comunque possibile stabilire di quanto si discostano da quelle effettive, come visto nel paragrafo ``Sincronizziamo gli orologi?''), si potranno distinguere le operazioni fatte in corso di ``live forensics'' dagli operatori sulla scena del crimine da quelle svolte, anche solo pochi minuti prima, dall'eventuale autore del delitto che poi si sia dato alla fuga.
+			
+			Inoltre, sapere con certezza quali operazioni sono state svolte dalla Polizia Giudiziaria è fondamentale anche in sede dibattimentale, per evitare che di quelle eventuali azioni ? non documentate in alcun atto di indagine ? si accorgano i periti di parte: in questo caso la figuraccia degli operatori è assicurata, come insegna il caso di Garlasco.
+			
 \end{document}
