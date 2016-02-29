@@ -1,4 +1,4 @@
-\documentclass[13pt,a4paper]{article}
+\documentclass[14pt,a4paper]{article}
 \usepackage[italian]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{scrextend}
-\usepackage[big,rilegatura=.6cm]{layaureo}
+\usepackage[big,rilegatura=.4cm]{layaureo}
 \begin{document}
 	\tableofcontents
 	\section{Digital Forensics}
@@ -18,9 +18,13 @@
 			Di fatto, oggi non esiste fenomeno giuridicamente rilevante che non abbia una componente digitale dalla quale estrarre informazioni utili alla ricostruzione dei fatti.
 			
 			Nel tempo, le procedure operative hanno subito notevoli cambiamenti, dovuti principalmente alle innovazioni intervenute sui mezzi di comunicazione informatica e sulle piattaforme sociali diffusesi negli ultimi tempi.
-			Se ad esempio fino a qualche anno fa la regola nel repertare un personal computer acceso era quella di spegnerlo senza particolari cautele (staccando molto semplicemente la spina) per poi procedere alla sigillatura delle porte e alla chiusura del plico.
+			
+			Se ad esempio fino a qualche anno fa la regola nel repertare un \textit{personal computer} acceso era quella di spegnerlo senza particolari cautele (staccando molto semplicemente la spina) per poi procedere alla sigillatura delle porte e alla chiusura del plico.
+			
 			Oggi non si opera più in questo modo, almeno non sempre, in quanto si è visto che il contenuto della memoria volatile del computer può essere determinante o comunque di notevole importanza per le indagini. Come operare allora?
+			
 			Non esiste una regola unica e valida per tutte le occasioni, se non quella di applicare in ogni caso il buon senso, nel rispetto del Codice di Procedura Penale, e la sensibilità investigativa maturata nel corso di anni di indagini, anche tradizionali.
+			
 			In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analisi dei dati ricavati da un sistema informatico di qualsiasi natura: la mole delle informazioni da visionare è tale e tanta che ci vorrebbero anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare gigabyte e gigabyte di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un terabyte (1000 gigabyte) è ormai il taglio minimo per un computer desktop.
 	\subsection{Fonti normative}
 		Con la legge n. 48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
@@ -33,13 +37,65 @@
 			\item[Art. 247 c.p.p.] Casi e forme delle perquisizioni
 			\begin{labeling}{1-bis.}
 				\item[\textellipsis]
-				\item[1-bis.] Quando vi è fondato motivo di ritenere che dati, informazioni, programmi informatici o tracce comunque pertinenti al reato si trovino in un sistema informatico o telematico, ancorché protetto da misure di sicurezza, ne è disposta la perquisizione, adottando misure tecniche dirette ad assicurare la conservazione dei dati originali e ad impedirne l?alterazione.
+				\item[1-bis.] Quando vi è fondato motivo di ritenere che dati, informazioni, programmi informatici o tracce comunque pertinenti al reato si trovino in un sistema informatico o telematico, ancorché protetto da misure di sicurezza, ne è disposta la perquisizione, adottando misure tecniche dirette ad assicurare la conservazione dei dati originali e ad impedirne l'alterazione.
 				\item[\textellipsis]
 			\end{labeling}
-			
+			\item[Art. 352 c.p.p.] Perquisizioni
+			\begin{labeling}{1.bis.}
+				\item[\textellipsis]
+				\item[1-bis.] Nella flagranza del reato, ovvero nei casi di cui al comma 2 quando sussistono i presupposti e le altre condizioni ivi previsti, gli ufficiali di polizia giudiziaria, adottando misure tecniche dirette ad assicurare la conservazione dei dati originali e ad impedirne l'alterazione, procedono altresì alla perquisizione di sistemi informatici o telematici, ancorché protetti da misure di sicurezza, quando hanno fondato motivo di ritenere che in questi si trovino occultati dati, informazioni, programmi informatici o tracce comunque pertinenti al reato che possono essere cancellati o dispersi.
+				\item[\textellipsis]
+			\end{labeling}
+			\item[Art. 354 c.p.p.] Accertamenti urgenti sui luoghi, sulle cose e sulle persone. Sequestro.
+			\begin{enumerate}
+				\item [\textellipsis]
+				\setcounter{enumi}{1}
+				\item Se vi è pericolo che le cose, le tracce e i luoghi indicati nel comma 1 si alterino o si disperdano o comunque si modifichino e il pubblico ministero non può intervenire tempestivamente, ovvero non ha ancora assunto la direzione delle indagini, gli ufficiali di polizia giudiziaria compiono i necessari accertamenti e rilievi sullo stato dei luoghi e delle cose. \textbf{In relazione ai dati, alle informazioni e ai programmi informatici o ai sistemi informatici o telematici, gli ufficiali della polizia giudiziaria adottano, altresì, le misure tecniche o impartiscono le prescrizioni necessarie ad assicurarne la conservazione e ad impedirne l'alterazione e l'accesso e provvedono, ove possibile, alla loro immediata duplicazione su adeguati supporti, mediante una procedura che assicuri la conformità della copia all'originale e la sua immodificabilità.} Se del caso, sequestrano il corpo del reato e le cose a questo pertinenti.
+				\item [\textellipsis]
+			\end{enumerate}
 		\end{description}
+		La 48 del 2008 ha quindi, finalmente, introdotto nel codice di procedura penale la definizione di quello che qualche autore definisce ``il concetto di scena del crimine virtuale'' con conseguenti ispezioni e perquisizioni ``virtuali''. Viene introdotto il concetto di copia conforme all'originale del dato informatico e nonché la clausola dell'immodificabilità di quanto copiato.
 		
+		Addirittura, al secondo comma dell'art. 254 viene prescritta, in caso di urgenza, la copia forense in loco. Secondo il Ten. Col. Mattiucci del Ra.Ci.S. questa fattispecie configura una sorta di sequestro virtuale che ``\textit{è intrinsecamente irripetibile (come qualsiasi sequestro!). Infatti, anche nell'ipotesi di effettuare la copia sul posto nelle migliori condizioni possibili e con i migliori tool e le migliori metodologie se l'urgenza è giustificata l'attività non potrà essere ripetuta.}'' (Mattiucci).
 		
+		Il senso profondo delle novità introdotte dalla 48/2008 è, in sostanza, la necessità di adottare misure tecniche dirette ad \textbf{assicurare la conservazione dei dati originali e ad impedirne l'alterazione}.
+		
+		Il motivo è che ogni intervento su un sistema informatico non condotto in maniera forense comporta sempre e comunque una alterazione dei dati ivi presenti e la cancellazione di parte di essi, come insegnano casi eclatanti balzati agli onori della cronaca come, per citarne uno, l'omicidio di Garlasco.
+		Per entrare nel dettaglio, le 4 fasi standard dell'indagine digitale forense sono (Mattiucci):
+		
+		\begin{enumerate}
+			\item identificazione e prelievo;
+			\item preservazione e archiviazione;
+			\item analisi tecnica e investigativa;
+			\item reporting tecnico e legale.
+		\end{enumerate}
+		
+		Per gli scopi di questa esposizione, si approfondirà maggiormente il primo punto, trattando in maniera più rapida gli altri tre che, di norma, sono di competenza di organi e reparti specializzati o di personale in possesso di competenze specifiche.
+		
+		\section{Identificazione e prelievo:\\
+			procedure operative per il repertamento digitale
+			}
+		
+		Come accennato in premessa, non esiste un unico modo corretto per procedere al sequestro e alla successiva analisi di un reperto ad alta tecnologia, ma è comunque possibile fornire delle linee guide per evitare di commettere errori grossolani.
+		
+		In un mondo perfetto, le attività in argomento dovrebbero sempre essere svolte dallo stesso personale specializzato che poi si occuperà delle fasi successive dell'indagine forense in quanto, come si vedrà, già in sede di sopralluogo sarebbero necessarie competenze tecniche approfondite sia per evitare gli errori di cui sopra, sia per poter operare con cognizione di causa nel caso vi fosse la necessità di analizzare in loco le apparecchiature rinvenute accese. Purtroppo, nella maggior parte dei casi chi interviene è il personale del pronto intervento, della stazione di paese o, se si è fortunati, del Reparto Operativo che comunque non sempre ha la necessaria preparazione specifica. Per questi motivi è fondamentale che ogni operatore abbia almeno un'idea di base su come procedere al meglio.
+		
+		In generale, esistono due livelli di repertamento di un sistema digitale:
+		
+		\begin{enumerate}
+			\item il repertamento dell'oggetto fisico, che mantiene i dati seguendo un qualche principio fisico (in genere elettrico, magnetico e/o ottico);
+			\item il repertamento dei dati ossia la fedele copia dei dati su supporto sicuro.
+		\end{enumerate}
+		
+		Di regola, il repertamento fisico precede quello dei dati in quanto il supporto (sia esso un computer intero o solo i dispositivi di archiviazione) viene inizialmente sequestrato sul posto e successivamente analizzato in sede o presso apposite strutture di terze parti. Tuttavia, si stanno diffondendo sistemi portatili che consentono di clonare il contenuto completo o parziale di un PC senza necessariamente prelevarlo e trasportarlo in un laboratorio specializzato e questo mentre continua a funzionare (si parla di live analysis).
+		
+		A ciò va aggiunto che molti dispositivi elettronici memorizzano i dati su memorie che hanno bisogno di batterie tampone o della corrente di rete per non perdere i dati in essi contenuti. Di converso molti altri dispositivi devono essere spenti forzatamente per garantire un buon repertamento (che cioè consenta poi un'analisi efficace).
+		
+		\subsection{Fissare le priorità}
+		
+		La scena del crimine è un puzzle che l?investigatore, siano o meno coinvolte tecnologie informatiche, deve riuscire a ricomporre. Ma la quantità di variabili e tasselli in gioco è sempre tale e tanta che, umanamente, non è possibile analizzare ogni singolo elemento: si devono stabilire delle priorità, in relazione alla tipologia di reato che si vuole e deve perseguire e al tipo di informazioni che si ritiene possano essere determinanti per l?indagine e, sulla base di tale scelta, selezionare gli elementi di interesse. 
+		L?informatica è la scienza della gestione delle informazioni: la base di ogni sistema informatico e telematico sono i dati. Per questo motivo, all?investigatore che si trova a dover scegliere quali reperti siano prioritari rispetto ad altri deve essere ben chiaro il fine ultimo dell?attività di repertamento: raccogliere dati. Ora, nel perquisire il domicilio di un truffatore, di un pedofilo o di un terrorista, mi devo chiedere dove possano essere immagazzinate le informazioni che cerco: sarò di certo interessato ai dati contenuti nel suo computer ma, più probabilmente, le informazioni saranno archiviate altrove: perquisiamogli le tasche alla ricerca di chiavette USB (attenzione che queste ultime posso assumere forme più strane, non ultime quelle di pupazzetti che nascondo un chip di memoria), guardiamo nei cassetti e cerchiamo di trovare dischi esterni o ? se il nostro cliente è un po? all?antica, informaticamente parlando ? CD-ROM o DVD. Se fosse ancora più tradizionalista, magari ha stampato delle foto o dei documenti: usciamo quindi dalle vesti dell?investigatore forense e rivestiamoci da sbirro di strada e cerchiamo album, raccoglitori, scatole da scarpe e vediamo se non ci sono nascosti dentro documenti interessanti.
+		Di questa ?analisi delle priorità? dovremo tenere conto sia in fase di sopralluogo e quindi di raccolta del materiale, sia in fase di esame tecnico forense.
 		
 		
 \end{document}
