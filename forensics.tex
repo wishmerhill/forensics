@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[italian]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
@@ -8,8 +8,9 @@
 \usepackage{blindtext}
 \usepackage{scrextend}
 \usepackage{url}
-\usepackage[big,binding=.4cm]{layaureo}
+\usepackage[big,binding=0cm]{layaureo}
 \usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
 \usepackage[nottoc]{tocbibind}
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, 
@@ -144,7 +145,7 @@
 		
 		A ciò va aggiunto che molti dispositivi elettronici memorizzano i dati su memorie che hanno bisogno di batterie tampone o della corrente di rete per non perdere i dati in essi contenuti. Di converso molti altri dispositivi devono essere spenti forzatamente per garantire un buon repertamento (che cioè consenta poi un'analisi efficace).
 		
-		\subsection{Fissare le priorità}
+		\subsection{Fissare le priorità}\label{sec:priorita}
 		
 		La scena del crimine è un puzzle che l'investigatore, siano o meno coinvolte tecnologie informatiche, deve riuscire a ricomporre. Ma la quantità di variabili e tasselli in gioco è sempre tale e tanta che, umanamente, non è possibile analizzare ogni singolo elemento: si devono stabilire delle priorità, in relazione alla tipologia di reato che si vuole e deve perseguire e al tipo di informazioni che si ritiene possano essere determinanti per l'indagine e, sulla base di tale scelta, selezionare gli elementi di interesse. 
 		
@@ -163,19 +164,19 @@
 		
 		\node (dec2) [decision, right of=dec1, xshift=8cm, text width=3cm] {C'è un esperto a disposizione?};
 		
-		\node (pro2) [process_red, below of=dec1, yshift=-8cm, text width=3.5cm] {NON ACCENDERLO!};
+		\node (pro2) [process_red, below of=dec1, yshift=-7cm, text width=3.5cm] {NON ACCENDERLO!};
 		
-		\node (pro3) [process, below of=dec2, text width=3.5cm,  yshift=-8cm] {Seguire i suoi consigli};
+		\node (pro3) [process, below of=dec2, text width=3.5cm,  yshift=-7cm] {Seguire i suoi consigli};
 		
-		\node (pro4) [process_red, left of=pro3, text width=4cm, xshift=-3cm, yshift=6cm] {Non accettare consigli da sedicenti esperti};
+		\node (pro4) [process_red, left of=pro3, text width=4cm, xshift=-3cm, yshift=6.5cm] {Non accettare consigli da sedicenti esperti};
 		
 		\node (pro4a) [process, below of=pro4, text width=5.5cm, yshift=-0.2cm] {Filmare, fotografare, prendere nota di tutto quello che è visibile a video e delle operazioni svolte};
 		
-		\node (pro4b) [process, below of=pro4a, text width=5.5cm, yshift=-1cm] {Rimuovere prima la batteria (se presente) e/o il cavo di alimentazione dall'apparato (e non dalla presa a muro o dalla ciabatta)};
+		\node (pro4b) [process, below of=pro4a, text width=5.5cm, yshift=-1.5cm] {Rimuovere prima la batteria (se presente) e/o il cavo di alimentazione dall'apparato (e non dalla presa a muro o dalla ciabatta)};
 		
 		\node (pro5) [process, below of=pro4b, yshift=-1cm] {Etichettare e fotografare e filmare ciascun componente presente sulla scena, avendo cura di controllare anche come siano collegati i cavi delle periferiche esterne};
 		
-		\node (pro5a) [process, below of=pro5] {Rimuovere i cavi di collegamento dalle rispettive prese a parete};
+		\node (pro5a) [process, below of=pro5, yshift=.3cm] {Rimuovere i cavi di collegamento dalle rispettive prese a parete};
 		
 		\node (pro5b) [process, below of=pro5a] {Imballare con cura ciascun dispositivo ritenuto di interesse per le indagini, annotandone gli eventuali numeri di serie che andranno riportati nel verbale di sequestro. Gli imballi dovranno essere accuratamente etichettati.};
 		
@@ -222,7 +223,7 @@
 			\end{figure}
 			
 			È in questa fase che inizia la catena di custodia (\textit{chain of custody}) del materiale fisico: da questo momento in poi è fondamentale che ogni passaggio di mano delle fonti di prova sia cronologicamente documentato e tracciabile al fine di garantire l'integrità fisica dei supporti e dei dati in essi contenuti. Ogni operazione potenzialmente a rischio di compromettere tale integrità deve essere registrata e condotta in maniera conforme alle pratiche consolidate nel settore.
-			Inutile aggiungere che, qualora si ritenga importante procedere anche ad un'analisi dattiloscopica sul materiale sequestrato, è indispensabile usare ogni cautela per evitare di disperdere eventuali impronte papillari dalle superfici latenti, utilizzando i normali guanti monouso e cercando di non ?strofinare? gli oggetti.
+			Inutile aggiungere che, qualora si ritenga importante procedere anche ad un'analisi dattiloscopica sul materiale sequestrato, è indispensabile usare ogni cautela per evitare di disperdere eventuali impronte papillari dalle superfici latenti, utilizzando i normali guanti monouso e cercando di non ``strofinare'' gli oggetti.
 			
 			Sulla scena del crimine o nel locale sottoposto a perquisizione dovranno essere ricercate password e credenziali utili ad accedere al computer e ai dati: quindi sarà importante mettere in sicurezza agendine, post-it, appunti e ogni altro oggetto atto a registrare dati sensibili.
 			
@@ -286,9 +287,9 @@
 			
 			Come già sottolineato, quasi ogni attività fatta su un dispositivo ad alta tecnologia, tipicamente su un computer, lascia una traccia che un buon analista forense è in grado di trovare, seguire e interpretare. Per l'analisi successiva al sequestro è importante che il tecnico sappia distinguere le attività dell'utilizzatore del computer da quelle svolte dagli operatori al momento del sequestro. 
 			
-			Anche documentare gli orari esatti di queste attività è importante: ipotizzando che la data e l'ora del sistema siano esatte (e se non lo sono sia comunque possibile stabilire di quanto si discostano da quelle effettive, come visto nel paragrafo ``Sincronizziamo gli orologi?''), si potranno distinguere le operazioni fatte in corso di ``live forensics'' dagli operatori sulla scena del crimine da quelle svolte, anche solo pochi minuti prima, dall'eventuale autore del delitto che poi si sia dato alla fuga.
+			Anche documentare gli orari esatti di queste attività è importante: ipotizzando che la data e l'ora del sistema siano esatte (e se non lo sono sia comunque possibile stabilire di quanto si discostano da quelle effettive, come visto nel paragrafo ``Sincronizziamo gli orologi\dots''), si potranno distinguere le operazioni fatte in corso di ``live forensics'' dagli operatori sulla scena del crimine da quelle svolte, anche solo pochi minuti prima, dall'eventuale autore del delitto che poi si sia dato alla fuga.
 			
-			Inoltre, sapere con certezza quali operazioni sono state svolte dalla Polizia Giudiziaria è fondamentale anche in sede dibattimentale, per evitare che di quelle eventuali azioni ? non documentate in alcun atto di indagine ? si accorgano i periti di parte: in questo caso la figuraccia degli operatori è assicurata, come insegna il caso di Garlasco.
+			Inoltre, sapere con certezza quali operazioni sono state svolte dalla Polizia Giudiziaria è fondamentale anche in sede dibattimentale, per evitare che di quelle eventuali azioni -- non documentate in alcun atto di indagine -- si accorgano i periti di parte: in questo caso la figuraccia degli operatori è assicurata, come insegna il caso di Garlasco.
 			
 			\paragraph*{}
 			È evidente che non tutti gli operatori sono degli informatici o hanno conoscenze informatiche di alto livello. Anche qui ci deve aiutare il buon senso: le operazioni devono essere effettuate nei limiti delle proprie conoscenze tecniche, evitando di compromettere i dati se non si è sicuri di quello che si sta facendo. Nel dubbio, se non si riesce a contattare nell'immediatezza un tecnico di accertata competenza -- senza ascoltare i consigli di sedicenti tali -- dopo aver filmato quanto si riesce a vedere, è giunta l'ora di staccare il cavo dell'alimentazione del computer. Da lì in poi, il reperto può essere trattato come nel caso 1: in effetti, adesso, il sistema è spento!
@@ -410,9 +411,9 @@
 		\begin{enumerate}
 			\item Concetto di memoria volatile e persistente;
 			\item Architettura hardware di un computer;
-			\item Concetto di BIOS\footnote{In informatica, il Basic Input-Output System o BIOS (in inglese pronunciato ?ba???s ) è un insieme di routine software, generalmente scritte su memoria ROM, FLASH o altra memoria non volatile, che fornisce una serie di funzioni di base per l'accesso all'hardware del computer e alle periferiche integrate nella scheda madre da parte del sistema operativo e dei programmi. Nei computer IBM-compatibili la ROM del BIOS contiene anche il POST, il primo programma che viene eseguito dopo l'accensione, coinvolto dunque nella fase di avvio (boot) del sistema di elaborazione. (\url{https://it.wikipedia.org/wiki/BIOS})};
+			\item Concetto di BIOS\footnote{In informatica, il Basic Input-Output System o BIOS è un insieme di routine software, generalmente scritte su memoria ROM, FLASH o altra memoria non volatile, che fornisce una serie di funzioni di base per l'accesso all'hardware del computer e alle periferiche integrate nella scheda madre da parte del sistema operativo e dei programmi. Nei computer IBM-compatibili la ROM del BIOS contiene anche il POST, il primo programma che viene eseguito dopo l'accensione, coinvolto dunque nella fase di avvio (boot) del sistema di elaborazione. (\url{https://it.wikipedia.org/wiki/BIOS})};
 			\item Concetto di periferiche e memorie di massa;
-			\item Concetto di \textit{hash}\footnote{Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\url{https://it.wikipedia.org/wiki/Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
+			\item Concetto di \textit{hash};\footnote{Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\url{https://it.wikipedia.org/wiki/Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
 			\item Architettura base dei sistemi operativi Microsoft (cartelle di sistema, cartelle utente, file temporanei);
 			\item Architettura base dei sistemi Apple (idem);
 			\item Funzionalità base dei sistemi GNU/Linux (per l'utilizzo dei tool per il ``\textit{live forensic}'').
@@ -420,45 +421,73 @@
 		\end{enumerate}
 
 		\subsection{L'analisi \textit{post mortem}}
-		Quando si deve analizzare il contenuto di una memoria di massa in laboratorio ci si trova in una situazione analoga a quella di un medico legale che esamina un cadavere, con i debiti distinguo. Per questo motivo spesso si parla di analisi \textit{post mortem}.
+			Quando si deve analizzare il contenuto di una memoria di massa in laboratorio ci si trova in una situazione analoga a quella di un medico legale che esamina un cadavere, con i debiti distinguo. Per questo motivo spesso si parla di analisi \textit{post mortem}.
 		
-		Per le finalità della presente trattazione, è sufficiente descrivere sommariamente i passaggi e gli strumenti utilizzati dai tecnici chiamati ad operare, non fosse altro che per saper valutare la professionalità e la preparazione di chi si ha di fronte, anche solo scambiandoci due parole.
+			Per le finalità della presente trattazione, è sufficiente descrivere sommariamente i passaggi e gli strumenti utilizzati dai tecnici chiamati ad operare, non fosse altro che per saper valutare la professionalità e la preparazione di chi si ha di fronte, anche solo scambiandoci due parole.
 		
-		\textbf{ESPERIENZA LATELLA, REPELLENTE TELEMATICO}
 		
-
-		\subsection{Live Forensics}\label{sec:live_forensics}
-		La procedura che per anni è stata promulgata come la migliore possibile è quella del repertamento fisico dei personal computer.
+			\subsubsection{Non tutti gli informatici o presunti tali sono esperti forensi}\label{subsec:bad_examples}
+				Il primo esempio che salta alla mente è quella del referente telematico di un reparto dell'Arma dei Carabinieri: per quanto bravo e professionale nel suo lavoro, nonostante certificazioni Microsoft o di altri enti, non necessariamente egli ha chiari i concetti che stanno alla base dell'analisi forense di un sistema. Spesso, comunque, anche sedicenti esperti esterni non sono affatto tali. Vediamo qualche caso realmente accaduto.
 		
-		Questa procedura richiede che il computer sulla scena del crimine venga spento senza che il sistema operativo registri l'evento "spegnimento", interrompendo, ad esempio l'alimentazione elettrica.
-		
-		Tale procedura è nata dalla necessità di impiegare personale non specializzato nel repertamento fisico e nel sequestro di piccoli sistemi computerizzati. Come accennato nella sezione \ref{subsubsec:computer_acceso}, questa metodologia dello spegnimento forzato determina perdite di dati,  soprattutto in ambito di RAM, ma un tempo si riteneva che il costo di queste perdite fosse minimo rispetto a far interagire un NON specialista con la macchina per ottenere direttamente informazioni.
-		Inoltre, in questo modo si riesce a ridurre un minimo la sovrascrittura dei dati cancellati sulle memorie di massa attive.
-		
-		Tuttavia, nel tempo, la complessità anche dei piccoli sistemi, nonché quella scontata di quelli grandi (come i server aziendali), ha reso sempre meno trascurabile la perdita di dati causati dallo spegnimento forzato, comportando la scomparsa di fonti di prova a volte determinanti.
-		
-		Molte delle possibili prove presenti a runtime nella memoria RAM non vengono registrate:
-		\begin{enumerate}
+				\paragraph{Un primo esempio\dots} 
+					Non molti anni fa, un Comandante Provinciale propose al Comandante di una Compagnia alle sue dipendenze di fare effettuare l'analisi forense al referente informatico provinciale: fortuna volle che ne fu informato lo scrivente, allora Comandante del locale Nucleo Investigativo che ``interrogò'' il collega informatico. Richiesto sulle modalità con le quali il referente avrebbe affrontato il problema della copia del materiale informatico sequestrato, questi candidamente ammise che avrebbe collegato il disco rigido del computer alla propria macchina e "trascinato tutte le cartelle presenti" sul disco acquistato all'uopo dalla Procura. A quel punto, gentilmente ma fermamente, chi scrive disse al Comandante Provinciale e al Comandante della Compagnia che probabilmente avevano individuato la persona sbagliata per quell'attività. A breve vedremo perché.
 			
-			\item{\textbf{comunicazioni con dati non persistenti,}} come le    chat, sussistono per la massima parte in RAM e quindi la loro degradazione nello spegnimento forzato è pressoché totale;
-			\item{\textbf{crittografia}}: possono esistere protezioni    crittografiche per intere partizioni che, al momento dell'impiego della macchina, sono abbassate per evidenti necessità di impiego della memoria di massa; allo spegnimento del sistema l'accesso alla partizione criptata può risultare complicata se non impossibile, richiedendo di solito l'immissione di una password o di una passphrase.
-			\item{\textbf{server:}} per grandi sistemi l'idea di spegnerli per repertare è frutto solo dell'ignoranza. Le costruzioni dati che possono risultare all'interno dei server sono in generale così complesse che, pensare di repertare dei dati in maniera raw per poi ricostruirli in maniera sensata e completa, determina un problema impossibile da risolvere;
-			\item{\textbf{Necessità}} di analizzare qualsiasi servizio o applicazione attivo sulla macchina.
-		\end{enumerate}
-		
-		È necessario quindi, in queste condizioni, accedere alla macchina direttamente con competenza e prontezza.
-		
-		Se si ammette la possibilità di interagire sulla scena del crimine con la macchina, si accetta che:
-		\begin{itemize}
+				\paragraph{\dots e un secondo} 
+					Nella stessa sede, su indicazione di un magistrato, il Nucleo Investigativo consegnò ad un sedicente esperto forense il computer di un uomo trovato morto in casa, sospettando che il decesso fosse avvenuto a causa dell'assunzione di farmaci anabolizzanti illegali acquistati in rete. Dopo qualche settimana, il perito si presentò con una relazione di 15 pagine, metà delle quali erano occupate da schermate di "esplora risorse" di Windows Vista nelle quali si vedevano le cartelle presenti nel disco rigido. Nessuna menzione di come il disco era stato collegato al computer, nessuna traccia di \textit{hash} ma soprattutto nessuna analisi! Era stato sostanzialmente verificato con estrema superficialità il contenuto del disco, senza però aprire i file. Per non parlare, ovviamente, dell'analisi dello spazio non allocato, cioè dei file cancellati.
+					
+					Lo stesso perito era stato chiamato ad esaminare il computer di un presunto pedofilo in un'altra Compagnia dello stesso Provinciale. Non stupì il sottoscritto il fatto che non fosse stato trovato nulla di utile. Alla luce della pessima esperienza con la \textit{non-}analisi, il magistrato chiese del materiale con il quale, suo malgrado, fu costretta a demolire il lavoro del proprio stesso CTU il quale, rendendosi conto di aver fatto un pessimo lavoro e soprattutto una magra figura, uscì dall'aula del tribunale in lacrime.
+			
+			\subsubsection{La copia forense}
+				Prima ancora di iniziare a analizzare il contenuto di un computer o comunque di un dispositivo digitale con al suo interno dei dati immagazzinati, è necessario effettuarne una \textbf{copia forense}\footnote{\url{https://it.wikipedia.org/wiki/Copia_forense}} (in inglese \textit{forensically sound image}). A differenza di quanto proposto dal referente telematico del primo esempio del paragrafo \ref{subsec:bad_examples} e di quanto fatto dal perito del secondo, \emph{una copia forense non è una copia effettuata ``trascinando'' le cartelle del disco oggetto di analisi in quello destinato a contenerne la copia}. 
+				A differenza di una copia eseguita sui singoli file presenti sul filesystem, la clonazione comporta la duplicazione di tutte le zone del disco, anche quelle che non contengono alcun file direttamente visibile all'utente, definite tecnicamente aree non allocate. Poiché nella maggior parte dei filesystem la rimozione di un file implica semplicemente la cancellazione dell'indice che contiene la posizione del file su disco, il poter aver accesso alle aree non allocate permette il recupero di file cancellati o di informazioni ormai non più disponibili all'utilizzatore del sistema. La copia forense è realizzabile tramite clonazione o tramite creazione di un file immagine.
+				Effettuare un copia in questo modo necessita alcuni accorgimenti tecnici semplici ma fondamentali che né il referente né il perito dei precedenti esempi avevano anche solo minimamente tenuto in considerazione: \textbf{la protezione in scrittura del disco da copiare.}
+				
+				Per ottenerla ci sono due possibilità:
+				\begin{enumerate}
+					\item avere a disposizione un dispositivo che faccia il blocco a livello hardware (\textit{write blocker} (figura \ref{fig:800px-Portable_forensic_tableau}))
+				\end{enumerate}
+				
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{pics/800px-Portable_forensic_tableau}
+					\caption{Un esempio di write blocker hardware}
+					\label{fig:800px-Portable_forensic_tableau}
+				\end{figure}
 
-		\item il repertamento dei dati è una copia parziale di dati raramente di tipo bitstream che può spaziare da copie di elementi cancellati o parzialmente distrutti, fino a file e cartelle.
+
+				
+				
 		
-		\item alcuni dati di interesse e possono emergere durante l'interazione con la macchina per cui il repertamento dati avviene a fasi incrementali.
+		\subsection{Live Forensics}\label{sec:live_forensics}
+			La procedura che per anni è stata considerata come la migliore possibile è quella del repertamento ``brutale'' del personale computer: essa richiede che il dispositivo sulla scena del crimine venga spento senza che il sistema operativo registri l'evento ``spegnimento'', interrompendo semplicemente l'alimentazione elettrica.
 		
-		\item preparazione ed analisi sono ridotti al minimo durante l'interazione con il sistema proprio per diminuire la possibilità di causare cambiamenti troppo importanti nelle memorie digitali in analisi e lasciare la parte approfondita di essi all'approccio statico.
+			Tale procedura è nata dalla consapevolezza che il personale impiegato nelle attività non è specializzato nel repertamento fisico e nel sequestro di piccoli sistemi computerizzati. Come accennato nella sezione \ref{subsubsec:computer_acceso}, lo spegnimento forzato determina perdite di dati, principalmente di quanto contenuto nella RAM, ma un tempo si riteneva che il costo di queste perdite fosse minimo rispetto al rischio di far interagire un NON specialista con la macchina per ottenere direttamente informazioni. Inoltre, in questo modo si riesce a ridurre un minimo la sovrascrittura dei dati cancellati sulle memorie di massa attive.
+			
+			Tuttavia, nel tempo, la complessità anche dei piccoli sistemi, nonché quella --scontata-- di quelli grandi (come i server aziendali), ha reso sempre meno trascurabile la perdita di dati causati dallo spegnimento forzato, comportando la distruzione di fonti di prova spesso determinanti.
+			
+			Molte delle possibili prove presenti nella memoria RAM non vengono registrate sui supporti persistenti:
 		
-		\item il \textit{reporting} non è quello del \textit{forensic} statico, che si propone di spiegare le operazioni in dettaglio e presentarle in dibattimento.
-		Si tratta di una sorta di perquisizione, con o senza la presenza dell'indagato, come descritto nel paragrafo \ref{subsec:perquisa_informatica}.
+			\begin{enumerate}
+				
+				\item{\textbf{comunicazioni con dati non persistenti,}} come le chat, sussistono per la massima parte in RAM e quindi la loro degradazione nello spegnimento forzato è pressoché totale;
+				\item{\textbf{crittografia}}: possono esistere protezioni    crittografiche per intere partizioni che, al momento dell'impiego della macchina, sono abbassate per evidenti necessità di impiego della memoria di massa; allo spegnimento del sistema l'accesso alla partizione criptata può risultare complicata se non impossibile, richiedendo di solito l'immissione di una password o di una passphrase.
+				\item{\textbf{server:}} per grandi sistemi l'idea di spegnerli per repertare è frutto solo dell'ignoranza. Le costruzioni dati che possono risultare all'interno dei server sono in generale così complesse che, pensare di repertare dei dati in maniera raw per poi ricostruirli in maniera sensata e completa, determina un problema impossibile da risolvere;
+				\item{\textbf{necessità}} di analizzare qualsiasi servizio o applicazione attivo sulla macchina.
+			\end{enumerate}
+		
+			È necessario quindi, in queste condizioni, accedere alla macchina direttamente con competenza e prontezza.
+			
+			Se si ammette la possibilità di interagire sulla scena del crimine con la macchina, si accetta che:
+			\begin{itemize}
+	
+			\item il repertamento dei dati sia parziale e incompleto;
+			
+			\item alcuni dati di interesse possano emergere durante l'interazione con la macchina per cui il repertamento dati avviene a fasi incrementali.
+			
+			\item preparazione ed analisi siano ridotti al minimo durante l'interazione con il sistema proprio per diminuire la possibilità di causare cambiamenti troppo importanti nelle memorie digitali in analisi e lasciare la parte approfondita di essi all'approccio statico.
+			
+			\item il \textit{reporting} non sia quello del \textit{forensic} statico, che si propone di spiegare le operazioni in dettaglio e presentarle in dibattimento.
+			Si tratta di una sorta di perquisizione, con o senza la presenza dell'indagato, simile a quella descritta nel paragrafo \ref{subsec:perquisa_informatica}.
 		
 		\end{itemize}
 		
@@ -466,59 +495,87 @@
 		Mentre l'approccio statico tende a generare attività \textbf{ripetibili} dal punto di vista sia tecnico che legale, le attività \textit{live} sono intrinsecamente irripetibili, da cui l'assoluta necessità di un affidabile \textit{reporting}: tutte le operazioni effettuate devono essere dettagliatamente documentate.
 		
 		L'irripetibilità del \textit{live forensic} è:
+
 		
-		% FORMATTARE DA QUI
+		\begin{itemize}
+
+		\item \textbf{di natura tecnica: }non esiste infatti possibilità di realizzare analisi e repertamento dati live senza modificare almeno una parte della memoria del sistema.
 		
-		L'irripetibilità del live forensic è:
-		1.	Di natura tecnica: non esiste infatti possibilità di realizzare analisi e repertamento dati live senza modificare almeno una parte della memoria del sistema.
+		\item \textbf{di natura temporale:} la situazione della macchina all'atto dell'attività è frutto del momento e la sua complessità è tale da non poter essere riprodotta.
 		
-		2.	Di natura temporale: la situazione della macchina all'atto dell'attività è frutto del momento e la sua complessità è tale da non poter essere riprodotta.
+		\item \textbf{relativo all'osservabilità:} lo stato di un computer reperto attivo, in tutte le sue variabili, non è completamente osservabile perché la sonda che si dovrebbe inserire per compiere tale osservazione andrebbe a modificarne proprio lo stato (un concetto analogo a quello del \textit{paradosso del gatto di Schroedinger}).
+		\end{itemize}
 		
-		3.	Relativo all'osservabilità: lo stato di un computer reperto attivo, in tutte le sue variabili, non è completamente osservabile perché la sonda che si dovrebbe inserire per compiere tale osservazione andrebbe a modificarne proprio lo stato (Il paradosso del gatto di Schroedinger).
+		\subsubsection{Acquisire le prove}
 		
-		Acquisire le prove
+		In questo neo-settore del \textit{digital forensics} non esistono training assestati validi per l'Italia; l'elemento essenziale è attualmente la preparazione tecnico/legale della persona che opera e la sua capacità d'impiego e realizzazione di strumenti adatti all'ambito legale di applicazione.
 		
-		In questo neo-settore del digital forensics non esistono training assestati validi per l'Italia; l'elemento essenziale è attualmente la preparazione tecnico/legale della persona che opera e la sua capacità d'impiego e realizzazione di strumenti adatti all'ambito legale di applicazione.
-		Alcune regole di massima riguardano il fare attenzione allo stato evidente della macchina e quindi screen saver attivi, la lista dei processi, l'alimentazione elettrica, la presenza di crypto-system, le periferiche e le connessioni wire/wireless presenti..
+		Alcune regole di massima riguardano il fare attenzione allo stato evidente della macchina e quindi screen saver attivi, la lista dei processi, l'alimentazione elettrica, la presenza di crypto-system, le periferiche e le connessioni wired/wireless presenti.
 		
 		Le pratiche più importanti di cui tener conto per massimizzare la qualità delle prove sono:
-		Running known good binaries: Un investigatore non dovrebbe affidarsi agli eseguibili del sistema su cui va a operare ma dovrebbe fornire lui stesso gli eseguibili per raccogliere le prove. Questi eseguibili possono essere copiati sul sistema, anche se questa azione potrebbe sovrascrivere alcune prove. Tuttavia, se la scelta deve essere tra perdere alcune prove e non ottenerne affatto, è meglio rischiare.
 		
-		Hashing all evidence: una volta acquisita, la prova deve essere preservata in modo tale che l'investigatore possa, più tardi, dimostrare che nulla è cambiato. Il metodo più accettato è quello di calcolare un hash dei dati (solitamente via MD5 o SHA-1). L'hash rappresenta un' ``impronta digitale'' dei dati con un piccolo numero di byte, solitamente 16-20. L'hash può essere ricalcolato più tardi e comparato con l'originale per mostrare che i dati non sono cambiati da quando è stato calcolato il primo hash.
-		HASH: l'hash è una funzione univoca operante in un solo senso, atta alla trasformazione di un testo di linghezza arbitraria in una stringa di lunghezza fissa, relativamente limitata.
+		\begin{itemize}
+			\item{\textbf{running known good binaries}}: un investigatore non dovrebbe affidarsi agli eseguibili del sistema su cui va a operare ma dovrebbe fornire lui stesso gli eseguibili per raccogliere le prove. Questi eseguibili possono essere copiati sul sistema, anche se questa azione potrebbe sovrascrivere alcune prove. Tuttavia, se la scelta deve essere tra perdere alcune prove e non ottenerne affatto, è meglio rischiare;
 		
-		Gathering data in order of volatility: alcuni dati sono più effimeri di altri. Le prove dovrebbero essere raccolte in base all'Ordine di Volatilità. Per esempio, la stampa della memoria fisica di una macchina potrebbe essere utile, potrebbero volerci pochi minuti per completarla, ma nel frattempo molte più utili informazione potrebbero andare perse o potrebbero essere modificate (running processes, open files, network connections?). In altre parole l'investigatore deve tener conto del contesto dell'investigazione nella sua totalità, in modo da prendere decisioni informate sull'ordine di acquisizione delle prove.
+			\item{\textbf{hashing all evidences:}} una volta acquisita, la prova deve essere preservata in modo tale che l'investigatore possa, più tardi, dimostrare che nulla è cambiato. Il metodo più accettato è quello di calcolare un \textit{hash} dei dati (solitamente via MD5 o SHA-1). L'\textit{hash} rappresenta una ``impronta digitale'' dei dati con un piccolo numero di byte, solitamente 16-20. L'\textit{hash} può essere ricalcolato più tardi e comparato con l'originale per mostrare che i dati non sono cambiati da quando è stato calcolato il primo valore;\footnote{Al riguardo, a parere di chi scrive, ci sarebbe da discutere: nel fare una attività di \textit{live forensic} tutti i file estrapolati sono suscettibili di essere stati manipolati. Un eventuale \textit{hash} di un file salvato da un computer acceso è essenzialmente autoreferenziale. Salvo che quello stesso file venga trovato anche in sede di analisi \textit{post mortem} la difesa non avrà modo di risalire e ricostruire le operazioni che hanno portato al suo rinvenimento. Ben venga l'hashing di tutte le evidenze rinvenute, ma a quale scopo?}
 		
-		L'acquisizione dei dati può venire in diversi modi:
-		1.	Computer forense collegato a reperto tramite connessione ethernet: vi è la necessità di configurare il reperto per la connessione (firewall, privilegi..), il vantaggio è che si può operare dall'esterno per la massima parte e lo scaricamento dati può essere piuttosto semplice.
+			\item{\textbf{gathering data in order of volatility:}} alcuni dati sono più effimeri di altri. Le prove dovrebbero essere raccolte in base ad un ``ordine di volatilità'':per esempio, la stampa della memoria fisica di una macchina potrebbe essere utile, potrebbero volerci pochi minuti per completarla, ma nel frattempo molte più utili informazione potrebbero andare perse o potrebbero essere modificate (processi attivi, file aperti, connessioni di rete, \dots). 
+			In altre parole, l'investigatore deve tener conto del contesto dell'investigazione nella sua totalità, in modo da prendere decisioni informate sull'ordine di acquisizione delle prove. Al riguardo, si veda la sezione \ref{sec:priorita}~``\nameref{sec:priorita}''.
 		
-		2.	Drive esterni: si sfruttano le connessioni USB del reperto per connettere una memoria di massa o un file server esterno. Il vantaggio è che procurarsi memorie di massa esterne è in generale semplice e poco costoso, purtroppo però in questa operazione si deve impiegare il reperto direttamente per tutta l'attività (pericoloso!)
+		\end{itemize}
 		
-		3.	Ripresa video o printscreen: in genere vengono usati come elemento aggiuntivo ad uno dei due precedenti o sostitutivo dei seguenti
+		L'acquisizione dei dati può avvenire in diversi modi:
 		
-		4.	Altri metodi estremi (non validissimi ma impiegabili in caso di urgenza e di non necessità di impiego dei dati ricavati in dibattimento): masterizzare un CD/DVD sul reperto, salvare i dati presenti nella RAM sull'hard disk del reperto?
+		\begin{enumerate}
+			\item \textbf{computer forense collegato a reperto tramite connessione ethernet:} vi è la necessità di configurare il reperto per la connessione (firewall, privilegi..), il vantaggio è che si può operare dall'esterno per la massima parte e lo scaricamento dati può essere piuttosto semplice.
+			\item \textbf{drive esterni:} si sfruttano le connessioni USB del reperto per connettere una memoria di massa o un file server esterno. Il vantaggio è che procurarsi memorie di massa esterne è in generale semplice e poco costoso, purtroppo però in questa operazione si deve impiegare il reperto direttamente per tutta l'attività (pericoloso!)
+			\item \textbf{ripresa video o printscreen:} in genere vengono usati come elemento aggiuntivo ad uno dei due precedenti o sostitutivo dei seguenti
+			\item \textbf{altri metodi estremi} (non validissimi ma impiegabili in caso di urgenza e di non necessità di impiego dei dati ricavati in dibattimento): masterizzare un CD/DVD sul reperto, salvare i dati presenti nella RAM sull'hard disk del reperto.
+		\end{enumerate}
 		
-		Analisi ? Mettere tutto assieme
+		\subsubsection{Analisi -- Mettere tutto assieme}
 		
 		Una volta che le prove sono state acquisite, devono essere analizzate. È spesso impensabile raccogliere tutte le possibili informazioni disponibili in un'esame ``live''.
-		Un investigatore deve quindi stilare un triage (elenco di priorità) per raccogliere i dati essenziali, esaminarli, e usare i risultati per decidere, a colpo d'occhio, quali altre prove sono necessarie.
+		
+		Un investigatore deve quindi stilare un triage (elenco di priorità, giusto per ripetere un concetto importantissimo) per raccogliere i dati essenziali, esaminarli, e usare i risultati per decidere, a colpo d'occhio, quali altre prove sono necessarie.
+		
 		Quindi, per la live forensic,  i passi dell'analisi devono condurre ad una rapida acquisizione dei dati. L'analisi ``live'' crea l'opportunità per un responso più rapido.
 		
+		\subsubsection{Qualche esempio di strumenti per la live forensic}
+		Come per le analisi forensi tradizionali, lo scrivente è fortemente convinto della necessità che venga utilizzato, quanto più possibile e soprattutto dalle amministrazioni pubbliche, software libero.
 		
-		Conclusioni
+		Tra gli strumenti considerati accettabili e con buoni risultati, ma soprattutto con licenza free, deve essere citato \texttt{Win-UFO}\footnote{http://win-ufo.org/about.shtml} (figura \ref{fig:winufo1}). Questo tool, che può essere installato su una semplice chiavetta USB da inserire nel computer oggetto dell'attività \textit{live}, permette di estrapolare e salvare una serie di dati relativi allo stato di funzionamento della macchina sulla quale viene fatto girare.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=1\linewidth]{pics/winufo1}
+			\caption{La schermata principale di Win-UFO}
+			\label{fig:winufo1}
+		\end{figure}
+		
+		Rispettando e soprattutto accettando le limitazioni di una analisi ``da vivo'', un software del genere aiuta non poco l'operatore (comunque in possesso di conoscenze informatiche medio-alte) a operare rapidamente prima di repertare il dispositivo.
+		
+		Win-UFO è distribuito anche assieme alla distribuzioni GNU/Linux CAINE. Si tratta di un prodotto ben documentato (solo in inglese purtroppo), gratuito e degno di approfondimento.
+
+		
+		\subsubsection{Conclusioni: live forensics sì o live forensics no\dots}
 		
 		I dati forensi raccolti in un sistema live possono produrre prove che non sarebbero disponibili in un'immagine statica del disco. Un altro dei vantaggi del ``live'' è la velocità di esecuzione dell'accertamento, per cui la magistratura e i legali in genere tendono a vederla di buon occhio.
+		
 		Il live forensic opera però con molte limitazioni: gli standard per l'accettazione si stanno evolvendo e i precedenti legali devono ancora essere stabiliti. 
-		Un investigatore fa fronte a dei rischi come la contaminazione delle prove o il trovarsi di fronte ad una corte che non capisce le implicazioni di determinate prove.
+		
+		Un investigatore va in contro a rischi come la contaminazione delle prove o il trovarsi di fronte ad una corte che non capisce le implicazioni di determinate prove.
+		
 		A causa dell'aumento della quantità delle prove digitali disponibili nella vita di ogni giorno, diventerà presto impossibile acquisire tutti i dati di un disco relativi ad un caso.
+		
 		I progressi in diversi ambiti saranno essenziali per incrementare l'utilità della live forensic, incluso l'utilizzo di strumenti per automatizzare e standardizzare il processo di raccolta e preservazione delle prove.
 		
 		
-		Fonti
-		Frank Adelstein, ``The mobile forensics platform''
-		Brian Carrier, ``File System Forensic Analysis''
-		Eoghan Casey, ``Digital Evidence and Computer Crime''
-		
+%		Fonti
+%		Frank Adelstein, ``The mobile forensics platform''
+%		Brian Carrier, ``File System Forensic Analysis''
+%		Eoghan Casey, ``Digital Evidence and Computer Crime''
+%		
 %		\begin{itemize}
 %			\item Annotare ogni operazione compiuta, possibilmente allegando documentazione fotografica e video;
 %			\item Operare sui reperti garantendo l'integrità dei dati, ovvero utilizzando accorgimenti hardware e/o software che blocchino qualsiasi scrittura sul disco;
