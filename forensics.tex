@@ -80,7 +80,7 @@
 		
 		In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analisi dei dati ricavati da un sistema informatico di qualsiasi natura: la mole delle informazioni da visionare è tale e tanta che ci vorrebbero anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare gigabyte e gigabyte di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un terabyte (1000 gigabyte) è ormai il taglio minimo per un computer desktop.
 	\section{Fonti normative}
-		Con la legge n.48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
+		Con la legge n.~48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
 		\begin{description}
 			\item[Art. 244 c.p.p.] Casi e forme delle ispezioni
 			\begin{enumerate}
@@ -109,7 +109,7 @@
 		\end{description}
 		La 48 del 2008 ha quindi, finalmente, introdotto nel codice di procedura penale la definizione di quello che qualche autore definisce ``il concetto di scena del crimine virtuale'' con conseguenti ispezioni e perquisizioni ``virtuali''. Viene introdotto il concetto di copia conforme all'originale del dato informatico e nonché la clausola dell'immodificabilità di quanto copiato.
 		
-		Addirittura, al secondo comma dell'art. 254 viene prescritta, in caso di urgenza, la copia forense in loco. Secondo il Ten. Col. Mattiucci del Ra.Ci.S. questa fattispecie configura una sorta di sequestro virtuale che ``\textit{è intrinsecamente irripetibile (come qualsiasi sequestro!). Infatti, anche nell'ipotesi di effettuare la copia sul posto nelle migliori condizioni possibili e con i migliori tool e le migliori metodologie se l'urgenza è giustificata l'attività non potrà essere ripetuta.}'' (Mattiucci).
+		Addirittura, al secondo comma dell'art. 254 viene prescritta, in caso di urgenza, la copia forense in loco. Secondo il Ten.~Col.~Mattiucci del Ra.Ci.S. questa fattispecie configura una sorta di sequestro virtuale che ``\textit{è intrinsecamente irripetibile (come qualsiasi sequestro!). Infatti, anche nell'ipotesi di effettuare la copia sul posto nelle migliori condizioni possibili e con i migliori tool e le migliori metodologie se l'urgenza è giustificata l'attività non potrà essere ripetuta.}'' (Mattiucci).
 		
 		Il senso profondo delle novità introdotte dalla 48/2008 è, in sostanza, la necessità di adottare misure tecniche dirette ad \textbf{assicurare la conservazione dei dati originali e ad impedirne l'alterazione}.
 		
@@ -237,13 +237,18 @@
 			
 			Altra accortezza è quella di evitare di sottoporre il materiale sequestrato a campi elettromagnetici particolarmente forti, per scongiurare il rischio (peraltro solitamente remoto) di cancellazione accidentale dei dati.
 		
-			\subsubsection{Caso 2: computer acceso}
-			Qualora il computer da sequestrare fosse acceso, la situazione diventa più complicata. Un tempo si suggeriva di scollegare semplicemente il cavo si alimentazione (o staccare la batteria in caso di un portatile) e procedere al sequestro (come nel precedente caso 1).
+			\subsubsection{Caso 2: computer acceso}\label{subsubsec:computer_acceso}
+			Qualora il computer da sequestrare sia acceso, la situazione diventa più complicata. Un tempo si suggeriva di scollegare semplicemente il cavo si alimentazione (o staccare la batteria in caso di un portatile) e procedere al sequestro (come nel precedente caso 1).
 			
-			Tuttavia, nel tempo le \textit{best practice} si sono evolute e ora la regola è quella di prendere nota delle attività in corso nel computer al momento dell'intervento.
-			Per fare ciò esistono vari metodi, dal più semplice (andare a vedere ``a mano'' che finestre sono aperte, quali pagine si stanno visualizzando, eventualmente quali processi sono attivi sulla macchina) al più elaborato (inserire una apposita chiavetta USB con un software apposito per l'effettuazione di una ``live forensic'').
+			Tuttavia, nel tempo le \textit{best practice} si sono evolute e ora la regola è quella di prendere nota delle attività in corso nel computer al momento dell'intervento: tutto le relative informazioni vengono inesorabilmente perse scollegando l'alimentazione del sistema.
 			
-			Qualsiasi sia la strada scelta, è fondamentale prendere nota di ogni attività svolta sul computer acceso, possibilmente filmando tutta l'attività e corredando il video di una accurata descrizione vocale di quanto si sta facendo, un po' come il detective dei film americani che nel corso di un sopralluogo utilizza un mini registratore per fissare le proprie impressioni su di un nastro, a futura memoria.
+			Per fare ciò esistono vari metodi, dal più semplice (andare a vedere ``a mano'' che finestre sono aperte, quali pagine si stanno visualizzando, eventualmente quali processi sono attivi sulla macchina) al più elaborato (inserire una chiavetta USB con un software apposito).
+			
+			Qualsiasi sia la strada scelta, è fondamentale prendere nota di ogni attività svolta sul computer acceso, possibilmente filmando tutta l'attività e corredando il video di una accurata descrizione vocale di quanto si sta facendo, un po' come il detective dei film americani che nel corso di un sopralluogo utilizza un mini registratore per fissare le proprie impressioni su di un nastro, a futura memoria. 
+			
+			\paragraph{Ogni atto svolto con queste modalità è di natura assolutamente irripetibile!}
+			
+			Per una trattazione più dettagliata della questione ''live forensics'' si rimanda alla sezione \ref{sec:live_forensics}.
 			
 			\paragraph{Sincronizziamo gli orologi\dots}
 			Tra le informazioni più importanti da annotare quando si procede a verificare un computer acceso va sempre letta l'ora e la data correnti del sistema, rapportandole a quelle effettive dell'intervento. Andrà annotato quindi qualcosa del tipo:
@@ -337,7 +342,7 @@
 			
 			Le analisi forensi sui telefono di nuova generazione sono generalmente non ripetibili. Sui motivi e le implicazioni di questa affermazione ci si soffermerà nel seguito.
 			
-		\subsection{Un caso di studio: esiste la ``perquisizione informatica''?}
+		\subsection{Un caso di studio: esiste la ``perquisizione informatica''?}\label{subsec:perquisa_informatica}
 		
 		Su attivazione di una Stazione Carabinieri, personale del Nucleo Operativo di Compagnia riusciva ad intercettare un'auto con a bordo presunti truffatori che, per un maldestro intervento del personale della Stazione, avendo notato l'arrivo dell'auto con i colori d'istituto, si stavano dileguando senza perfezionare la truffa. 
 		
@@ -407,12 +412,112 @@
 			\item Architettura hardware di un computer;
 			\item Concetto di BIOS\footnote{In informatica, il Basic Input-Output System o BIOS (in inglese pronunciato ?ba???s ) è un insieme di routine software, generalmente scritte su memoria ROM, FLASH o altra memoria non volatile, che fornisce una serie di funzioni di base per l'accesso all'hardware del computer e alle periferiche integrate nella scheda madre da parte del sistema operativo e dei programmi. Nei computer IBM-compatibili la ROM del BIOS contiene anche il POST, il primo programma che viene eseguito dopo l'accensione, coinvolto dunque nella fase di avvio (boot) del sistema di elaborazione. (\url{https://it.wikipedia.org/wiki/BIOS})};
 			\item Concetto di periferiche e memorie di massa;
+			\item Concetto di \textit{hash}\footnote{Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\url{https://it.wikipedia.org/wiki/Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
 			\item Architettura base dei sistemi operativi Microsoft (cartelle di sistema, cartelle utente, file temporanei);
 			\item Architettura base dei sistemi Apple (idem);
 			\item Funzionalità base dei sistemi GNU/Linux (per l'utilizzo dei tool per il ``\textit{live forensic}'').
 			
 		\end{enumerate}
 
+		\subsection{L'analisi \textit{post mortem}}
+		Quando si deve analizzare il contenuto di una memoria di massa in laboratorio ci si trova in una situazione analoga a quella di un medico legale che esamina un cadavere, con i debiti distinguo. Per questo motivo spesso si parla di analisi \textit{post mortem}.
+		
+		Per le finalità della presente trattazione, è sufficiente descrivere sommariamente i passaggi e gli strumenti utilizzati dai tecnici chiamati ad operare, non fosse altro che per saper valutare la professionalità e la preparazione di chi si ha di fronte, anche solo scambiandoci due parole.
+		
+		\textbf{ESPERIENZA LATELLA, REPELLENTE TELEMATICO}
+		
+
+		\subsection{Live Forensics}\label{sec:live_forensics}
+		La procedura che per anni è stata promulgata come la migliore possibile è quella del repertamento fisico dei personal computer.
+		
+		Questa procedura richiede che il computer sulla scena del crimine venga spento senza che il sistema operativo registri l'evento "spegnimento", interrompendo, ad esempio l'alimentazione elettrica.
+		
+		Tale procedura è nata dalla necessità di impiegare personale non specializzato nel repertamento fisico e nel sequestro di piccoli sistemi computerizzati. Come accennato nella sezione \ref{subsubsec:computer_acceso}, questa metodologia dello spegnimento forzato determina perdite di dati,  soprattutto in ambito di RAM, ma un tempo si riteneva che il costo di queste perdite fosse minimo rispetto a far interagire un NON specialista con la macchina per ottenere direttamente informazioni.
+		Inoltre, in questo modo si riesce a ridurre un minimo la sovrascrittura dei dati cancellati sulle memorie di massa attive.
+		
+		Tuttavia, nel tempo, la complessità anche dei piccoli sistemi, nonché quella scontata di quelli grandi (come i server aziendali), ha reso sempre meno trascurabile la perdita di dati causati dallo spegnimento forzato, comportando la scomparsa di fonti di prova a volte determinanti.
+		
+		Molte delle possibili prove presenti a runtime nella memoria RAM non vengono registrate:
+		\begin{enumerate}
+			
+			\item{\textbf{comunicazioni con dati non persistenti,}} come le    chat, sussistono per la massima parte in RAM e quindi la loro degradazione nello spegnimento forzato è pressoché totale;
+			\item{\textbf{crittografia}}: possono esistere protezioni    crittografiche per intere partizioni che, al momento dell'impiego della macchina, sono abbassate per evidenti necessità di impiego della memoria di massa; allo spegnimento del sistema l'accesso alla partizione criptata può risultare complicata se non impossibile, richiedendo di solito l'immissione di una password o di una passphrase.
+			\item{\textbf{server:}} per grandi sistemi l'idea di spegnerli per repertare è frutto solo dell'ignoranza. Le costruzioni dati che possono risultare all'interno dei server sono in generale così complesse che, pensare di repertare dei dati in maniera raw per poi ricostruirli in maniera sensata e completa, determina un problema impossibile da risolvere;
+			\item{\textbf{Necessità}} di analizzare qualsiasi servizio o applicazione attivo sulla macchina.
+		\end{enumerate}
+		
+		È necessario quindi, in queste condizioni, accedere alla macchina direttamente con competenza e prontezza.
+		
+		Se si ammette la possibilità di interagire sulla scena del crimine con la macchina, si accetta che:
+		\begin{itemize}
+
+		\item il repertamento dei dati è una copia parziale di dati raramente di tipo bitstream che può spaziare da copie di elementi cancellati o parzialmente distrutti, fino a file e cartelle.
+		
+		\item alcuni dati di interesse e possono emergere durante l'interazione con la macchina per cui il repertamento dati avviene a fasi incrementali.
+		
+		\item preparazione ed analisi sono ridotti al minimo durante l'interazione con il sistema proprio per diminuire la possibilità di causare cambiamenti troppo importanti nelle memorie digitali in analisi e lasciare la parte approfondita di essi all'approccio statico.
+		
+		\item il \textit{reporting} non è quello del \textit{forensic} statico, che si propone di spiegare le operazioni in dettaglio e presentarle in dibattimento.
+		Si tratta di una sorta di perquisizione, con o senza la presenza dell'indagato, come descritto nel paragrafo \ref{subsec:perquisa_informatica}.
+		
+		\end{itemize}
+		
+		È importante sottolineare che le attività principali dal punto di vista tecnico nel \textit{computer forensics} ``statico'', ossia preparazione ed analisi, divengono minime nell'attività live.
+		Mentre l'approccio statico tende a generare attività \textbf{ripetibili} dal punto di vista sia tecnico che legale, le attività \textit{live} sono intrinsecamente irripetibili, da cui l'assoluta necessità di un affidabile \textit{reporting}: tutte le operazioni effettuate devono essere dettagliatamente documentate.
+		
+		L'irripetibilità del \textit{live forensic} è:
+		
+		% FORMATTARE DA QUI
+		
+		L'irripetibilità del live forensic è:
+		1.	Di natura tecnica: non esiste infatti possibilità di realizzare analisi e repertamento dati live senza modificare almeno una parte della memoria del sistema.
+		
+		2.	Di natura temporale: la situazione della macchina all'atto dell'attività è frutto del momento e la sua complessità è tale da non poter essere riprodotta.
+		
+		3.	Relativo all'osservabilità: lo stato di un computer reperto attivo, in tutte le sue variabili, non è completamente osservabile perché la sonda che si dovrebbe inserire per compiere tale osservazione andrebbe a modificarne proprio lo stato (Il paradosso del gatto di Schroedinger).
+		
+		Acquisire le prove
+		
+		In questo neo-settore del digital forensics non esistono training assestati validi per l'Italia; l'elemento essenziale è attualmente la preparazione tecnico/legale della persona che opera e la sua capacità d'impiego e realizzazione di strumenti adatti all'ambito legale di applicazione.
+		Alcune regole di massima riguardano il fare attenzione allo stato evidente della macchina e quindi screen saver attivi, la lista dei processi, l'alimentazione elettrica, la presenza di crypto-system, le periferiche e le connessioni wire/wireless presenti..
+		
+		Le pratiche più importanti di cui tener conto per massimizzare la qualità delle prove sono:
+		Running known good binaries: Un investigatore non dovrebbe affidarsi agli eseguibili del sistema su cui va a operare ma dovrebbe fornire lui stesso gli eseguibili per raccogliere le prove. Questi eseguibili possono essere copiati sul sistema, anche se questa azione potrebbe sovrascrivere alcune prove. Tuttavia, se la scelta deve essere tra perdere alcune prove e non ottenerne affatto, è meglio rischiare.
+		
+		Hashing all evidence: una volta acquisita, la prova deve essere preservata in modo tale che l'investigatore possa, più tardi, dimostrare che nulla è cambiato. Il metodo più accettato è quello di calcolare un hash dei dati (solitamente via MD5 o SHA-1). L'hash rappresenta un' ``impronta digitale'' dei dati con un piccolo numero di byte, solitamente 16-20. L'hash può essere ricalcolato più tardi e comparato con l'originale per mostrare che i dati non sono cambiati da quando è stato calcolato il primo hash.
+		HASH: l'hash è una funzione univoca operante in un solo senso, atta alla trasformazione di un testo di linghezza arbitraria in una stringa di lunghezza fissa, relativamente limitata.
+		
+		Gathering data in order of volatility: alcuni dati sono più effimeri di altri. Le prove dovrebbero essere raccolte in base all'Ordine di Volatilità. Per esempio, la stampa della memoria fisica di una macchina potrebbe essere utile, potrebbero volerci pochi minuti per completarla, ma nel frattempo molte più utili informazione potrebbero andare perse o potrebbero essere modificate (running processes, open files, network connections?). In altre parole l'investigatore deve tener conto del contesto dell'investigazione nella sua totalità, in modo da prendere decisioni informate sull'ordine di acquisizione delle prove.
+		
+		L'acquisizione dei dati può venire in diversi modi:
+		1.	Computer forense collegato a reperto tramite connessione ethernet: vi è la necessità di configurare il reperto per la connessione (firewall, privilegi..), il vantaggio è che si può operare dall'esterno per la massima parte e lo scaricamento dati può essere piuttosto semplice.
+		
+		2.	Drive esterni: si sfruttano le connessioni USB del reperto per connettere una memoria di massa o un file server esterno. Il vantaggio è che procurarsi memorie di massa esterne è in generale semplice e poco costoso, purtroppo però in questa operazione si deve impiegare il reperto direttamente per tutta l'attività (pericoloso!)
+		
+		3.	Ripresa video o printscreen: in genere vengono usati come elemento aggiuntivo ad uno dei due precedenti o sostitutivo dei seguenti
+		
+		4.	Altri metodi estremi (non validissimi ma impiegabili in caso di urgenza e di non necessità di impiego dei dati ricavati in dibattimento): masterizzare un CD/DVD sul reperto, salvare i dati presenti nella RAM sull'hard disk del reperto?
+		
+		Analisi ? Mettere tutto assieme
+		
+		Una volta che le prove sono state acquisite, devono essere analizzate. È spesso impensabile raccogliere tutte le possibili informazioni disponibili in un'esame ``live''.
+		Un investigatore deve quindi stilare un triage (elenco di priorità) per raccogliere i dati essenziali, esaminarli, e usare i risultati per decidere, a colpo d'occhio, quali altre prove sono necessarie.
+		Quindi, per la live forensic,  i passi dell'analisi devono condurre ad una rapida acquisizione dei dati. L'analisi ``live'' crea l'opportunità per un responso più rapido.
+		
+		
+		Conclusioni
+		
+		I dati forensi raccolti in un sistema live possono produrre prove che non sarebbero disponibili in un'immagine statica del disco. Un altro dei vantaggi del ``live'' è la velocità di esecuzione dell'accertamento, per cui la magistratura e i legali in genere tendono a vederla di buon occhio.
+		Il live forensic opera però con molte limitazioni: gli standard per l'accettazione si stanno evolvendo e i precedenti legali devono ancora essere stabiliti. 
+		Un investigatore fa fronte a dei rischi come la contaminazione delle prove o il trovarsi di fronte ad una corte che non capisce le implicazioni di determinate prove.
+		A causa dell'aumento della quantità delle prove digitali disponibili nella vita di ogni giorno, diventerà presto impossibile acquisire tutti i dati di un disco relativi ad un caso.
+		I progressi in diversi ambiti saranno essenziali per incrementare l'utilità della live forensic, incluso l'utilizzo di strumenti per automatizzare e standardizzare il processo di raccolta e preservazione delle prove.
+		
+		
+		Fonti
+		Frank Adelstein, ``The mobile forensics platform''
+		Brian Carrier, ``File System Forensic Analysis''
+		Eoghan Casey, ``Digital Evidence and Computer Crime''
 		
 %		\begin{itemize}
 %			\item Annotare ogni operazione compiuta, possibilmente allegando documentazione fotografica e video;
