@@ -87,7 +87,7 @@
 		
 		In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analizzare i dati ricavati da un sistema informatico: la mole delle informazioni da visionare è tale e tanta che sarebbero necessari anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili nascosti tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare svariati \textit{gigabyte} di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un \textit{terabyte} (1000 gigabyte) è ormai il taglio considerato minimo per un computer desktop.
 		
-		\subsection{Nota al presente documento}
+		\subsection{Su questo documento}
 			La trattazione di una materia come quella del \textit{Digital Forensic} non può essere esaurita in questa trentina di pagine, né lo scrivente ha la presunzione di aver scritto (o meglio, raccolto) solo verità assolute. 
 			
 			La fluidità dell'argomento, le continue innovazioni tecnologiche, le contromisure messe in atto dai malfattori che per la loro attività quotidiana si avvalgono di strumenti digitali, nonché i limiti di non poter lavorare sempre e solo nell'ambito dell'informatica forense sono la causa di eventuali imprecisioni, errori più o meno grossolani e false convinzioni. 
@@ -321,29 +321,35 @@
 			
 			Per accedere ai dati di un solo utente \textit{facebook} non vanno certamente chiesti a quell'azienda i dati di milioni di utenti, ma solamente di quello specifico di mio interesse. Un server di una piccola azienda funziona, di fatto, allo stesso modo, sebbene su scala più piccola: di volta in volta è necessario valutare se serve davvero sequestrare tutto il server o chiedere all'amministratore una copia dell'area di lavoro del nostro \textit{target}.
 			
-			A parere di chi scrive, la prassi purtroppo spesso invalsa di sequestrare, nel dubbio, tutto per poi scremare \textit{a posteriori} può andare bene per i computer e le apparecchiature tecnologiche di una privata abitazione: fermare però l'attività di un'azienda intera, magari terza rispetto alle attività criminali di un dipendente o di un cliente, dimostra una mancanza di professionalità. Come in tutte le attività di P.G. che abbiano natura invasiva, è necessario procedere chirurgicamente, limitando al massimo i ``danni collaterali'' arrecati a chi sia estraneo alle attività illecite. Peraltro, non va dimenticato che più si sequestra più si deve analizzare: in informatica l'ordine di grandezza della quantità di dati da analizzare può essere enorme, tramutandosi nell'impossibilità di fatto di procedere.
+			A parere di chi scrive, la prassi purtroppo spesso invalsa di sequestrare, nel dubbio, tutto per poi scremare \textit{a posteriori} può andare bene per i computer e le apparecchiature tecnologiche di una privata abitazione: fermare però l'attività di un'azienda intera, magari terza rispetto alle attività criminali di un dipendente o di un cliente, dimostra una mancanza di professionalità. Come in tutte le attività di P.G. che abbiano natura invasiva, è necessario procedere chirurgicamente, limitando al massimo i ``danni collaterali'' arrecati a chi sia estraneo alle attività illecite. Peraltro, non va dimenticato che più materiale viene sequestrato, più materiale si deve analizzare: in informatica l'ordine di grandezza della quantità di dati può essere enorme, tramutandosi nell'impossibilità di fatto di procedere.
 			
 		\subsection{Come operare con dispositivi mobili (\textit{telefoni, smartphone e tablet})}
 			
-			L'evoluzione tecnologica degli ultimi anni ha fatto sì che i dispositivi mobili siano diventati sempre più simili a computer e sempre meno a semplici dispositivi di comunicazione quali erano invece i vecchi cellulari.
+			L'evoluzione tecnologica degli ultimi anni ha fatto sì che i dispositivi mobili siano diventati sempre più simili a computer che non a semplici dispositivi di comunicazione quali erano invece i vecchi cellulari.
 			
-			In effetti ormai gli \textit{smartphone} e i \textit{tablet} hanno capacità di archiviazione pari, normalmente, ad uno o due ordini di grandezza in meno di quelli di un ordinario personal computer: si parla per tanto, mediamente, di 32 o 64 gigabyte per i modelli di punta e di non meno di 4-8 gigabyte per i modelli più economici.
+			In effetti ormai gli \textit{smartphone} e i \textit{tablet} hanno capacità di archiviazione pari, normalmente, ad uno o due ordini di grandezza in meno di quelli di un normale personal computer: si parla per tanto, mediamente, di 32 o 64 gigabyte per i modelli di punta e di non meno di 4-8 gigabyte per i modelli più economici.
 			
 			Come per i computer, anche per i dispositivi mobili le modalità di sequestro necessitano di alcuni accorgimenti particolari. 
 			
 			\subsubsection{Dispositivi rinvenuti accesi}
 			In caso di rinvenimento degli apparecchi accesi, è indispensabile verificare, se possibile, l'attività in corso al momento, annotando l'ora e la data impostate in rapporto a quelle reali. Non devono essere effettuate per nessun motivo chiamate e, se la situazione lo richiede per motivi di urgenza e in assenza dello specialista, è possibile prendere nota delle ultime chiamate effettuate e ricevute, visionando la rubrica nonché eventuali SMS o MMS ricevuti. Tutte queste operazioni devono essere fatte senza spostare il dispositivo da dove si trova, per evitare di cambiare la cella agganciata al momento del rinvenimento.
 			
-			Se si dispone di tale accessorio, è opportuno operare quanto sopra descritto solo dopo aver messo il dispositivo in un idoneo involucro che funga da gabbia di Faraday per evitare che si colleghi alla rete mobile.
+			Se si dispone di tale accessorio, è opportuno operare quanto sopra descritto solo dopo aver messo il dispositivo in un idoneo involucro che funga da \textit{gabbia di Faraday}\footnote{
+				Con gabbia di Faraday si intende qualunque sistema costituito da un contenitore in materiale elettricamente conduttore (o cavo conduttore) in grado d'isolare l'ambiente interno da un qualunque campo elettrostatico presente al suo esterno, per quanto intenso questo possa essere, ma un corpo esterno non sarà altrettanto isolato come quello interno, poiché, la gabbia, essendo attraversata da una carica elettrostatica attiva, una volta raggiunto un elevato potenziale elettrico cercherà di scaricare l'eccessiva potenzialità su corpi vicini esternamente. [\dots]
+				
+				Un'altra applicazione si ha in elettronica per eliminare le interferenze di campi elettromagnetici esterni in apparecchi radio e per telecomunicazioni, oppure per evitare la fuoriuscita di campi elettromagnetici da un ambiente, come nel caso del forno a microonde. In quest'ultimo è presente una rete metallica sullo sportello: in questo modo, durante il suo utilizzo, si è schermati dalle microonde mantenendo la possibilità di vedere le pietanze (\url{https://it.wikipedia.org/wiki/Gabbia_di_Faraday}).}
+			per evitare che si colleghi alla rete mobile.
 			
-			Per spegnerlo è necessario staccare la batteria, solo però dopo aver preso nota delle informazioni di cui sopra (che, una volta disconnessa la batteria vengono inevitabilmente perse).
+			Per spegnerlo è necessario staccare la batteria\footnote{
+				Ovviamente non è sempre così semplice: ormai sempre più telefoni hanno la batteria integrata e spegnerlo potrebbe essere problematico. Queste situazioni, purtroppo, vanno valutate di caso in caso.},
+			 solo però dopo aver preso nota delle informazioni di cui sopra (che, una volta disconnessa la batteria vengono inevitabilmente perse).
 			
 			A questo punto si può procedere con le ulteriori attività, descritte di seguito per i sistemi non attivi al momento del rinvenimento.
 			
 			\subsubsection{Dispositivi spenti}
-			Come sempre, vale la regola di non accendere mai gli apparecchi rinvenuti spenti. Prima di imballarlo, vanno ricercate e sequestrate a parte eventuali SIM card e schede di memoria contenute nel telefono, delle quali vanno annotati numeri di serie e ogni altro dato utile.
+			Come sempre, vale la regola di non accendere mai gli apparecchi rinvenuti spenti. Prima di imballarli, vanno ricercate e sequestrate a parte eventuali SIM card e schede di memoria contenute nel telefono, delle quali vanno annotati numeri di serie e ogni altro dato utile.
 			
-			Il numero IMEI del telefono (ovvero il numero identificativo univoco del terminale) è solitamente indicato su un etichetta posta sulla scocca al di sotto della batteria: pertanto è necessario, dove possibile, rimuoverla per poter annotare l'IMEI: tale operazione, su un terminale rinvenuto spento, ha il grosso svantaggio che azzera i dati della memoria volatile del telefono, quali le chiamate recenti e le impostazioni di data e ora.
+			Il numero IMEI del telefono (ovvero il numero identificativo univoco del terminale), solitamente riportato su un etichetta posta sulla scocca al di sotto della batteria: pertanto è necessario, dove possibile, rimuoverla per poter annotare l'IMEI: tale operazione, su un terminale rinvenuto spento, ha il grosso svantaggio che azzera i dati della memoria volatile del telefono, quali le chiamate recenti e le impostazioni di data e ora.
 			
 			Se non indispensabile, l'annotazione del numero IMEI può anche essere fatta successivamente, in corso di analisi forense, salvo ragioni di urgenza e necessità facciano optare invece per una scelta diversa.
 			
@@ -361,25 +367,25 @@
 			
 		\subsection{Un caso di studio: esiste la ``perquisizione informatica''?}\label{subsec:perquisa_informatica}
 		
-		Su attivazione di una Stazione Carabinieri, personale del Nucleo Operativo di Compagnia riusciva ad intercettare un'auto con a bordo presunti truffatori che, per un maldestro intervento del personale della Stazione, avendo notato l'arrivo dell'auto con i colori d'istituto, si stavano dileguando senza perfezionare la truffa. 
+		Su attivazione di una Stazione Carabinieri, personale del Nucleo Operativo di Compagnia riuscirono ad intercettare un'auto con a bordo presunti truffatori che, per un maldestro intervento del personale della Stazione, avendo notato l'arrivo dell'auto con i colori d'istituto, si stavano dileguando senza perfezionare la truffa. 
 		
-		Il loro modus operandi era piuttosto semplice: in un grosso centro commerciale ordinavano un buon quantitativo di materiale elettronico, per valori tra i 3 e i 4 mila euro. Ottenuto il preventivo, dicevano che si sarebbero recati in banca per ottenere un assegno circolare e nel frattempo chiedevano che fosse preparata la merce. Dopo le 4 del pomeriggio, quando oramai le banche erano chiuse, si ripresentavano con un assegno non trasferibile dell'importo pattuito, ritiravano la merce e si dileguavano. Ovviamente l'assegno era falso, ma l'esercente lo poteva appurare solo il giorno successivo.
+		Il loro \textit{modus operandi} era piuttosto semplice: in un grosso centro commerciale ordinavano materiale elettronico (televisori, stereo, ecc.) per un valore compreso tra i 3 e i 4 mila euro. Ottenuto il preventivo, dicevano che si sarebbero recati in banca per ottenere un assegno circolare e nel frattempo chiedevano che fosse preparata la merce. Dopo le 4 del pomeriggio, quando ormai le banche erano chiuse, si ripresentavano con un assegno non trasferibile dell'importo pattuito, ritiravano la merce e si dileguavano. Ovviamente l'assegno era falso, ma l'esercente lo poteva appurare solo il giorno successivo.
 		
-		L'errore dei malviventi era stato quello di operare sempre in filiali della stessa catena (Mercatone Uno) usando documenti validi: la direzione centrale, dopo l'ennesima truffa, aveva diramato le foto dei truffatori, dando la possibilità ai commessi che, nel caso in esame stavano per essere truffati, di chiamare i Carabinieri.
+		L'errore dei malviventi era stato quello di operare sempre in filiali della stessa catena (Mercatone Uno) usando documenti veri e validi: la direzione centrale della catena, dopo l'ennesima truffa, aveva diramato le foto dei truffatori, permettendo quindi ai commessi di riconoscere i soggetti che stavano per truffarli e chiamare i Carabinieri.
 		
-		Quindi i colleghi del Nucleo Operativo, identificata l'auto con la quale i truffatori si stavano dileguando, riescono a fermarla e nel corso di una ispezione al veicolo trovano, in uno scatolone, un computer portatile, una stampante e un \textit{inverter} da campeggio, per collegare il tutto all'impianto elettrico della macchina.
+		Come si diceva, dunque, i colleghi del Nucleo Operativo, identificata l'auto con la quale i truffatori si stavano dileguando, riuscirono a fermarla e, nel corso di una ispezione al veicolo, trovarono un computer portatile, una stampante e un \textit{inverter} da campeggio da 12 a 220 Volt occultati in uno scatolone nel bagagliaio.
 		
-		Il magistrato di turno, sulla base dei pochi elementi in possesso, non autorizza la perquisizione del veicolo (problema ovviato con una semplice ispezione) né tanto meno il sequestro del computer. Il PM propone quindi agli operatori di effettuare una perquisizione informatica del computer, alla presenza di un avvocato d'ufficio nominato al momento.
+		Il magistrato di turno, sulla base dei pochi elementi in possesso, non autorizzò la perquisizione del veicolo (problema ovviato con una semplice ispezione) né tanto meno il sequestro del computer. Il PM propose invece agli operatori di effettuare una perquisizione informatica del computer, alla presenza di un avvocato d'ufficio nominato al momento.
 		
-		Avviene così che giunti in caserma e, atteso l'avvocato, viene effettuata la perquisizione del computer. 
+		Avvenne così che, giunti in caserma e atteso l'avvocato, si procedette alla perquisizione del computer. 
 		
-		Come si è proceduto? Come per una normale perquisizione, alla presenza del difensore, chiedendo dapprima all'indagato se spontaneamente volesse fare vedere dove fossero i file con gli assegni da stampare. Ovviamente l'interessato ha negato la presenza di qualsiasi file di quel tipo. A quel punto, prendendo nota di data e ora corrente e di ogni operazione fatta, i militari hanno acceso il computer. Subito si è andati alla ricerca dei ``file recenti'': nella corrispondente voce del menu era presente un file dal nome significativo: ``serialef.psd''. Si tratta di un file grafico dell'applicativo \textit{Photoshop}. 
+		La metodologia utilizzata fu la stessa si una normale perquisizione, alla presenza del difensore: si chiese dapprima all'indagato se spontaneamente volesse fare vedere dove fossero i file con gli assegni da stampare; l'interessato ovviamente negò la presenza di qualsiasi file di dubbia liceità. A quel punto, prendendo nota di data e ora corrente e di ogni operazione fatta, i militari accesero il computer, andando subito alla ricerca dei ``file recenti'': nella corrispondente voce del menu era presente un file dal nome significativo: ``\texttt{seriale\_f.psd}''.\footnote{Il PSD (acronimo di \textit{PhotoShop Document}) è un formato di file nativo di \textit{Adobe Photoshop} per il salvataggio di immagini con le differenti caratteristiche gestite dal programma.}
 		
-		\paragraph{Perchè si è andati alla ricerca proprio dei file recenti?} Non c'è un motivo preciso, è stato l'intuite degli investigatori sul momento. Avrebbero potuto prima guardare nella cartella \texttt{Documenti}, nelle foto, aprire la lista delle applicazioni. Tuttavia, in quel momento si ipotizzava che il truffatore avesse usato nel recentissimo passato il computer per produrre un assegno: la cosa più logica è sembrata quella di guardare nella cartella dei Documenti recenti. E, per una volta, la fortuna è stata dalla parte dei buoni!
+		\paragraph{Perchè si è andati alla ricerca proprio dei file recenti?} Non c'è un motivo preciso, è stato l'intuito degli investigatori a portarli in quella direzione. Avrebbero potuto prima guardare nella cartella \texttt{Documenti}, nelle foto, aprire la lista delle applicazioni. Tuttavia, in quel momento si ipotizzava che il truffatore avesse usato nel recentissimo passato il computer per produrre un assegno: la cosa più logica è sembrata quella di guardare nella cartella dei Documenti recenti. E, per una volta, la fortuna è stata dalla parte dei buoni!
 		
-		\paragraph{} Purtroppo non è stato possibile aprire il file in quanto era solo un \textit{link} che faceva riferimento ad una cartella contenuta in una memoria rimovibile (forse una penna USB): tuttavia questo indizio, per quanto lieve, era più che sufficiente per chiudere la perquisizione e procedere al sequestro, al fine di effettuare una analisi forense approfondita alla ricerca di eventuali tracce di assegni contraffatti.
+		\paragraph{} Purtroppo però non fu stato possibile aprire il file in quanto era solo un \textit{link} che faceva riferimento ad una cartella contenuta in una memoria rimovibile (forse una penna USB): tuttavia questo indizio, per quanto lieve, era più che sufficiente per chiudere la perquisizione e procedere al sequestro per effettuare successivamente un'analisi forense approfondita alla ricerca di eventuali tracce di assegni contraffatti.
 		
-		A dimostrazione della fondatezza dell'ipotesi, nel corso della analisi forense è stato rinvenuto, tra i file cancellati, proprio un file PSD che raffigurava un assegno (figura \ref{fig:assegno_psd})
+		A dimostrazione della fondatezza dell'ipotesi, nel corso dell'analisi, è stato rinvenuto, tra i file cancellati, proprio un file PSD che raffigurava un assegno (figura \ref{fig:assegno_psd})
 		
 		\begin{figure}
 			\centering
@@ -391,11 +397,12 @@
 		
 		Le supposizioni degli investigatori sono state quindi suffragate da quanto rinvenuto nel disco fisso del computer.
 		
-		La risposta quindi alla domanda posta nel titolo del paragrafo ``esiste la perquisizione informativa'' è sì: di volta in volta la PG, di concerto con l'A.G., valuta come operare su un computer. Di fatto, quello che è stato fatto nell'esempio descritto non è altro che una perquisizione, irripetibile ma documentata, dell'apparecchiatura informatica.
+		La risposta quindi alla domanda, posta nel titolo del paragrafo, se esista o meno la ``perquisizione informatica'' è sì: di volta in volta la PG, di concerto con l'A.G., valuta come operare su un computer. Di fatto, quello che è stato fatto nell'esempio descritto non è altro che una perquisizione, \textbf{irripetibile ma documentata}, dell'apparecchiatura informatica.
 		
-		\emph{Un'altra regola da non dimenticare mai, che vale non solo nelle perizie informatiche ma in tutte le situazioni in cui la P.G. debba fare un sopralluogo, è che ogni attività, ogni operazione svolta deve essere debitamente, puntualmente e accuratamente documentata.}
 		
-		\paragraph{In caso di errore, deve essere documentato?} La risposta breve è semplice: sì! Ma per quale motivo non è sempre chiaro: molti tendono a nascondere gli errori, certamente per orgoglio o vergogna. Ma nell'attività di P.G. gli errori possono capitare (non si dice che solo chi non lavora non commette errori?) e documentarli è fondamentale.
+		\paragraph{In caso di errore, deve essere documentato?} La risposta breve è semplice: sì! Ma non è sempre chiaro il motivo: molti tendono a nascondere gli errori, certamente per orgoglio o vergogna. Ma nell'attività di P.G. gli errori possono capitare (si dice, in effetti, che chi lavora è soggetto a commettere errori) e documentarli è fondamentale per poter correttamente interpretare i risultati ottenuti successivamente.
+		
+		Se nel corso di un sopralluogo per un omicidio un operatore malauguratamente tocca una superficie senza guanti, è il caso di informare immediatamente della cosa gli addetti ai rilievi, affinché non perdano tempo a repertare le impronte del collega e si possano concentrare su altro.
 	
 
 	\section{L'analisi forense}
@@ -577,7 +584,7 @@
 		
 		\begin{figure}
 			\centering
-			\includegraphics[width=1\linewidth]{pics/winufo1}
+			\includegraphics[width=.7\linewidth]{pics/winufo1}
 			\caption{La schermata principale di Win-UFO}
 			\label{fig:winufo1}
 		\end{figure}
@@ -610,11 +617,7 @@
 %			\item Operare sui reperti garantendo l'integrità dei dati, ovvero utilizzando accorgimenti hardware e/o software che blocchino qualsiasi scrittura sul disco;
 %			\item Lavorare sempre e soltanto su copie\footnote{I concetti di originale e copia in ambito di informazioni digitali sono dibattuti e controversi. In questo contesto si intende per copia qualsiasi riproduzione dei dati contenuti sul supporto sequestrato.};
 %		\end{itemize}
-		\appendix
-		\section{Output di guymager}
-			\begin{lstlisting}
-				Output
-			\end{lstlisting}
+
 
 		\newpage
 		\listoffigures
