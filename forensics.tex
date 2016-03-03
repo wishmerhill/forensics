@@ -12,6 +12,12 @@
 \usepackage{tikz}
 \usepackage[hidelinks]{hyperref}
 \usepackage[nottoc]{tocbibind}
+\usepackage{listings}
+\lstset{
+	basicstyle=\small\ttfamily,
+	columns=flexible,
+	breaklines=true
+}
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, 
 						 rounded corners, 
@@ -71,17 +77,26 @@
 		
 		Di fatto, oggi non esiste fenomeno giuridicamente rilevante che non abbia una componente digitale dalla quale estrarre informazioni utili alla ricostruzione dei fatti.
 		
-		Nel tempo, le procedure operative hanno subito notevoli cambiamenti, dovuti principalmente alle innovazioni intervenute sui mezzi di comunicazione informatica e sulle piattaforme sociali diffusesi negli ultimi tempi.
+		Nel tempo, le procedure operative hanno sub\'{i}to notevoli cambiamenti, dovuti principalmente alle innovazioni intervenute sui mezzi di comunicazione informatica e sulle piattaforme sociali diffusesi negli ultimi tempi.
 		
-		Se ad esempio fino a qualche anno fa la regola nel repertare un \textit{personal computer} acceso era quella di spegnerlo senza particolari cautele (staccando molto semplicemente la spina) per poi procedere alla sigillatura delle porte e alla chiusura del plico.
+		Se ad esempio fino a qualche anno fa la regola nel repertare un \textit{personal computer} acceso era quella di spegnerlo senza particolari cautele (staccando molto semplicemente la spina,) per poi procedere alla sigillatura delle porte e alla chiusura del plico, oggi non si opera più in questo modo, almeno non sempre: si è visto infatti che il contenuto della memoria volatile del computer può essere determinante o comunque di notevole importanza per le indagini. 
 		
-		Oggi non si opera più in questo modo, almeno non sempre, in quanto si è visto che il contenuto della memoria volatile del computer può essere determinante o comunque di notevole importanza per le indagini. Come operare allora?
+		Come operare allora?
 		
-		Non esiste una regola unica e valida per tutte le occasioni, se non quella di applicare in ogni caso il buon senso, nel rispetto del Codice di Procedura Penale, e la sensibilità investigativa maturata nel corso di anni di indagini, anche tradizionali.
+		Non esiste una regola unica valida per tutte le occasioni, se non quella di applicare in ogni caso il buon senso, nel rispetto del Codice di Procedura Penale, e fare tesoro della sensibilità investigativa maturata nel corso di anni di indagini non necessariamente ad alta tecnologia.
 		
-		In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analisi dei dati ricavati da un sistema informatico di qualsiasi natura: la mole delle informazioni da visionare è tale e tanta che ci vorrebbero anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare gigabyte e gigabyte di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un terabyte (1000 gigabyte) è ormai il taglio minimo per un computer desktop.
+		In quest'ottica, nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analizzare i dati ricavati da un sistema informatico: la mole delle informazioni da visionare è tale e tanta che sarebbero necessari anni di lavoro-uomo per considerarle tutte. La bravura dell'investigatore, in qualsiasi tipo di indagine, è proprio quella di andare a scovare gli elementi utili nascosti tra le pieghe delle informazioni che è riuscito a raccogliere: nel caso delle indagini forensi, si tratta di analizzare svariati \textit{gigabyte} di dati, visto che ormai il prezzo degli hard disk è sceso a tal punto che un disco da un \textit{terabyte} (1000 gigabyte) è ormai il taglio considerato minimo per un computer desktop.
+		
+		\subsection{Nota al presente documento}
+			La trattazione di una materia come quella del \textit{Digital Forensic} non può essere esaurita in questa trentina di pagine, né lo scrivente ha la presunzione di aver scritto (o meglio, raccolto) solo verità assolute. 
+			
+			La fluidità dell'argomento, le continue innovazioni tecnologiche, le contromisure messe in atto dai malfattori che per la loro attività quotidiana si avvalgono di strumenti digitali, nonché i limiti di non poter lavorare sempre e solo nell'ambito dell'informatica forense sono la causa di eventuali imprecisioni, errori più o meno grossolani e false convinzioni. 
+			
+			Lo scopo del presente testo è comunque quello di dare un'idea di base sui principi e sulle tecniche necessarie per affrontare una analisi speditiva di una evidenza digitale: per chi volesse poi davvero approfondire lo studio, la rete e i colleghi specializzati dei reparti tecnici sono una fonte quasi inesauribile di informazioni.
+		
 	\section{Fonti normative}
 		Con la legge n.~48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
+		
 		\begin{description}
 			\item[Art. 244 c.p.p.] Casi e forme delle ispezioni
 			\begin{enumerate}
@@ -108,14 +123,16 @@
 				\item [\textellipsis]
 			\end{enumerate}
 		\end{description}
-		La 48 del 2008 ha quindi, finalmente, introdotto nel codice di procedura penale la definizione di quello che qualche autore definisce ``il concetto di scena del crimine virtuale'' con conseguenti ispezioni e perquisizioni ``virtuali''. Viene introdotto il concetto di copia conforme all'originale del dato informatico e nonché la clausola dell'immodificabilità di quanto copiato.
 		
-		Addirittura, al secondo comma dell'art. 254 viene prescritta, in caso di urgenza, la copia forense in loco. Secondo il Ten.~Col.~Mattiucci del Ra.Ci.S. questa fattispecie configura una sorta di sequestro virtuale che ``\textit{è intrinsecamente irripetibile (come qualsiasi sequestro!). Infatti, anche nell'ipotesi di effettuare la copia sul posto nelle migliori condizioni possibili e con i migliori tool e le migliori metodologie se l'urgenza è giustificata l'attività non potrà essere ripetuta.}'' (Mattiucci).
+		La 48 del 2008 ha finalmente introdotto nel codice di procedura penale la definizione di quello che qualche autore definisce ``il concetto di scena del crimine virtuale'' con conseguenti ispezioni e perquisizioni ``virtuali''. Viene introdotto il concetto di copia conforme all'originale del dato informatico, nonché la clausola dell'immodificabilità di quanto copiato.
+		
+		Addirittura, al secondo comma dell'art. 254 viene prescritta, in caso di urgenza, la copia forense in loco. Secondo il Ten.~Col.~Mattiucci del Ra.Ci.S. \cite{mattiucci} questa fattispecie configura una sorta di sequestro virtuale che ``\textit{è intrinsecamente irripetibile (come qualsiasi sequestro!). Infatti, anche nell'ipotesi di effettuare la copia sul posto nelle migliori condizioni possibili e con i migliori tool e le migliori metodologie se l'urgenza è giustificata l'attività non potrà essere ripetuta.}'' \cite{mattiucci}.
 		
 		Il senso profondo delle novità introdotte dalla 48/2008 è, in sostanza, la necessità di adottare misure tecniche dirette ad \textbf{assicurare la conservazione dei dati originali e ad impedirne l'alterazione}.
 		
 		Il motivo è che ogni intervento su un sistema informatico non condotto in maniera forense comporta sempre e comunque una alterazione dei dati ivi presenti e la cancellazione di parte di essi, come insegnano casi eclatanti balzati agli onori della cronaca come, per citarne uno, l'omicidio di Garlasco.
-		Per entrare nel dettaglio, le 4 fasi standard dell'indagine digitale forense sono (Mattiucci):
+		
+		Per entrare nel dettaglio, le 4 fasi standard dell'indagine digitale forense sono \cite{mattiucci}:
 		
 		\begin{enumerate}
 			\item identificazione e prelievo;
@@ -124,32 +141,30 @@
 			\item reporting tecnico e legale.
 		\end{enumerate}
 		
-		Per gli scopi di questa esposizione, si approfondirà maggiormente il primo punto, trattando in maniera più rapida gli altri tre che, di norma, sono di competenza di organi e reparti specializzati o di personale in possesso di competenze specifiche.
+		Per gli scopi di questa esposizione, si approfondiranno maggiormente le procedure di cui al primo punto, trattando in maniera più rapida quelle relative agli altri tre che, di norma, sono di competenza di organi e reparti specializzati o di personale in possesso di competenze specifiche.
 		
-		\section{Identificazione e prelievo:\\
-			procedure operative per il repertamento digitale
-			}
+		\section{Procedure operative per il repertamento digitale}
 		
 		Come accennato in premessa, non esiste un unico modo corretto per procedere al sequestro e alla successiva analisi di un reperto ad alta tecnologia, ma è comunque possibile fornire delle linee guide per evitare di commettere errori grossolani.
 		
-		In un mondo perfetto, le attività in argomento dovrebbero sempre essere svolte dallo stesso personale specializzato che poi si occuperà delle fasi successive dell'indagine forense in quanto, come si vedrà, già in sede di sopralluogo sarebbero necessarie competenze tecniche approfondite sia per evitare gli errori di cui sopra, sia per poter operare con cognizione di causa nel caso vi fosse la necessità di analizzare in loco le apparecchiature rinvenute accese. Purtroppo, nella maggior parte dei casi chi interviene è il personale del pronto intervento, della stazione di paese o, se si è fortunati, del Reparto Operativo che comunque non sempre ha la necessaria preparazione specifica. Per questi motivi è fondamentale che ogni operatore abbia almeno un'idea di base su come procedere al meglio.
+		In un mondo perfetto, le attività in argomento dovrebbero sempre essere svolte dallo stesso personale specializzato che poi si occuperà delle fasi successive dell'indagine forense in quanto, come si vedrà, già in sede di sopralluogo sarebbero necessarie competenze tecniche approfondite sia per evitare gli errori di cui sopra, sia per poter operare con cognizione di causa nel caso vi fosse la necessità di analizzare in loco le apparecchiature rinvenute accese. Purtroppo, nella maggior parte dei casi chi interviene è il personale del pronto intervento, della stazione di paese o, se si è fortunati, del Reparto Operativo che comunque non sempre ha la necessaria preparazione specifica -- e il collega che le ha è in licenza. Per questi motivi è fondamentale che ogni operatore abbia almeno un'idea di base su come procedere al meglio.
 		
-		In generale, esistono due livelli di repertamento di un sistema digitale:
+		Possiamo distinguere due tipi di repertamento di un sistema digitale:
 		
 		\begin{enumerate}
 			\item \textbf{il repertamento dell'oggetto fisico}, che mantiene i dati seguendo un qualche principio fisico (in genere elettrico, magnetico e/o ottico);
 			\item \textbf{il repertamento dei dati} ossia la fedele copia dei dati su supporto sicuro.
 		\end{enumerate}
 		
-		Di regola, il repertamento fisico precede quello dei dati in quanto il supporto (sia esso un computer intero o solo i dispositivi di archiviazione) viene inizialmente sequestrato sul posto e successivamente analizzato in sede o presso apposite strutture di terze parti. Tuttavia, si stanno diffondendo sistemi portatili che consentono di clonare il contenuto completo o parziale di un PC senza necessariamente prelevarlo e trasportarlo in un laboratorio specializzato e questo mentre continua a funzionare (si parla di live analysis).
+		Normalmente, il repertamento fisico precede quello dei dati in quanto il supporto (sia esso un computer intero o solo i dispositivi di archiviazione) viene inizialmente sequestrato sul posto e successivamente analizzato in sede o presso apposite strutture di terze parti. Tuttavia, si stanno diffondendo sistemi portatili che consentono di clonare il contenuto completo o parziale di un PC senza necessariamente prelevarlo e trasportarlo in un laboratorio specializzato -- e questo mentre continua a funzionare (si parla di \textit{live analysis} o \textit{live forensic}, di cui si discuterà nel dettaglio nella sezione \ref{sec:live_forensics}).
 		
 		A ciò va aggiunto che molti dispositivi elettronici memorizzano i dati su memorie che hanno bisogno di batterie tampone o della corrente di rete per non perdere i dati in essi contenuti. Di converso molti altri dispositivi devono essere spenti forzatamente per garantire un buon repertamento (che cioè consenta poi un'analisi efficace).
 		
 		\subsection{Fissare le priorità}\label{sec:priorita}
 		
-		La scena del crimine è un puzzle che l'investigatore, siano o meno coinvolte tecnologie informatiche, deve riuscire a ricomporre. Ma la quantità di variabili e tasselli in gioco è sempre tale e tanta che, umanamente, non è possibile analizzare ogni singolo elemento: si devono stabilire delle priorità, in relazione alla tipologia di reato che si vuole e deve perseguire e al tipo di informazioni che si ritiene possano essere determinanti per l'indagine e, sulla base di tale scelta, selezionare gli elementi di interesse. 
+		La scena del crimine è un \textit{puzzle} che l'investigatore, siano o meno coinvolte tecnologie informatiche, deve riuscire a ricomporre. Ma la quantità di variabili e tasselli in gioco è sempre tale e tanta che, umanamente, non è possibile analizzare ogni singolo elemento: si devono stabilire delle priorità, in relazione alla tipologia di reato che si vuole e deve perseguire e al tipo di informazioni che si ritiene possano essere determinanti per l'indagine e, sulla base di tale scelta, selezionare gli elementi di interesse.
 		
-		L'informatica è la scienza della gestione delle informazioni: la base di ogni sistema informatico e telematico sono i dati. Per questo motivo, all'investigatore che si trova a dover scegliere quali reperti siano prioritari rispetto ad altri deve essere ben chiaro il fine ultimo dell'attività di repertamento: raccogliere dati. Ora, nel perquisire il domicilio di un truffatore, di un pedofilo o di un terrorista, ci si deve chiedere dove possano essere immagazzinate le informazioni che si cercano: saremo di certo interessati ai dati contenuti nel suo computer ma, più probabilmente, le informazioni saranno archiviate altrove: perquisiamogli le tasche alla ricerca di chiavette USB (attenzione che queste ultime posso assumere le forme più strane, non ultime quelle di pupazzetti che nascondo un chip di memoria), guardiamo nei cassetti e cerchiamo di trovare dischi esterni o -- se il nostro cliente è un po' all'antica, informaticamente parlando -- CD-ROM o DVD. Se fosse ancora più tradizionalista, magari ha stampato delle foto o dei documenti: usciamo quindi dalle vesti dell'investigatore forense e rivestiamoci da sbirro di strada e cerchiamo album, raccoglitori, scatole da scarpe e vediamo se non ci sono nascosti dentro documenti interessanti.
+		L'informatica è la scienza della gestione delle informazioni: la base di ogni sistema informatico e telematico sono i dati. Per questo motivo, all'investigatore che si trova a dover scegliere quali reperti siano prioritari rispetto ad altri deve essere ben chiaro il fine ultimo dell'attività di repertamento: raccogliere dati. Nel perquisire il domicilio di un truffatore, di un pedofilo o di un terrorista, ci si deve chiedere dove possano essere immagazzinate le informazioni che si cercano: saremo di certo interessati ai dati contenuti nel suo computer ma, più probabilmente, le informazioni saranno archiviate altrove: perquisiamogli le tasche alla ricerca di chiavette USB (attenzione che queste ultime posso assumere le forme più strane, non ultime quelle di pupazzetti che nascondo un chip di memoria), guardiamo nei cassetti e cerchiamo di trovare dischi esterni o -- se il nostro ``cliente'' è un po' all'antica, informaticamente parlando -- CD-ROM, DVD o, eventualmente,vecchie VHS. Se fosse ancora più tradizionalista, magari ha stampato delle foto o dei documenti: usciamo quindi dalle vesti dell'investigatore forense, rivestiamoci da sbirro di strada e cerchiamo album, raccoglitori, scatole da scarpe e vediamo se non ci siano nascosti dentro documenti interessanti.
 		
 		\textit{Di questa ``analisi delle priorità'' dovremo tenere conto sia in fase di sopralluogo e quindi di raccolta del materiale, sia in fase di esame tecnico forense.}
 		
@@ -202,6 +217,7 @@
 		\caption{La sequenza delle operazioni da svolgere nei casi più classici}
 		\label{fig:diagrammaDiFlusso}
 		\end{figure}
+		
 		\subsection{Procedure operative}
 		
 		Nel seguito verranno analizzati alcuni casi di studio utili per capire come operare in condizioni ottimali.
@@ -213,7 +229,7 @@
 			
 			Dopo aver verificato che effettivamente sia spento (osservandolo accuratamente alla ricerca di LED o altre luci, ascoltando eventuali ventole attive, ecc.), si procederà a fotografare ed eventualmente video riprendere i componenti presenti, etichettandoli uno per uno (è buona prassi etichettare anche tutti i cavi che arrivano all'elaboratore). A quel punto è possibile rimuovere i cavi e cominciare ad impacchettare, sigillandone i plichi e applicando su ciascuno delle ulteriori etichette identificative, tutti i componenti di interesse.
 			
-			In questa fase è importantissimo annotarsi, magari fotografandone le etichette, tutti i numeri di serie o altre indicazioni presenti: tali codici identificativi andranno esplicitamente citati nel verbale delle operazioni e nel verbale di sequestro. 
+			In questa fase è importantissimo annotarsi, magari fotografandone le etichette, tutti i numeri di serie o altre indicazioni presenti: tali codici identificativi andranno esplicitamente citati nel verbale delle operazioni e in quello di sequestro. 
 			
 			\begin{figure}
 				\centering
@@ -222,37 +238,36 @@
 				\label{fig:label1}
 			\end{figure}
 			
-			È in questa fase che inizia la catena di custodia (\textit{chain of custody}) del materiale fisico: da questo momento in poi è fondamentale che ogni passaggio di mano delle fonti di prova sia cronologicamente documentato e tracciabile al fine di garantire l'integrità fisica dei supporti e dei dati in essi contenuti. Ogni operazione potenzialmente a rischio di compromettere tale integrità deve essere registrata e condotta in maniera conforme alle pratiche consolidate nel settore.
+			In questa fase inizia la catena di custodia (\textit{chain of custody}) del materiale fisico: da questo momento in poi è fondamentale che ogni passaggio di mano delle fonti di prova sia cronologicamente documentato e tracciabile al fine di garantire l'integrità fisica dei supporti e dei dati in essi contenuti. Ogni operazione potenzialmente a rischio di compromettere tale integrità deve essere registrata e condotta in maniera conforme alle pratiche consolidate nel settore.
+			
 			Inutile aggiungere che, qualora si ritenga importante procedere anche ad un'analisi dattiloscopica sul materiale sequestrato, è indispensabile usare ogni cautela per evitare di disperdere eventuali impronte papillari dalle superfici latenti, utilizzando i normali guanti monouso e cercando di non ``strofinare'' gli oggetti.
 			
-			Sulla scena del crimine o nel locale sottoposto a perquisizione dovranno essere ricercate password e credenziali utili ad accedere al computer e ai dati: quindi sarà importante mettere in sicurezza agendine, post-it, appunti e ogni altro oggetto atto a registrare dati sensibili.
+			Sulla scena del crimine o nel locale sottoposto a perquisizione dovranno essere ricercate password e credenziali utili ad accedere al computer e ai dati: pertanto sarà importante mettere in sicurezza agendine, post-it, appunti e ogni altro oggetto atto a registrare dati sensibili.
 			
-			All'indagato o comunque alla persona sottoposta alla perquisizione potrà essere chiesto di rivelare password, PIN o altre informazioni utili per accedere alle informazioni, tuttavia è importantissimo ricordare l'obbligo della P.G. di informare sul diritto a non rispondere sancito dagli artt. 60 co. 3 e 350 c.p.p: in caso di mancata informazione, il dato ottenuto sarà inutilizzabile.
+			All'indagato o comunque alla persona sottoposta alla perquisizione potrà essere chiesto di rivelare password, PIN o altre informazioni utili per accedere ai dati. Tuttavia è importantissimo ricordare l'obbligo della P.G. di informare sul diritto a non rispondere sancito dagli artt. 60 co. 3 e 350 c.p.p: in caso di mancata informazione, il dato ottenuto sarà inutilizzabile.
 			Su quest'ultimo punto vale sempre il brocardo latino \textit{``Nemo tenetur se detegere''}, ovvero nessuno può essere obbligato ad affermare o a fornire prova della propria responsabilità penale.
 		
-
-			In questa, come in tutte le situazioni esaminate nel seguito, va prestata massima attenzione alle modalità di imballaggio del materiale sequestrato. Non sarebbe utile a nessuno rientrare in sede con un computer il cui disco rigido si è danneggiato in fase di trasporto a causa di un imballo non accurato. Qualora si possa fin dal principio ipotizzare la necessità di sequestrare materiale informatico, è il caso di dotarsi preventivamente di idonei contenitori -- sono sufficienti anche degli scatoloni e dei giornali vecchi per creare una minima protezione agli urti. 
-
-			
 			In questa, come in tutte le situazioni esaminate nel seguito, va prestata massima attenzione alle modalità di imballaggio del materiale sequestrato. Non sarebbe utile a nessuno rientrare in sede con un computer il cui disco rigido si è danneggiato in fase di trasporto a causa di un imballo non accurato. Qualora si possa fin dal principio ipotizzare la necessità di sequestrare materiale informatico, è il caso di dotarsi preventivamente di idonei contenitori -- sono sufficienti anche degli scatoloni e dei giornali vecchi per creare una minima protezione agli urti. 
 			
 			Altra accortezza è quella di evitare di sottoporre il materiale sequestrato a campi elettromagnetici particolarmente forti, per scongiurare il rischio (peraltro solitamente remoto) di cancellazione accidentale dei dati.
 		
 			\subsubsection{Caso 2: computer acceso}\label{subsubsec:computer_acceso}
-			Qualora il computer da sequestrare sia acceso, la situazione diventa più complicata. Un tempo si suggeriva di scollegare semplicemente il cavo si alimentazione (o staccare la batteria in caso di un portatile) e procedere al sequestro (come nel precedente caso 1).
+			Qualora il computer da sequestrare sia acceso, la situazione diventa più complicata. Un tempo si suggeriva di scollegare semplicemente il cavo di alimentazione (o staccare la batteria in caso di un portatile) e procedere al sequestro (come nel precedente caso 1).
 			
-			Tuttavia, nel tempo le \textit{best practice} si sono evolute e ora la regola è quella di prendere nota delle attività in corso nel computer al momento dell'intervento: tutto le relative informazioni vengono inesorabilmente perse scollegando l'alimentazione del sistema.
+			Tuttavia, nel tempo la prassi operativa si è evoluta: la regola è ora quella di prendere nota delle attività in corso nel computer al momento dell'intervento per evitare che informazioni preziose vengano disperse allo spegnimento del sistema.
 			
 			Per fare ciò esistono vari metodi, dal più semplice (andare a vedere ``a mano'' che finestre sono aperte, quali pagine si stanno visualizzando, eventualmente quali processi sono attivi sulla macchina) al più elaborato (inserire una chiavetta USB con un software apposito).
 			
-			Qualsiasi sia la strada scelta, è fondamentale prendere nota di ogni attività svolta sul computer acceso, possibilmente filmando tutta l'attività e corredando il video di una accurata descrizione vocale di quanto si sta facendo, un po' come il detective dei film americani che nel corso di un sopralluogo utilizza un mini registratore per fissare le proprie impressioni su di un nastro, a futura memoria. 
-			
-			\paragraph{Ogni atto svolto con queste modalità è di natura assolutamente irripetibile!}
+			Qualsiasi sia la strada scelta, è fondamentale annotare ogni attività svolta dall'operatore sul computer, possibilmente filmando il monitor e corredando il video di una accurata descrizione vocale di quanto si sta facendo, un po' come il detective dei film americani che nel corso di un sopralluogo utilizza un mini registratore per fissare le proprie impressioni su di un nastro, a futura memoria. 
 			
 			Per una trattazione più dettagliata della questione ''live forensics'' si rimanda alla sezione \ref{sec:live_forensics}.
 			
-			\paragraph{Sincronizziamo gli orologi\dots}
-			Tra le informazioni più importanti da annotare quando si procede a verificare un computer acceso va sempre letta l'ora e la data correnti del sistema, rapportandole a quelle effettive dell'intervento. Andrà annotato quindi qualcosa del tipo:
+			\paragraph{Nota bene:} ogni atto svolto con queste modalità è di natura assolutamente irripetibile!			
+			
+			\paragraph{Sincronizziamo gli orologi.}\label{par:syncro_clock}
+			Tra le informazioni più importanti da annotare quando si procede a verificare un computer acceso ci sono l'ora e la data correnti del sistema, rapportate ovviamente a quelle effettive dell'intervento. 
+			
+			Andrà annotato quindi qualcosa del tipo:
 			
 			\begin{itemize}
 				\item Data e ora del sistema: 25 marzo 2013 ore 12:43:10;
@@ -273,42 +288,43 @@
 			
 			È buona norma per l'operatore essere in grado di avere l'ora esatta, magari appunto installando una applicazione di sincronia NTP sul proprio telefono.
 			
-			A margine, è bene ricordare che l'ora del BIOS non necessariamente è l'ora del sistema operativo. Nel caso di computer acceso, si dovrà confrontare l'ora del sistema operativo con l'ora corrente, mentre in caso di computer spento, presa l'ora del BIOS, in sede di analisi forense deve essere verificata l'impostazione dell'orologio del sistema, ovvero su quale fuso è impostata e se lo stesso prende per buona l'ora hardware o vi applica una correzione corrispondente al fuso orario.
+			A margine, è bene ricordare che l'ora del BIOS non necessariamente è l'ora del sistema operativo. Nel caso di computer acceso, si dovrà confrontare l'ora del sistema operativo con l'ora corrente, mentre in caso di computer spento, presa l'ora del BIOS, in sede di analisi forense deve essere verificata l'impostazione dell'orologio del sistema, ovvero su quale fuso è settata e se lo stesso prende per buona l'ora hardware o vi applica una correzione corrispondente al fuso orario.
 			
-			\paragraph{Approfondimenti sui sistemi accesi}
+			\subsubsection{Approfondimenti sui sistemi accesi}
 			\subparagraph*{Perché è importante verificare l'attività in corso sul computer prima di spegnerlo e sequestrarlo?}
 			
-			Rispetto a qualche anno fa, il modo in cui i programmi e gli utenti interagiscono con il computer è molto cambiato. Senza che l'utente prenda accorgimenti particolari, molti dettagli (che a volte si rivelano fondamentali) dell'attività in corso non vengono salvati (la chat di facebook, ad esempio); esistono poi sistemi, quali la cosiddetta modalità di navigazione anonima, che servono proprio a non lasciare alcuna traccia delle pagine visitate.
+			Rispetto a qualche anno fa, il modo in cui i programmi e gli utenti interagiscono con il computer è molto cambiato. Senza che l'utente prenda accorgimenti particolari, molti dettagli (che a volte si rivelano fondamentali) dell'attività in corso non vengono salvati (la chat di facebook, ad esempio). Esistono poi sistemi, quali la cosiddetta modalità di navigazione anonima (definita da qualcuno anche \textit{pornmode}), che servono proprio a non lasciare alcuna traccia delle pagine visitate.
 
 			Questo tipo di dati, importantissimi per documentare le ultime attività, andrebbero persi se non visionati prima di spegnere il sistema.
 			
 			\subparagraph*{A cosa serve documentare l'attività e perché è così importante?}
 			Può certamente sembrare una domanda banale, ma viste le più o meno recenti notizie di cronaca su clamorosi errori svolti dalla Polizia Giudiziaria sul luogo del delitto, è meglio ribadire il concetto.
 			
-			Come già sottolineato, quasi ogni attività fatta su un dispositivo ad alta tecnologia, tipicamente su un computer, lascia una traccia che un buon analista forense è in grado di trovare, seguire e interpretare. Per l'analisi successiva al sequestro è importante che il tecnico sappia distinguere le attività dell'utilizzatore del computer da quelle svolte dagli operatori al momento del sequestro. 
+			Come già sottolineato, quasi ogni attività svolta su un dispositivo ad alta tecnologia, tipicamente su un computer, lascia una traccia che un buon analista forense è in grado di trovare, seguire e interpretare. Per l'analisi successiva al sequestro è importante che il tecnico sappia distinguere le attività dell'utilizzatore del computer da quelle svolte dagli operatori al momento del sequestro. 
 			
-			Anche documentare gli orari esatti di queste attività è importante: ipotizzando che la data e l'ora del sistema siano esatte (e se non lo sono sia comunque possibile stabilire di quanto si discostano da quelle effettive, come visto nel paragrafo ``Sincronizziamo gli orologi\dots''), si potranno distinguere le operazioni fatte in corso di ``live forensics'' dagli operatori sulla scena del crimine da quelle svolte, anche solo pochi minuti prima, dall'eventuale autore del delitto che poi si sia dato alla fuga.
+			Anche documentare gli orari esatti di queste attività è importante: ipotizzando che la data e l'ora del sistema siano esatte (e se non lo sono sia comunque possibile stabilire di quanto si discostano da quelle effettive, come visto nel paragrafo ``\nameref{par:syncro_clock}'' a pagina \pageref{par:syncro_clock}), si potranno distinguere le operazioni fatte in corso di ``live forensics'' dagli operatori sulla scena del crimine da quelle svolte, anche solo pochi minuti prima, da quelle invece effettuate dall'autore del delitto che poi si sia dato alla fuga.
 			
-			Inoltre, sapere con certezza quali operazioni sono state svolte dalla Polizia Giudiziaria è fondamentale anche in sede dibattimentale, per evitare che di quelle eventuali azioni -- non documentate in alcun atto di indagine -- si accorgano i periti di parte: in questo caso la figuraccia degli operatori è assicurata, come insegna il caso di Garlasco.
+			Inoltre, sapere con certezza quali operazioni sono state svolte dalla Polizia Giudiziaria è fondamentale anche in sede dibattimentale, per evitare che di quelle eventuali azioni -- non documentate in alcun atto di indagine -- si accorgano i periti di parte con conseguente figuraccia, come insegna il caso di Garlasco.
 			
 			\paragraph*{}
-			È evidente che non tutti gli operatori sono degli informatici o hanno conoscenze informatiche di alto livello. Anche qui ci deve aiutare il buon senso: le operazioni devono essere effettuate nei limiti delle proprie conoscenze tecniche, evitando di compromettere i dati se non si è sicuri di quello che si sta facendo. Nel dubbio, se non si riesce a contattare nell'immediatezza un tecnico di accertata competenza -- senza ascoltare i consigli di sedicenti tali -- dopo aver filmato quanto si riesce a vedere, è giunta l'ora di staccare il cavo dell'alimentazione del computer. Da lì in poi, il reperto può essere trattato come nel caso 1: in effetti, adesso, il sistema è spento!
+			È evidente che non tutti gli operatori sono degli informatici o hanno conoscenze informatiche di alto livello. Anche qui ci deve aiutare il buon senso: le operazioni devono essere effettuate nei limiti delle conoscenze tecniche di ciascuno, evitando di compromettere i dati se non si è sicuri di quello che si sta facendo. Nel dubbio, se non si riesce a contattare un tecnico di accertata competenza -- e senza ascoltare i consigli di sedicenti tali -- dopo aver filmato quanto si riesce a vedere, è il caso di staccare il cavo dell'alimentazione del computer. Da lì in poi, il reperto può essere trattato come nel caso 1: in effetti, adesso, il sistema è spento!
 			
-			\emph{Va sempre ricordato al personale che per spegnere il computer da repertare per una successiva analisi forense non si deve MAI effettuare la procedura di arresto prevista dal sistema operativo in quanto questa operazione scrive sul disco e altera i dati: va semplicemente staccata la spina o rimossa la batteria.}
+			\emph{Va sempre ricordato al personale che per spegnere il computer da repertare per una successiva analisi forense non si deve MAI effettuare la procedura di arresto prevista dal sistema operativo, in quanto questa operazione scrive sul disco e altera i dati: va semplicemente staccata la spina o rimossa la batteria.}
 			
 			\subsubsection{Caso 3: server o altra apparecchiatura di rete}
 			
-			In un caso particolare quale quello del sequestro disposto dei confronti di un server di rete, occorre procedere con i piedi di piombo e cercare di capire, e fare capire al magistrato se necessario, se l'apparecchiatura in questione sia o meno nella completa disponibilità dell'indagato: i server di solito ospitano più di un utente e i dati di ciascuno sono ermeticamente separati tra loro. Sequestrare un intero server per accedere ai dati di un solo utente sarebbe come porre sotto sequestro un intero palazzo da 20 appartamenti per effettuare i rilievi su uno solo di essi, dove magari è avvenuto un omicidio: certo, con il server è fisicamente più facile, ma il danno creato agli utenti ``innocenti'' dello stesso server è analogo a quello di sgombrare 20 famiglie per accedere ad uno solo appartamento.
+			In un caso particolare quale può essere il sequestro di un server di rete, occorre procedere con i piedi di piombo e cercare di capire, e fare capire al magistrato se necessario, se l'apparecchiatura in questione sia o meno nella completa disponibilità dell'indagato: i server di solito ospitano più di un utente e i dati di ciascuno sono ermeticamente separati tra loro. Sequestrare un intero server per accedere ai dati di un solo utente sarebbe come porre sotto sequestro un intero palazzo di 20 appartamenti per effettuare i rilievi su uno solo di essi, dove è avvenuto un omicidio: certo, con il server è fisicamente più facile, ma il danno creato agli utenti ``innocenti'' dello stesso server è analogo a quello di sgombrare 20 famiglie per accedere ad uno solo appartamento.
 			
 			Come sempre, qualora non si sia in grado di operare correttamente, è opportuno richiedere l'intervento di personale specializzato, o almeno chiedere all'amministratore del server di estrapolare, con tutti gli accorgimenti di una indagine forense, i dati dell'utente di nostro interesse.
 			
 			\paragraph*{Un esempio per assurdo}
 			
-			Per accedere ai dati di un solo utente \textit{facebook} non chiederò a quell'azienda i dati di milioni di utenti, ma solamente di quello specifico di mio interesse. Un server di una piccola azienda funziona, di fatto, allo stesso modo, sebbene su scala un po' più piccola: di volta in volta è necessario valutare se serve davvero sequestrare tutto il server o chiedere all'amministratore una copia dell'area di lavoro del nostro \textit{target}.
+			Per accedere ai dati di un solo utente \textit{facebook} non vanno certamente chiesti a quell'azienda i dati di milioni di utenti, ma solamente di quello specifico di mio interesse. Un server di una piccola azienda funziona, di fatto, allo stesso modo, sebbene su scala più piccola: di volta in volta è necessario valutare se serve davvero sequestrare tutto il server o chiedere all'amministratore una copia dell'area di lavoro del nostro \textit{target}.
 			
-			A parere di chi scrive, la prassi purtroppo spesso invalsa di sequestrare, nel dubbio, tutto per poi scremare \textit{a posteriori} può andare bene per i computer e le apparecchiature tecnologiche di una privata abitazione: fermare però l'attività di un'azienda intera, magari terza rispetto alle attività criminali di un dipendente o di un cliente, dimostra una mancanza di professionalità. Come in tutte le attività di P.G. che abbiano natura invasiva, è necessario procedere chirurgicamente, limitando al massimo i ``danni collaterali'' arrecati a chi sia estraneo alle attività illecite.
+			A parere di chi scrive, la prassi purtroppo spesso invalsa di sequestrare, nel dubbio, tutto per poi scremare \textit{a posteriori} può andare bene per i computer e le apparecchiature tecnologiche di una privata abitazione: fermare però l'attività di un'azienda intera, magari terza rispetto alle attività criminali di un dipendente o di un cliente, dimostra una mancanza di professionalità. Come in tutte le attività di P.G. che abbiano natura invasiva, è necessario procedere chirurgicamente, limitando al massimo i ``danni collaterali'' arrecati a chi sia estraneo alle attività illecite. Peraltro, non va dimenticato che più si sequestra più si deve analizzare: in informatica l'ordine di grandezza della quantità di dati da analizzare può essere enorme, tramutandosi nell'impossibilità di fatto di procedere.
 			
 		\subsection{Come operare con dispositivi mobili (\textit{telefoni, smartphone e tablet})}
+			
 			L'evoluzione tecnologica degli ultimi anni ha fatto sì che i dispositivi mobili siano diventati sempre più simili a computer e sempre meno a semplici dispositivi di comunicazione quali erano invece i vecchi cellulari.
 			
 			In effetti ormai gli \textit{smartphone} e i \textit{tablet} hanno capacità di archiviazione pari, normalmente, ad uno o due ordini di grandezza in meno di quelli di un ordinario personal computer: si parla per tanto, mediamente, di 32 o 64 gigabyte per i modelli di punta e di non meno di 4-8 gigabyte per i modelli più economici.
@@ -379,8 +395,9 @@
 		
 		\emph{Un'altra regola da non dimenticare mai, che vale non solo nelle perizie informatiche ma in tutte le situazioni in cui la P.G. debba fare un sopralluogo, è che ogni attività, ogni operazione svolta deve essere debitamente, puntualmente e accuratamente documentata.}
 		
-		\paragraph{In caso di errore, deve essere documentato?} La risposta breve è semplice: sì! Ma per quale motivo non è sempre chiaro: molti tendono a nascondere gli errori, certamente per orgoglio o vergogna. Ma nell'attività di P.G. gli errori possono capitare (non si dice che solo chi non lavora non commette errori?) e documentarli è fondamentale
-		
+		\paragraph{In caso di errore, deve essere documentato?} La risposta breve è semplice: sì! Ma per quale motivo non è sempre chiaro: molti tendono a nascondere gli errori, certamente per orgoglio o vergogna. Ma nell'attività di P.G. gli errori possono capitare (non si dice che solo chi non lavora non commette errori?) e documentarli è fondamentale.
+	
+
 	\section{L'analisi forense}
 	
 		Fatte le premesse sulle corrette modalità di repertamento del materiale informatico, è necessario spendere qualche parola sull'analisi vera e propria, quella che alla fine fornisce le prove dell'eventuale attività illecita condotta per il tramite di uno o più dispositivi tecnologici.
@@ -413,7 +430,7 @@
 			\item Architettura hardware di un computer;
 			\item Concetto di BIOS\footnote{In informatica, il Basic Input-Output System o BIOS è un insieme di routine software, generalmente scritte su memoria ROM, FLASH o altra memoria non volatile, che fornisce una serie di funzioni di base per l'accesso all'hardware del computer e alle periferiche integrate nella scheda madre da parte del sistema operativo e dei programmi. Nei computer IBM-compatibili la ROM del BIOS contiene anche il POST, il primo programma che viene eseguito dopo l'accensione, coinvolto dunque nella fase di avvio (boot) del sistema di elaborazione. (\url{https://it.wikipedia.org/wiki/BIOS})};
 			\item Concetto di periferiche e memorie di massa;
-			\item Concetto di \textit{hash};\footnote{Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\url{https://it.wikipedia.org/wiki/Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
+			\item Concetto di \textit{hash};\footnote{\label{note:hash}Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\url{https://it.wikipedia.org/wiki/Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
 			\item Architettura base dei sistemi operativi Microsoft (cartelle di sistema, cartelle utente, file temporanei);
 			\item Architettura base dei sistemi Apple (idem);
 			\item Funzionalità base dei sistemi GNU/Linux (per l'utilizzo dei tool per il ``\textit{live forensic}'').
@@ -437,15 +454,23 @@
 					
 					Lo stesso perito era stato chiamato ad esaminare il computer di un presunto pedofilo in un'altra Compagnia dello stesso Provinciale. Non stupì il sottoscritto il fatto che non fosse stato trovato nulla di utile. Alla luce della pessima esperienza con la \textit{non-}analisi, il magistrato chiese del materiale con il quale, suo malgrado, fu costretta a demolire il lavoro del proprio stesso CTU il quale, rendendosi conto di aver fatto un pessimo lavoro e soprattutto una magra figura, uscì dall'aula del tribunale in lacrime.
 			
+			\subsubsection{I software per l'analisi forense}
+				Esistono in commercio moltissimi software pensati appositamente per le analisi forensi. Alcuni sono particolarmente sofisticati e, a fronte di un investimento iniziale consistente per l'acquisto della licenza, permettono di operare con rapidità, per lo meno nella parte di acquisizione dei dati (clonazione e estrazione dei dati) e presentando una reportistica abbastanza completa che comunque deve poi essere attentamente valutata dal tecnico.
+				
+				Il parere di chi scrive è che, soprattutto la pubblica amministrazione e le forze di polizia dovrebbero, per quanto possibile, tendere all'utilizzo di software non commerciale possibilmente libero (e quindi a sorgente aperto). Sullo specifico argomento, ovviamente, la questione è molto dibattuta e tende a essere più una dissertazione filosofica che una pragmatica presa di posizione.
+				
+				Che si usi uno strumento o un altro, l'aspetto fondamentale è indipendenza del risultato ottenuto dallo strumento utilizzato per ottenerlo: per quanto il software commerciale sia elaborato e sofisticato, gli stessi risultati si possono ottenere co
+			
 			\subsubsection{La copia forense}
 				Prima ancora di iniziare a analizzare il contenuto di un computer o comunque di un dispositivo digitale con al suo interno dei dati immagazzinati, è necessario effettuarne una \textbf{copia forense}\footnote{\url{https://it.wikipedia.org/wiki/Copia_forense}} (in inglese \textit{forensically sound image}). A differenza di quanto proposto dal referente telematico del primo esempio del paragrafo \ref{subsec:bad_examples} e di quanto fatto dal perito del secondo, \emph{una copia forense non è una copia effettuata ``trascinando'' le cartelle del disco oggetto di analisi in quello destinato a contenerne la copia}. 
 				A differenza di una copia eseguita sui singoli file presenti sul filesystem, la clonazione comporta la duplicazione di tutte le zone del disco, anche quelle che non contengono alcun file direttamente visibile all'utente, definite tecnicamente aree non allocate. Poiché nella maggior parte dei filesystem la rimozione di un file implica semplicemente la cancellazione dell'indice che contiene la posizione del file su disco, il poter aver accesso alle aree non allocate permette il recupero di file cancellati o di informazioni ormai non più disponibili all'utilizzatore del sistema. La copia forense è realizzabile tramite clonazione o tramite creazione di un file immagine.
 				Effettuare un copia in questo modo necessita alcuni accorgimenti tecnici semplici ma fondamentali che né il referente né il perito dei precedenti esempi avevano anche solo minimamente tenuto in considerazione: \textbf{la protezione in scrittura del disco da copiare.}
 				
 				Per ottenerla ci sono due possibilità:
-				\begin{enumerate}
-					\item avere a disposizione un dispositivo che faccia il blocco a livello hardware (\textit{write blocker} (figura \ref{fig:800px-Portable_forensic_tableau}))
-				\end{enumerate}
+				\begin{itemize}
+					\item avere a disposizione un dispositivo che faccia il blocco a livello hardware (\textit{write blocker}, di cui un esempio è visibile in figura \ref{fig:800px-Portable_forensic_tableau});
+					\item utilizzare come sistema di analisi una workstation con a bordo un sistema operativo specificamente pensato per le analisi forensi -- al riguardo, nel seguito, ne verranno presentati alcuni.
+				\end{itemize}
 				
 				\begin{figure}
 					\centering
@@ -453,6 +478,10 @@
 					\caption{Un esempio di write blocker hardware}
 					\label{fig:800px-Portable_forensic_tableau}
 				\end{figure}
+				
+				Una volta effettuata la copia -- o immagine -- forense è necessario (in realtà indispensabile) procedere al calcolo dell'\textit{hash}. In realtà, 
+				
+				
 
 
 				
@@ -519,7 +548,7 @@
 		
 			\item{\textbf{hashing all evidences:}} una volta acquisita, la prova deve essere preservata in modo tale che l'investigatore possa, più tardi, dimostrare che nulla è cambiato. Il metodo più accettato è quello di calcolare un \textit{hash} dei dati (solitamente via MD5 o SHA-1). L'\textit{hash} rappresenta una ``impronta digitale'' dei dati con un piccolo numero di byte, solitamente 16-20. L'\textit{hash} può essere ricalcolato più tardi e comparato con l'originale per mostrare che i dati non sono cambiati da quando è stato calcolato il primo valore;\footnote{Al riguardo, a parere di chi scrive, ci sarebbe da discutere: nel fare una attività di \textit{live forensic} tutti i file estrapolati sono suscettibili di essere stati manipolati. Un eventuale \textit{hash} di un file salvato da un computer acceso è essenzialmente autoreferenziale. Salvo che quello stesso file venga trovato anche in sede di analisi \textit{post mortem} la difesa non avrà modo di risalire e ricostruire le operazioni che hanno portato al suo rinvenimento. Ben venga l'hashing di tutte le evidenze rinvenute, ma a quale scopo?}
 		
-			\item{\textbf{gathering data in order of volatility:}} alcuni dati sono più effimeri di altri. Le prove dovrebbero essere raccolte in base ad un ``ordine di volatilità'':per esempio, la stampa della memoria fisica di una macchina potrebbe essere utile, potrebbero volerci pochi minuti per completarla, ma nel frattempo molte più utili informazione potrebbero andare perse o potrebbero essere modificate (processi attivi, file aperti, connessioni di rete, \dots). 
+			\item{\textbf{gathering data in order of volatility:}} alcuni dati sono più effimeri di altri. Le prove dovrebbero essere raccolte in base ad un ``ordine di volatilità'':per esempio, la stampa della memoria fisica di una macchina potrebbe essere utile, potrebbero volerci pochi minuti per completarla, ma nel frattempo molte più utili informazione potrebbero andare perse o potrebbero essere modificate (processi attivi, file aperti, connessioni di rete, ecc.). 
 			In altre parole, l'investigatore deve tener conto del contesto dell'investigazione nella sua totalità, in modo da prendere decisioni informate sull'ordine di acquisizione delle prove. Al riguardo, si veda la sezione \ref{sec:priorita}~``\nameref{sec:priorita}''.
 		
 		\end{itemize}
@@ -581,6 +610,26 @@
 %			\item Operare sui reperti garantendo l'integrità dei dati, ovvero utilizzando accorgimenti hardware e/o software che blocchino qualsiasi scrittura sul disco;
 %			\item Lavorare sempre e soltanto su copie\footnote{I concetti di originale e copia in ambito di informazioni digitali sono dibattuti e controversi. In questo contesto si intende per copia qualsiasi riproduzione dei dati contenuti sul supporto sequestrato.};
 %		\end{itemize}
+		\appendix
+		\section{Output di guymager}
+			\begin{lstlisting}
+				Output
+			\end{lstlisting}
+
 		\newpage
 		\listoffigures
+		
+		\bibliographystyle{plain}
+		\bibliography{forensics}
+		
+		
+%	\begin{thebibliography}{9}
+%		\bibliographystyle{abbrv}
+%	
+%		\bibitem{mattiucci}
+%		Ten.~Col.~Marco Mattiucci,
+%		\url{http://www.marcomattiucci.it/informatica}
+%			
+%	\end{thebibliography}
+		
 \end{document}
