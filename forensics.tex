@@ -93,9 +93,11 @@
 			La fluidità dell'argomento, le continue innovazioni tecnologiche, le contromisure messe in atto dai malfattori che per la loro attività quotidiana si avvalgono di strumenti digitali, nonché i limiti di non poter lavorare sempre e solo nell'ambito dell'informatica forense sono la causa di eventuali imprecisioni, errori più o meno grossolani e false convinzioni. 
 			
 			Lo scopo del presente testo è comunque quello di dare un'idea di base sui principi e sulle tecniche necessarie per affrontare una analisi speditiva di una evidenza digitale: per chi volesse poi davvero approfondire lo studio, la rete e i colleghi specializzati dei reparti tecnici sono una fonte quasi inesauribile di informazioni.
+		\subsection{Nota sulla bibliografia}
+			I riferimenti alle fonti bibliografie citate in coda al presente documento sono visualizzati in questo modo: \cite{mattiucci}.
 		
 	\section{Fonti normative}
-		Con la legge n.~48 del 18 marzo 2008 è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
+		Con la legge n.~48 del 18 marzo 2008\cite{L_48/2008_2016-03-04} è stata ratificata la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001. La legge si occupa in generale di criminalità informatica, e introduce significative modifiche al codice penale in tale ambito. Oltre a queste, tuttavia, sono state inserite anche novità al Codice di Procedura Penale che risultano di particolare interesse per l'informatica forense.
 		
 		\begin{description}
 			\item[Art. 244 c.p.p.] Casi e forme delle ispezioni
@@ -169,6 +171,7 @@
 		\textit{Di questa ``analisi delle priorità'' dovremo tenere conto sia in fase di sopralluogo e quindi di raccolta del materiale, sia in fase di esame tecnico forense.}
 		
 		\begin{figure}
+			\centering
 		\begin{tikzpicture}[node distance=2cm]
 		
 		\node (start) [startstop] {Individuare il computer o il dispositivo da sequestrare};
@@ -262,7 +265,7 @@
 			
 			Per una trattazione più dettagliata della questione ''live forensics'' si rimanda alla sezione \ref{sec:live_forensics}.
 			
-			\paragraph{Nota bene:} ogni atto svolto con queste modalità è di natura assolutamente irripetibile!			
+			\paragraph{Nota bene:}~ogni atto svolto con queste modalità è di natura assolutamente irripetibile!			
 			
 			\paragraph{Sincronizziamo gli orologi.}\label{par:syncro_clock}
 			Tra le informazioni più importanti da annotare quando si procede a verificare un computer acceso ci sono l'ora e la data correnti del sistema, rapportate ovviamente a quelle effettive dell'intervento. 
@@ -284,7 +287,9 @@
 			\end{figure}
 
 			
-			Nell'esempio di cui alla figura \ref{fig:dataora}, è stata effettuata una foto della schermata del BIOS riportante data e ora del sistema, confrontata con quella indicata da un tablet sincronizzato con un NTP\footnote{Il Network Time Protocol, in sigla NTP, è un protocollo per sincronizzare gli orologi dei computer all'interno di una rete a commutazione di pacchetto. L'NTP è uno dei più vecchi protocolli tuttora in uso, ed è giunto alla sua quarta versione. Fu sviluppato presso l'Università del Delaware da Dave Mills, che ne segue tuttora lo sviluppo. Il funzionamento si basa sul rilevamento dei tempi di latenza nel transito dei pacchetti sulla rete. Utilizza il tempo coordinato universale ed è quindi indipendente dai fusi orari. Attualmente è in grado di sincronizzare gli orologi dei computer su internet entro un margine di 10 millisecondi e con una accuratezza di almeno 200 microsecondi all'interno di una LAN in condizioni ottimali. (\url{https://it.wikipedia.org/wiki/Network_Time_Protocol})} server: tablet e monitor sono stati immortalati nella stessa foto.
+			Nell'esempio di cui alla figura \ref{fig:dataora}, è stata effettuata una foto della schermata del BIOS\footnote{
+				In informatica, il Basic Input-Output System o BIOS è un insieme di routine software, generalmente scritte su memoria ROM, FLASH o altra memoria non volatile, che fornisce una serie di funzioni di base per l'accesso all'hardware del computer e alle periferiche integrate nella scheda madre da parte del sistema operativo e dei programmi. Nei computer IBM-compatibili la ROM del BIOS contiene anche il POST, il primo programma che viene eseguito dopo l'accensione, coinvolto dunque nella fase di avvio (boot) del sistema di elaborazione.\cite{wiki:BIOS}}
+			riportante data e ora del sistema, confrontata con quella indicata da un tablet sincronizzato con un NTP\footnote{Il Network Time Protocol, in sigla NTP, è un protocollo per sincronizzare gli orologi dei computer all'interno di una rete a commutazione di pacchetto. L'NTP è uno dei più vecchi protocolli tuttora in uso, ed è giunto alla sua quarta versione. Fu sviluppato presso l'Università del Delaware da Dave Mills, che ne segue tuttora lo sviluppo. Il funzionamento si basa sul rilevamento dei tempi di latenza nel transito dei pacchetti sulla rete. Utilizza il tempo coordinato universale ed è quindi indipendente dai fusi orari. Attualmente è in grado di sincronizzare gli orologi dei computer su internet entro un margine di 10 millisecondi e con una accuratezza di almeno 200 microsecondi all'interno di una LAN in condizioni ottimali.\cite{wiki:Network_TimeProtocol}} server: tablet e monitor sono stati immortalati nella stessa foto.
 			
 			È buona norma per l'operatore essere in grado di avere l'ora esatta, magari appunto installando una applicazione di sincronia NTP sul proprio telefono.
 			
@@ -337,7 +342,7 @@
 			Se si dispone di tale accessorio, è opportuno operare quanto sopra descritto solo dopo aver messo il dispositivo in un idoneo involucro che funga da \textit{gabbia di Faraday}\footnote{
 				Con gabbia di Faraday si intende qualunque sistema costituito da un contenitore in materiale elettricamente conduttore (o cavo conduttore) in grado d'isolare l'ambiente interno da un qualunque campo elettrostatico presente al suo esterno, per quanto intenso questo possa essere, ma un corpo esterno non sarà altrettanto isolato come quello interno, poiché, la gabbia, essendo attraversata da una carica elettrostatica attiva, una volta raggiunto un elevato potenziale elettrico cercherà di scaricare l'eccessiva potenzialità su corpi vicini esternamente. [\dots]
 				
-				Un'altra applicazione si ha in elettronica per eliminare le interferenze di campi elettromagnetici esterni in apparecchi radio e per telecomunicazioni, oppure per evitare la fuoriuscita di campi elettromagnetici da un ambiente, come nel caso del forno a microonde. In quest'ultimo è presente una rete metallica sullo sportello: in questo modo, durante il suo utilizzo, si è schermati dalle microonde mantenendo la possibilità di vedere le pietanze (\url{https://it.wikipedia.org/wiki/Gabbia_di_Faraday}).}
+				Un'altra applicazione si ha in elettronica per eliminare le interferenze di campi elettromagnetici esterni in apparecchi radio e per telecomunicazioni, oppure per evitare la fuoriuscita di campi elettromagnetici da un ambiente, come nel caso del forno a microonde. In quest'ultimo è presente una rete metallica sullo sportello: in questo modo, durante il suo utilizzo, si è schermati dalle microonde mantenendo la possibilità di vedere le pietanze \cite{wiki:GabbiadiFaraday}.}
 			per evitare che si colleghi alla rete mobile.
 			
 			Per spegnerlo è necessario staccare la batteria\footnote{
@@ -347,11 +352,16 @@
 			A questo punto si può procedere con le ulteriori attività, descritte di seguito per i sistemi non attivi al momento del rinvenimento.
 			
 			\subsubsection{Dispositivi spenti}
-			Come sempre, vale la regola di non accendere mai gli apparecchi rinvenuti spenti. Prima di imballarli, vanno ricercate e sequestrate a parte eventuali SIM card e schede di memoria contenute nel telefono, delle quali vanno annotati numeri di serie e ogni altro dato utile.
+			Come sempre, vale la regola di non accendere mai gli apparecchi rinvenuti spenti. Prima di imballarli, vanno ricercate e sequestrate a parte eventuali SIM card e schede di memoria contenute nel telefono, delle quali vanno annotati numeri di serie e ogni altro dato utile (figura~\ref{fig:samsung_example}).
 			
-			Il numero IMEI del telefono (ovvero il numero identificativo univoco del terminale), solitamente riportato su un etichetta posta sulla scocca al di sotto della batteria: pertanto è necessario, dove possibile, rimuoverla per poter annotare l'IMEI: tale operazione, su un terminale rinvenuto spento, ha il grosso svantaggio che azzera i dati della memoria volatile del telefono, quali le chiamate recenti e le impostazioni di data e ora.
+			Il codice IMEI del telefono\footnote{
+				Il codice IMEI (acronimo di International Mobile Equipment Identity) è un codice numerico che identifica univocamente un terminale mobile (Mobile Equipment), che può essere un telefono cellulare o un modem che sfrutti la tecnologia cellulare GSM GPRS EDGE UMTS HSDPA/HSUPA LTE.\cite{wiki:International_MobileStationEquipmentIdentity}
+				
+				Nel caso di telefono acceso, l'IMEI può essere ottenuto componendo il codice *\#06\# come fosse un numero di telefono da chiamare.
+				}
+			è solitamente riportato su un etichetta posta sulla scocca al di sotto della batteria: pertanto è necessario, dove possibile, rimuoverla per poter annotare l'IMEI: tale operazione, su un terminale rinvenuto spento, ha il grosso svantaggio che azzera i dati della memoria volatile del telefono, quali le chiamate recenti e le impostazioni di data e ora.
 			
-			Se non indispensabile, l'annotazione del numero IMEI può anche essere fatta successivamente, in corso di analisi forense, salvo ragioni di urgenza e necessità facciano optare invece per una scelta diversa.
+			Se non indispensabile al momento del sequestro, l'annotazione del numero IMEI può anche essere fatta successivamente, in corso di analisi forense, salvo ragioni di urgenza e necessità facciano optare invece per una scelta diversa.
 			
 			\begin{figure}
 				\centering
@@ -359,33 +369,40 @@
 				\caption{Un semplice telefono di vecchia generazione fornisce già molti dati...}
 				\label{fig:samsung_example}
 			\end{figure}
-
 			
 			Quando possibile, è necessario cercare di reperire ogni utile codice di accesso al telefono, PIN e PUK in primo luogo, ma anche eventuali altri codici di sblocco che possono precludere in modo assoluto l'accesso al telefono.
 			
-			Le analisi forensi sui telefono di nuova generazione sono generalmente non ripetibili. Sui motivi e le implicazioni di questa affermazione ci si soffermerà nel seguito.
+			Le analisi forensi sui telefono di nuova generazione sono generalmente non ripetibili. Sui motivi e le implicazioni di questa affermazione sarebbe necessaria una trattazione a parte. Basti sapere che per effettuare la copia forense (che non è nemmeno sempre possibilie) di terminali Android o iOS (Apple iPhone e iPad) è necessario installarvi un apposito software dopo aver effettuato il rooting\footnote{
+				Il rooting è la procedura che permette agli utenti di smartphone, tablet e altri dispositivi che utilizzano il sistema operativo mobile Android di ottenere privilegi di amministratore, detti appunto ``di root''\cite{wiki:RootingAndroidOS}.}
+			o il \textit{jailbreak}\footnote{
+				Il jailbreak (in italiano: evasione) è una procedura che permette di installare su un device Apple (iPhone, iPad e iPod touch) meccanismi di distribuzione di applicazioni e pacchetti anche non firmati alternativi a quello ufficiale dell'App Store. Dopo aver effettuato il jailbreak al proprio iPhone gli utenti possono infatti installare numerose applicazioni altrimenti non disponibili tramite l'App Store attraverso applicazioni non ufficiali come Cydia, Icy, Rock e Installer\cite{wiki:Jailbreak}.}
+			del dispositivo.
 			
 		\subsection{Un caso di studio: esiste la ``perquisizione informatica''?}\label{subsec:perquisa_informatica}
 		
-		Su attivazione di una Stazione Carabinieri, personale del Nucleo Operativo di Compagnia riuscirono ad intercettare un'auto con a bordo presunti truffatori che, per un maldestro intervento del personale della Stazione, avendo notato l'arrivo dell'auto con i colori d'istituto, si stavano dileguando senza perfezionare la truffa. 
+		Su attivazione di una Stazione Carabinieri, personale del Nucleo Operativo di Compagnia riuscì ad intercettare un'auto con a bordo presunti truffatori che, avendo notato l'arrivo dell'auto con i colori d'istituto, si stavano dileguando senza perfezionare la truffa. 
 		
 		Il loro \textit{modus operandi} era piuttosto semplice: in un grosso centro commerciale ordinavano materiale elettronico (televisori, stereo, ecc.) per un valore compreso tra i 3 e i 4 mila euro. Ottenuto il preventivo, dicevano che si sarebbero recati in banca per ottenere un assegno circolare e nel frattempo chiedevano che fosse preparata la merce. Dopo le 4 del pomeriggio, quando ormai le banche erano chiuse, si ripresentavano con un assegno non trasferibile dell'importo pattuito, ritiravano la merce e si dileguavano. Ovviamente l'assegno era falso, ma l'esercente lo poteva appurare solo il giorno successivo.
 		
-		L'errore dei malviventi era stato quello di operare sempre in filiali della stessa catena (Mercatone Uno) usando documenti veri e validi: la direzione centrale della catena, dopo l'ennesima truffa, aveva diramato le foto dei truffatori, permettendo quindi ai commessi di riconoscere i soggetti che stavano per truffarli e chiamare i Carabinieri.
+		L'errore dei malviventi era stato quello di operare spesso in filiali della stessa catena (Mercatone Uno) usando documenti veri e validi: la direzione centrale, dopo l'ennesima truffa, aveva diramato le foto dei truffatori a tutte le filiali, permettendo ai commessi di riconoscere i soggetti che stavano per truffarli e chiamare i Carabinieri.
 		
-		Come si diceva, dunque, i colleghi del Nucleo Operativo, identificata l'auto con la quale i truffatori si stavano dileguando, riuscirono a fermarla e, nel corso di una ispezione al veicolo, trovarono un computer portatile, una stampante e un \textit{inverter} da campeggio da 12 a 220 Volt occultati in uno scatolone nel bagagliaio.
+		Come si diceva, dunque, i colleghi del Nucleo Operativo, identificata l'auto con la quale i truffatori si stavano dileguando, riuscirono a fermarla e nel corso di una ispezione al veicolo trovarono, occultati in uno scatolone nel bagagliaio, un computer portatile, una stampante e un \textit{inverter} da campeggio da 12 a 220 Volt per alimentare il tutto.
 		
 		Il magistrato di turno, sulla base dei pochi elementi in possesso, non autorizzò la perquisizione del veicolo (problema ovviato con una semplice ispezione) né tanto meno il sequestro del computer. Il PM propose invece agli operatori di effettuare una perquisizione informatica del computer, alla presenza di un avvocato d'ufficio nominato al momento.
 		
 		Avvenne così che, giunti in caserma e atteso l'avvocato, si procedette alla perquisizione del computer. 
 		
-		La metodologia utilizzata fu la stessa si una normale perquisizione, alla presenza del difensore: si chiese dapprima all'indagato se spontaneamente volesse fare vedere dove fossero i file con gli assegni da stampare; l'interessato ovviamente negò la presenza di qualsiasi file di dubbia liceità. A quel punto, prendendo nota di data e ora corrente e di ogni operazione fatta, i militari accesero il computer, andando subito alla ricerca dei ``file recenti'': nella corrispondente voce del menu era presente un file dal nome significativo: ``\texttt{seriale\_f.psd}''.\footnote{Il PSD (acronimo di \textit{PhotoShop Document}) è un formato di file nativo di \textit{Adobe Photoshop} per il salvataggio di immagini con le differenti caratteristiche gestite dal programma.}
+		La metodologia utilizzata fu la stessa di una normale perquisizione, alla presenza del difensore: si chiese dapprima all'indagato se spontaneamente volesse fare vedere dove fossero i file con gli assegni da stampare; l'interessato ovviamente negò la presenza di qualsiasi file di dubbia liceità. A quel punto, prendendo nota di data e ora corrente e di ogni operazione fatta, i militari accesero il computer, andando subito alla ricerca dei ``file recenti'': nella corrispondente voce del menu era presente un file dal nome significativo: ``\texttt{seriale\_f.psd}''.\footnote{
+				Il PSD (acronimo di \textit{PhotoShop Document}) è un formato di file nativo di \textit{Adobe Photoshop} per il salvataggio di immagini con le differenti caratteristiche gestite dal programma.}
 		
-		\paragraph{Perchè si è andati alla ricerca proprio dei file recenti?} Non c'è un motivo preciso, è stato l'intuito degli investigatori a portarli in quella direzione. Avrebbero potuto prima guardare nella cartella \texttt{Documenti}, nelle foto, aprire la lista delle applicazioni. Tuttavia, in quel momento si ipotizzava che il truffatore avesse usato nel recentissimo passato il computer per produrre un assegno: la cosa più logica è sembrata quella di guardare nella cartella dei Documenti recenti. E, per una volta, la fortuna è stata dalla parte dei buoni!
+		Purtroppo però non fu possibile aprire il file in quanto era solo un \textit{link}\footnote{
+			In informatica, negli ambienti Microsoft Windows, un collegamento è un particolare tipo di file, che ha il solo scopo di permettere l'apertura del file o della cartella a cui è associato al momento della sua creazione e posto tipicamente in una directory del file system non immediatamente visibile dall'utente. L'estensione per questo tipo di file è .LNK, ma non sempre risulta visibile all'utente essendo in genere nascosta dalla shell grafica.
+			
+			I collegamenti sono facilmente distinguibili dai file normali grazie ad una piccola freccia in basso a sinistra nella loro icona. Tipici in questo senso sono i collegamenti sul desktop delle applicazioni poste nella directory Programmi del volume C, detti anche \textit{shortcuts}.\cite{wiki:Link}
+			} 
+		che faceva riferimento ad una cartella contenuta in una memoria rimovibile (forse una penna USB): tuttavia questo indizio, per quanto lieve, era più che sufficiente per chiudere la perquisizione e procedere al sequestro per effettuare successivamente un'analisi forense approfondita alla ricerca di eventuali tracce di assegni contraffatti.
 		
-		\paragraph{} Purtroppo però non fu stato possibile aprire il file in quanto era solo un \textit{link} che faceva riferimento ad una cartella contenuta in una memoria rimovibile (forse una penna USB): tuttavia questo indizio, per quanto lieve, era più che sufficiente per chiudere la perquisizione e procedere al sequestro per effettuare successivamente un'analisi forense approfondita alla ricerca di eventuali tracce di assegni contraffatti.
-		
-		A dimostrazione della fondatezza dell'ipotesi, nel corso dell'analisi, è stato rinvenuto, tra i file cancellati, proprio un file PSD che raffigurava un assegno (figura \ref{fig:assegno_psd})
+		A dimostrazione della fondatezza dell'ipotesi, nel corso dell'analisi, è stato rinvenuto, tra i file cancellati, proprio un file .PSD che raffigurava un assegno (figura \ref{fig:assegno_psd})
 		
 		\begin{figure}
 			\centering
@@ -397,8 +414,9 @@
 		
 		Le supposizioni degli investigatori sono state quindi suffragate da quanto rinvenuto nel disco fisso del computer.
 		
-		La risposta quindi alla domanda, posta nel titolo del paragrafo, se esista o meno la ``perquisizione informatica'' è sì: di volta in volta la PG, di concerto con l'A.G., valuta come operare su un computer. Di fatto, quello che è stato fatto nell'esempio descritto non è altro che una perquisizione, \textbf{irripetibile ma documentata}, dell'apparecchiatura informatica.
+		La risposta quindi alla domanda, posta nel titolo del paragrafo, se esista o meno la ``perquisizione informatica'' è sì: di volta in volta la P.G., di concerto con l'A.G., valuta come operare su un computer. Di fatto, quello che è stato fatto nell'esempio descritto non è altro che una perquisizione, \textbf{irripetibile ma documentata}, dell'apparecchiatura informatica.
 		
+		\paragraph{Perchè si è andati alla ricerca proprio dei file recenti?} Non c'è un motivo preciso: è stato l'intuito degli investigatori a portarli in quella direzione. Avrebbero potuto prima guardare nella cartella \texttt{Documenti}, nelle foto, aprire la lista delle applicazioni. Tuttavia, in quel momento si ipotizzava che il truffatore avesse usato nel recentissimo passato il computer per produrre un assegno: la cosa più logica è sembrata quella di guardare nella cartella dei Documenti recenti. E, per una volta, la fortuna è stata dalla parte dei buoni!
 		
 		\paragraph{In caso di errore, deve essere documentato?} La risposta breve è semplice: sì! Ma non è sempre chiaro il motivo: molti tendono a nascondere gli errori, certamente per orgoglio o vergogna. Ma nell'attività di P.G. gli errori possono capitare (si dice, in effetti, che chi lavora è soggetto a commettere errori) e documentarli è fondamentale per poter correttamente interpretare i risultati ottenuti successivamente.
 		
@@ -409,15 +427,15 @@
 	
 		Fatte le premesse sulle corrette modalità di repertamento del materiale informatico, è necessario spendere qualche parola sull'analisi vera e propria, quella che alla fine fornisce le prove dell'eventuale attività illecita condotta per il tramite di uno o più dispositivi tecnologici.
 		
-		Come per la fase di repertamento, anche nel corso dell'analisi forense le capacità e l'intuito dell'investigatore sono fondamentali: come già detto, nessun tecnico, per quanto bravo, può sostituirlo. In quest'ottica, sarebbe sempre opportuno che le forze di polizia formassero propri operatori dedicati alle operazioni di analisi, in modo da garantire non solo le competenze tecniche ma anche la giusta impostazione mentale.
+		Come per la fase di repertamento, anche nel corso dell'analisi le capacità e l'intuito dell'investigatore sono fondamentali. In quest'ottica, sarebbe sempre opportuno che le forze di polizia formassero propri operatori dedicati alle operazioni di analisi, in modo da garantire non solo le competenze tecniche ma anche la giusta impostazione mentale.
 		
 		In generale, la fase di analisi dei dati contenuti nelle apparecchiature che sono state sequestrate compete al personale appositamente formato (vedi sopra) o, in alternativa, a tecnici esterni nominati all'uopo. Tuttavia, può capitare che, per ragioni di urgenza o di economicità, si debba operare in autonomia, al meglio delle proprie competenze.
 		
-		Lo scopo di questo piccolo excursus sulle analisi forensi non è quello di essere esaustivo, quanto piuttosto di dare un'idea di quelle che sono le possibilità per gli operatori. La materia è vasta richiede certamente più tempo per essere approfondita in maniera adeguata.
+		Lo scopo di questo piccolo \textit{excursus} sulle analisi forensi non è quello di essere esaustivo, quanto piuttosto di dare un'idea delle procedure corrette. La materia è vasta richiede certamente più tempo per essere approfondita in maniera adeguata.
 		
 		\subsection{I principi dell'analisi forense}
 		
-		Nel corso dell'analisi del materiale sequestrato, si devono tenere a mente alcuni punti cardine: rispettandoli, chiunque può approcciarsi all'analisi e tentare di estrapolare i dati senza rischiare di invalidare la prova e comprometterne utilizzi futuri.
+		Nel corso dell'analisi del materiale sequestrato, si devono tenere a mente alcuni punti cardine: rispettandoli, chiunque può approcciarsi a questa attività e tentare di estrapolare i dati senza rischiare di disperdere prove e comprometterne gli utilizzi futuri.
 		
 		\begin{enumerate}
 			\item \textbf{tracciabilità della catena di custodia (\textit{chain of custody}) dei reperti}: ogni passaggio di mano, ogni apertura dei plichi sigillati, ogni operazione svolta deve essere registrata;
@@ -425,19 +443,19 @@
 			\item \textbf{verificabilità e ripetibilità di tutte le operazioni svolte}: chiunque deve essere in grado di riprodurre, avendo gli strumenti adeguati, le operazioni svolte nell'analisi ottenendo gli stessi risultati.
 		\end{enumerate}
 		
-		Di seguito esamineremo gli aspetti salienti dell'analisi forense che sono alla portata della maggior parte degli operatori: non è necessario essere un ingegnere informatico per fare un'analisi forense di massima, ma certamente chi si trova ad eseguirla deve avere delle conoscenze informatiche che vanno oltre quelle di chi si limita ad utilizzare suite da ufficio o a navigare su internet.
+		Di seguito esamineremo gli aspetti salienti dell'analisi forense che sono alla portata della maggior parte degli operatori: non è necessario essere un ingegnere informatico per fare un'analisi forense di massima, ma certamente chi si trova ad eseguirla deve avere delle conoscenze che vanno oltre quelle di chi si limita ad utilizzare programmi di videoscrittura o a navigare su internet.
 		
 		\subsection{Competenze richieste a chi si vuole avvicinare al Digital Forensics}
-		Come accennato, non basta saper usare bene un computer per riuscire a mettere in atto una analisi forense, fosse anche solo preliminare nell'attesa dell'arrivo di un tecnico.
+		Come accennato, non basta saper usare bene un computer per riuscire condurre un'analisi forense, fosse anche solo preliminare nell'attesa dell'arrivo di un tecnico.
 		
 		Le conoscenze richieste sono, in ordine di importanza:
 		
 		\begin{enumerate}
 			\item Concetto di memoria volatile e persistente;
 			\item Architettura hardware di un computer;
-			\item Concetto di BIOS\footnote{In informatica, il Basic Input-Output System o BIOS è un insieme di routine software, generalmente scritte su memoria ROM, FLASH o altra memoria non volatile, che fornisce una serie di funzioni di base per l'accesso all'hardware del computer e alle periferiche integrate nella scheda madre da parte del sistema operativo e dei programmi. Nei computer IBM-compatibili la ROM del BIOS contiene anche il POST, il primo programma che viene eseguito dopo l'accensione, coinvolto dunque nella fase di avvio (boot) del sistema di elaborazione. (\url{https://it.wikipedia.org/wiki/BIOS})};
+			\item Concetto di BIOS;
 			\item Concetto di periferiche e memorie di massa;
-			\item Concetto di \textit{hash};\footnote{\label{note:hash}Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\url{https://it.wikipedia.org/wiki/Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
+			\item Concetto di \textit{hash};\footnote{\label{note:hash}Nel linguaggio matematico e informatico, l'\textit{hash} è una funzione non iniettiva (e quindi non invertibile) che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza predefinita. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.\cite{wiki:Hash}. Sull'importanza e l'utilizzo dell'\textit{hash} si ritornerà nel seguito del presente testo.}
 			\item Architettura base dei sistemi operativi Microsoft (cartelle di sistema, cartelle utente, file temporanei);
 			\item Architettura base dei sistemi Apple (idem);
 			\item Funzionalità base dei sistemi GNU/Linux (per l'utilizzo dei tool per il ``\textit{live forensic}'').
@@ -450,26 +468,32 @@
 			Per le finalità della presente trattazione, è sufficiente descrivere sommariamente i passaggi e gli strumenti utilizzati dai tecnici chiamati ad operare, non fosse altro che per saper valutare la professionalità e la preparazione di chi si ha di fronte, anche solo scambiandoci due parole.
 		
 		
-			\subsubsection{Non tutti gli informatici o presunti tali sono esperti forensi}\label{subsec:bad_examples}
-				Il primo esempio che salta alla mente è quella del referente telematico di un reparto dell'Arma dei Carabinieri: per quanto bravo e professionale nel suo lavoro, nonostante certificazioni Microsoft o di altri enti, non necessariamente egli ha chiari i concetti che stanno alla base dell'analisi forense di un sistema. Spesso, comunque, anche sedicenti esperti esterni non sono affatto tali. Vediamo qualche caso realmente accaduto.
+			\subsubsection{Non tutti gli informatici sono esperti forensi}\label{subsec:bad_examples}
+				Non è sufficiente essere un buon informatico per essere un esperto forense: un buon esempio è referente telematico di un reparto dell'Arma dei Carabinieri: per quanto bravo e professionale nel suo lavoro, nonostante certificazioni Microsoft o di altri enti, non necessariamente egli ha chiari i concetti che stanno alla base dell'analisi forense. Spesso anche sedicenti esperti esterni non sono affatto tali. Vediamo qualche caso realmente accaduto.
 		
 				\paragraph{Un primo esempio\dots} 
 					Non molti anni fa, un Comandante Provinciale propose al Comandante di una Compagnia alle sue dipendenze di fare effettuare l'analisi forense al referente informatico provinciale: fortuna volle che ne fu informato lo scrivente, allora Comandante del locale Nucleo Investigativo che ``interrogò'' il collega informatico. Richiesto sulle modalità con le quali il referente avrebbe affrontato il problema della copia del materiale informatico sequestrato, questi candidamente ammise che avrebbe collegato il disco rigido del computer alla propria macchina e "trascinato tutte le cartelle presenti" sul disco acquistato all'uopo dalla Procura. A quel punto, gentilmente ma fermamente, chi scrive disse al Comandante Provinciale e al Comandante della Compagnia che probabilmente avevano individuato la persona sbagliata per quell'attività. A breve vedremo perché.
 			
 				\paragraph{\dots e un secondo} 
-					Nella stessa sede, su indicazione di un magistrato, il Nucleo Investigativo consegnò ad un sedicente esperto forense il computer di un uomo trovato morto in casa, sospettando che il decesso fosse avvenuto a causa dell'assunzione di farmaci anabolizzanti illegali acquistati in rete. Dopo qualche settimana, il perito si presentò con una relazione di 15 pagine, metà delle quali erano occupate da schermate di "esplora risorse" di Windows Vista nelle quali si vedevano le cartelle presenti nel disco rigido. Nessuna menzione di come il disco era stato collegato al computer, nessuna traccia di \textit{hash} ma soprattutto nessuna analisi! Era stato sostanzialmente verificato con estrema superficialità il contenuto del disco, senza però aprire i file. Per non parlare, ovviamente, dell'analisi dello spazio non allocato, cioè dei file cancellati.
+					Nella stessa sede, su indicazione di un magistrato, il Nucleo Investigativo consegnò a un sedicente esperto forense il computer di un uomo trovato morto in casa, sospettando che il decesso fosse avvenuto a causa dell'assunzione di farmaci anabolizzanti illegali acquistati in rete. Dopo qualche settimana, il perito si presentò con una relazione di 15 pagine, metà delle quali erano occupate da schermate di "esplora risorse" di Windows Vista nelle quali si vedevano le cartelle presenti nel disco rigido. Nessuna menzione di come il disco era stato collegato al computer, nessuna traccia di \textit{hash} ma soprattutto nessuna analisi! Era stato sostanzialmente verificato con estrema superficialità il contenuto del disco, senza però aprire i file. Per non parlare, ovviamente, dell'analisi dello spazio non allocato, cioè dei file cancellati.
 					
-					Lo stesso perito era stato chiamato ad esaminare il computer di un presunto pedofilo in un'altra Compagnia dello stesso Provinciale. Non stupì il sottoscritto il fatto che non fosse stato trovato nulla di utile. Alla luce della pessima esperienza con la \textit{non-}analisi, il magistrato chiese del materiale con il quale, suo malgrado, fu costretta a demolire il lavoro del proprio stesso CTU il quale, rendendosi conto di aver fatto un pessimo lavoro e soprattutto una magra figura, uscì dall'aula del tribunale in lacrime.
+				\paragraph{Recidivo.}
+					Lo stesso perito del precedente esempio era stato chiamato in precedenza ad esaminare il computer di un presunto pedofilo in un'altra Compagnia dello stesso Provinciale. Alla luce dell'esperienza già fatta, non stupì il sottoscritto il fatto che non fosse stato trovato nulla di utile. Alla luce della pessima esperienza con la \textit{non-}analisi, il magistrato chiese quindi allo scrivente qualche informazione e della documentazione con la quale, suo malgrado, fu costretta a demolire il lavoro del proprio stesso CTU. Egli, rendendosi conto di aver fatto un pessimo lavoro e soprattutto una magra figura, uscì dall'aula del tribunale in lacrime.
 			
 			\subsubsection{I software per l'analisi forense}
-				Esistono in commercio moltissimi software pensati appositamente per le analisi forensi. Alcuni sono particolarmente sofisticati e, a fronte di un investimento iniziale consistente per l'acquisto della licenza, permettono di operare con rapidità, per lo meno nella parte di acquisizione dei dati (clonazione e estrazione dei dati) e presentando una reportistica abbastanza completa che comunque deve poi essere attentamente valutata dal tecnico.
+				Esistono in commercio moltissimi software pensati appositamente per le analisi forensi. Alcuni sono particolarmente sofisticati e, a fronte di un investimento iniziale consistente per l'acquisto della licenza, permettono di operare con rapidità, per lo meno nella parte di acquisizione dei dati (clonazione e estrazione dei dati) e presentando una reportistica estremamente completa che facilita molto la vita del tecnico.
 				
-				Il parere di chi scrive è che, soprattutto la pubblica amministrazione e le forze di polizia dovrebbero, per quanto possibile, tendere all'utilizzo di software non commerciale possibilmente libero (e quindi a sorgente aperto). Sullo specifico argomento, ovviamente, la questione è molto dibattuta e tende a essere più una dissertazione filosofica che una pragmatica presa di posizione.
+				Il parere di chi scrive è che, soprattutto la pubblica amministrazione e le forze di polizia dovrebbero, per quanto possibile, tendere all'utilizzo di software non commerciale possibilmente libero (e quindi a sorgente aperto). Sullo specifico argomento, ovviamente, la questione è molto dibattuta e tende a essere più una dissertazione filosofica che una pragmatica presa di posizione ed esula decisamente dallo scopo della presente trattazione.
 				
-				Che si usi uno strumento o un altro, l'aspetto fondamentale è indipendenza del risultato ottenuto dallo strumento utilizzato per ottenerlo: per quanto il software commerciale sia elaborato e sofisticato, gli stessi risultati si possono ottenere co
+				Che si usi uno strumento o un altro, l'aspetto fondamentale è indipendenza del risultato ottenuto dallo strumento utilizzato per ottenerlo: per quanto il software commerciale sia elaborato e sofisticato, gli stessi risultati si possono ottenere con software libero.
+				
+				Tra i software commerciali deve essere citato quello che è riconosciuto unanimemente come lo standard industriale: \textit{EnCase Forensic} della Guidance Software. Si tratta di un software completo per l'analisi e il reporting su computer, dispositivi mobili, memorie di massa, ecc.. Dato il costo della licenza non permette di testalo e quindi chi scrive non è in grado di interloquire o di darne una descrizione più dettagliata.
 			
 			\subsubsection{La copia forense}
-				Prima ancora di iniziare a analizzare il contenuto di un computer o comunque di un dispositivo digitale con al suo interno dei dati immagazzinati, è necessario effettuarne una \textbf{copia forense}\footnote{\url{https://it.wikipedia.org/wiki/Copia_forense}} (in inglese \textit{forensically sound image}). A differenza di quanto proposto dal referente telematico del primo esempio del paragrafo \ref{subsec:bad_examples} e di quanto fatto dal perito del secondo, \emph{una copia forense non è una copia effettuata ``trascinando'' le cartelle del disco oggetto di analisi in quello destinato a contenerne la copia}. 
+				Prima ancora di iniziare a analizzare il contenuto di un computer o comunque di un dispositivo digitale con al suo interno dei dati immagazzinati, è necessario effettuarne una \textbf{copia forense}\footnote{
+					La copia forense (o bit-stream image), nel lessico forense, indica l'acquisizione di documenti in formato digitale che genera una copia bit a bit da un dispositivo di memoria di massa a un altro.\cite{wiki:Copia_forense}
+					}
+				(in inglese \textit{forensically sound image}). A differenza di quanto proposto dal referente telematico del primo esempio del paragrafo \ref{subsec:bad_examples} e di quanto fatto dal perito del secondo, \emph{una copia forense non è una copia effettuata ``trascinando'' le cartelle del disco oggetto di analisi in quello destinato a contenerne la copia}. 
 				A differenza di una copia eseguita sui singoli file presenti sul filesystem, la clonazione comporta la duplicazione di tutte le zone del disco, anche quelle che non contengono alcun file direttamente visibile all'utente, definite tecnicamente aree non allocate. Poiché nella maggior parte dei filesystem la rimozione di un file implica semplicemente la cancellazione dell'indice che contiene la posizione del file su disco, il poter aver accesso alle aree non allocate permette il recupero di file cancellati o di informazioni ormai non più disponibili all'utilizzatore del sistema. La copia forense è realizzabile tramite clonazione o tramite creazione di un file immagine.
 				Effettuare un copia in questo modo necessita alcuni accorgimenti tecnici semplici ma fondamentali che né il referente né il perito dei precedenti esempi avevano anche solo minimamente tenuto in considerazione: \textbf{la protezione in scrittura del disco da copiare.}
 				
@@ -486,7 +510,11 @@
 					\label{fig:800px-Portable_forensic_tableau}
 				\end{figure}
 				
-				Una volta effettuata la copia -- o immagine -- forense è necessario (in realtà indispensabile) procedere al calcolo dell'\textit{hash}. In realtà, 
+				Una volta effettuata la copia -- o immagine -- forense è necessario (in realtà indispensabile) procedere al calcolo dell'\textit{hash}.
+				
+				Ormai tutti i software che permettono di creare immagini forensi hanno la funzionalità automatica per la generazione dell'\textit{hash}, proponendo di solito oltre al classco e superato MD5 anche SHA1 o SHA256.
+				
+				\paragraph{Perché è necessario proteggere dalla scrittura i supporti prima di copiarli?} I sistemi operativi moderni, qualsiasi essi siano, a meno di non venire configurati \textit{ad hoc}, 
 				
 				
 
