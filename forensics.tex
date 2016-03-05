@@ -13,6 +13,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[nottoc]{tocbibind}
 \usepackage{listings}
+\usepackage{multirow}
 \lstset{
 	basicstyle=\small\ttfamily,
 	columns=flexible,
@@ -478,7 +479,7 @@
 				\paragraph{Recidivo.}
 					Lo stesso perito del precedente esempio era stato chiamato in precedenza ad esaminare il computer di un presunto pedofilo in un'altra Compagnia dello stesso Provinciale. Alla luce dell'esperienza già fatta, non stupì il sottoscritto il fatto che non fosse stato trovato nulla di utile. Alla luce della pessima esperienza con la \textit{non-}analisi, il magistrato chiese quindi allo scrivente qualche informazione e della documentazione con la quale, suo malgrado, fu costretta a demolire il lavoro del proprio stesso CTU. Egli, rendendosi conto di aver fatto un pessimo lavoro e soprattutto una magra figura, uscì dall'aula del tribunale in lacrime.
 			
-			\subsubsection{I software per l'analisi forense}
+			\subsubsection{I software per l'analisi forense}\label{subsubsec:swForensi}
 				Esistono in commercio moltissimi software pensati appositamente per le analisi forensi. Alcuni sono particolarmente sofisticati e, a fronte di un investimento iniziale consistente per l'acquisto della licenza, permettono di operare con rapidità, per lo meno nella parte di acquisizione dei dati (clonazione e estrazione dei dati) e presentando una reportistica estremamente completa che facilita molto la vita del tecnico.
 				
 				Il parere di chi scrive è che, soprattutto la pubblica amministrazione e le forze di polizia dovrebbero, per quanto possibile, tendere all'utilizzo di software non commerciale possibilmente libero\footnote{
@@ -493,11 +494,15 @@
 				Tra i tool liberi e gratuiti si distinguono le distribuzioni di GNU/Linux create appositamente per le analisi forensi, disponibili in rete in maniera completamente gratuita, e forniti di una documentazione, in ordine sparso:
 				
 				\begin{itemize}
-					\item 
+					\item \textbf{CAINE} (\textbf{C}omputer \textbf{A}ided \textbf{IN}vestigative \textbf{E}nvironment), una distribuzione completamente italiana su base Ubuntu, relativamente facile da utilizzare e completa. Può essere liberamente scaricata dal sito \url{http://www.caine-live.net/};
+					\item \textbf{DEFT} (\textbf{D}igital \textbf{E}vidence \& \textbf{F}orensic \textbf{T}oolkit), un'altra ottima distribuzione italiana di GNU/Linux dedicata alle analisi forensi, liberamente scaricabile dal sito \url{http://www.deftlinux.net/};
+					\item esistono molte altre distribuzioni di GNU/Linux concepite per le esigenze degli investigatori forensi, alcune dedicate a specifici settori quali l'analisi e l'acquisizione di computer Apple, dispositivi mobili o altre particolarità.
 				\end{itemize}
+				
+				La caratteristica delle distribuzioni GNU/Linux citate (CAINE e DEFT) è quella di poter essere masterizzate su un CD/DVD o eseguite direttamente da chiavetta USB, permettendo, in caso di necessità, di operare sul posto con la certezza di accedere ai dati in sola lettura per una prima ispezione che non vada a compromettere l'integrità dei dati o procedere addirittura alla copia forense \textit{on the fly} dei dischi (vedi sezione \ref{subsubsec:copiaforense}).
 					
 			
-			\subsubsection{La copia forense}
+			\subsubsection{La copia forense}\label{subsubsec:copiaforense}
 				Prima ancora di iniziare a analizzare il contenuto di un computer o comunque di un dispositivo digitale con al suo interno dei dati immagazzinati, è necessario effettuarne una \textbf{copia forense}\footnote{
 					La copia forense (o bit-stream image), nel lessico forense, indica l'acquisizione di documenti in formato digitale che genera una copia bit a bit da un dispositivo di memoria di massa a un altro.\cite{wiki:Copia_forense}
 					}
@@ -508,7 +513,7 @@
 				Per ottenerla ci sono due possibilità:
 				\begin{itemize}
 					\item avere a disposizione un dispositivo che faccia il blocco a livello hardware (\textit{write blocker}, di cui un esempio è visibile in figura \ref{fig:800px-Portable_forensic_tableau});
-					\item utilizzare come sistema di analisi una workstation con a bordo un sistema operativo specificamente pensato per le analisi forensi -- al riguardo, nel seguito, ne verranno presentati alcuni.
+					\item utilizzare come sistema di analisi una workstation con a bordo un sistema operativo specificamente pensato per le analisi forensi (vedasi sezione \ref{subsubsec:swForensi}).
 				\end{itemize}
 				
 				\begin{figure}
@@ -520,10 +525,39 @@
 				
 				Una volta effettuata la copia -- o immagine -- forense è necessario (in realtà indispensabile) procedere al calcolo dell'\textit{hash}.
 				
-				Ormai tutti i software che permettono di creare immagini forensi hanno la funzionalità automatica per la generazione dell'\textit{hash}, proponendo di solito oltre al classco e superato MD5 anche SHA1 o SHA256.
+				Ormai tutti i software che permettono di creare immagini forensi hanno la funzionalità automatica per la generazione dell'\textit{hash}, proponendo di solito oltre al classico (e superato) MD5 anche SHA1 o SHA256.
 				
-				\paragraph{Perché è necessario proteggere dalla scrittura i supporti prima di copiarli?} I sistemi operativi moderni, qualsiasi essi siano, a meno di non venire configurati \textit{ad hoc}, scrivono informazioni di sistema su ogni dispositivo che venga connesso, modificando quindi, per quanto minimamente, i dati in esso originariamente contenuti.			
+				\paragraph{Perché è necessario proteggere dalla scrittura i supporti prima di copiarli?} I sistemi operativi moderni, qualsiasi essi siano, a meno di non venire configurati \textit{ad hoc}, scrivono informazioni di sistema su ogni dispositivo che venga connesso, modificando quindi, per quanto minimamente, i dati in esso originariamente contenuti.
 				
+			\subsubsection{Hash, impronta digitale elettronica}
+				La generazione dell'\textit{hash} di una evidenza forense è estremamente importante ed è considerata come la prova dell'integrità dei dati acquisiti: chiunque si approccia all'analisi dei dati effettua, per prima cosa, il calcolo dell'\textit{hash}: se esso differisce da quello calcolato i sede di acquisizione, il secondo perito non procederà con il lavoro ed eccepirà l'integrità del dato: infatti, una modifica ancorché minima del contenuto di una evidenza digitale farà sì che l'impronta risultante sarà completamente diversa.
+				
+				Come è stato detto in precedenza, la funzione di hashing è induttiva e non reversibile e la probabilità di collisioni (ovvero di due serie di dati che forniscano la stessa sequenza di bit) è estremamente improbabile sebbene non impossibile ed è inversamente proporzionale alla complessità dell'algoritmo di calcolo.
+				
+				In tabella \ref{tab:hashtest} è riportato un semplice esempio pratico, generando gli hash MD5 e SHA1 tramite un servizio on-line (\url{www.md5.cz} e \url{www.sha1.cz}) delle parole ``Carabinieri'' e ``carabineri'', differenziando solo la prima lettera maiuscola o minuscola.
+				
+				Le stringhe generate dalle due funzioni sono completamente diverse, a dimostrazione di come una minima modifica ha effetti enormi sul risultato dell'\textit{hash}.
+				
+				\begin{table}
+					\centering
+					\begin{tabular}{c|c|c}
+						
+						Stringa & Tipo di \textit{hash} & valore \\
+						\hline
+						\multirow{2}{*}{\texttt{Carabinieri}} 
+						& \texttt{MD5} & \texttt{dae05abfa4bfb7d7adcc696ee55a38de} \\
+						\cline{2-3}
+						& \texttt{SHA1} & \texttt{88df4a0528da6b42987bd6542ee8d1d9f9457ec7} \\
+						
+						\hline
+						 \multirow{2}{*}{\texttt{carabinieri}}
+						 & \texttt{MD5} & \texttt{30ef5966704603d09f86bf35f2005e48} \\
+						 \cline{2-3}
+						 & \texttt{SHA1} & \texttt{2db401a3d74fe36b974de779be8c5b726a2de64c} \\
+					\end{tabular}
+					\label{tab:hashtest}
+					\caption{Un semplice esempio di hash}
+				\end{table}
 		
 		\subsection{Live Forensics}\label{sec:live_forensics}
 			La procedura che per anni è stata considerata come la migliore possibile è quella del repertamento ``brutale'' del personale computer: essa richiede che il dispositivo sulla scena del crimine venga spento senza che il sistema operativo registri l'evento ``spegnimento'', interrompendo semplicemente l'alimentazione elettrica.
