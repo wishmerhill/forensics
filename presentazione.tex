@@ -1,13 +1,14 @@
 \documentclass[11pt]{beamer}
-\usetheme{Berkeley}
+\usetheme{Singapore}
+%\usecolortheme{dove}
 \usepackage{etoolbox}
 \usepackage{ragged2e}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
-\usepackage{graphicx}
 \usepackage{scrextend}
 \usepackage{tikz}
 \usepackage{adjustbox}
+\AtBeginSection[]{\subsection{}}
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, 
 rounded corners, 
@@ -58,11 +59,11 @@ text width= 3.5cm ]
 \apptocmd{\frame}{}{\justifying}{}
 \author{Cap. Alberto Azzalini}
 \title[Analisi Forense]{Analisi forense\\Repertamento di materiale informatico}
-\subtitle{Introduzione e modalità operative}
+\subtitle{Introduzione alle modalità operative}
 
 %\logo{\includegraphics[height=0.1\linewidth]{pics/stemma-della-repubblica-italiana-colori}}
 
-\institute{Compagnia Carabieri di Vipiteno}
+\institute{Legione Carabinieri ``Trentino Alto Adige''\\Comando Provinciale di Bolzano\\Compagnia di Vipiteno}
 
 \date{31 marzo 2016}
 
@@ -120,16 +121,16 @@ text width= 3.5cm ]
 	\section{Fonti normative}
 	\begin{frame}
 		\frametitle{La legislazione italiana}
-		La legge n.~48 del 18 marzo 2008 ratifica la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001:
+		La legge n.~48 del 18 marzo 2008\cite{L_48/2008_2016-03-04} ratifica la Convenzione del Consiglio d'Europa sulla criminalità informatica, risalente al novembre 2001:
 		\begin{itemize}
 			\item introduce significative modifiche al codice penale in ambito informatico;
 			\item introduce novità al Codice di Procedura Penale interessanti per l'informatica forense.
 		\end{itemize}. 
 	\end{frame}
 	
-	\begin{frame}
+	\begin{frame}[shrink]
 		\frametitle{Le modifiche al Codice di Procedura Penale [1/4]}
-		\fontsize{8pt}{\baselineskip}\selectfont
+%		\fontsize{8pt}{\baselineskip}\selectfont
 		\begin{center}
 			\textbf{Art.~244 c.p.p.} \\\textit{Casi e forme delle ispezioni}	
 		\end{center}		
@@ -138,9 +139,9 @@ text width= 3.5cm ]
 				\item[2.] Se il reato non ha lasciato tracce o effetti materiali, o se questi sono scomparsi o sono stati cancellati o dispersi, alterati o rimossi, l'autorità giudiziaria descrive lo stato attuale e, in quanto possibile, verifica quello preesistente, curando anche di individuare modo, tempo e cause delle eventuali modificazioni. L'autorità giudiziaria può disporre rilievi segnaletici, descrittivi e fotografici e ogni altra operazione tecnica [359], \textbf{anche in relazione a sistemi informatici o telematici, adottando misure tecniche dirette ad assicurare la conservazione dei dati originali e ad impedirne l'alterazione.}
 			\end{labeling}
 	\end{frame}
-	\begin{frame}
+	\begin{frame}[shrink]
 		\frametitle{Le modifiche al Codice di Procedura Penale [2/4]}
-		\fontsize{8pt}{\baselineskip}\selectfont
+%		\fontsize{8pt}{\baselineskip}\selectfont
 			\begin{center}
 				\textbf{Art. 247 c.p.p.} \\\textit{Casi e forme delle perquisizioni}
 			\end{center}
@@ -150,9 +151,9 @@ text width= 3.5cm ]
 				\item[\textellipsis]
 			\end{labeling}
 	\end{frame}
-	\begin{frame}
+	\begin{frame}[shrink]
 		\frametitle{Le modifiche al Codice di Procedura Penale [3/4]}
-		\fontsize{8pt}{\baselineskip}\selectfont
+%		\fontsize{8pt}{\baselineskip}\selectfont
 			\begin{center}
 				\textbf{Art. 352 c.p.p.} \\\textit{Perquisizioni}
 			\end{center}
@@ -162,9 +163,9 @@ text width= 3.5cm ]
 				\item[\textellipsis]
 			\end{labeling}
 	\end{frame}
-	\begin{frame}
+	\begin{frame}[shrink]
 		\frametitle{Le modifiche al Codice di Procedura Penale [4/4]}
-		\fontsize{8pt}{\baselineskip}\selectfont
+%		\fontsize{8pt}{\baselineskip}\selectfont
 			\begin{center}
 				\textbf{Art.354 c.p.p.}\\\textit{Accertamenti urgenti sui luoghi, sulle cose e sulle persone. Sequestro.}
 			\end{center}
@@ -242,58 +243,152 @@ text width= 3.5cm ]
 	\end{frame}
 	\begin{frame}
 		\frametitle{Sequenza delle operazioni}
+		\begin{adjustbox}{max totalsize={\textwidth}{\textheight},center,valign=M}
+			\Large
+			\begin{tikzpicture}[node distance=1.8cm]
+			
+			\node (start) [startstop, text width=15cm ] {Individuare il computer o il dispositivo da sequestrare};
+			
+			\node (pro1) [process, below of=start, text width=18cm, yshift=0.3cm ] {Mettere in sicurezza l'area e la scena del delitto facendo allontanare gli estranei dalle apparecchiature e dai quadri elettrici};
+			
+			\node (dec1) [decision, below of=pro1, yshift=-0.7cm, xshift=-10cm, text width=3cm ] {Il bersaglio è acceso?};
+			
+			\node (dec2) [decision, right of=dec1, xshift=19cm, text width=3cm] {C'è un esperto a disposizione?};
+			
+			\node (pro2) [process_red, below of=dec1, yshift=-4.2cm, text width=4cm] {NON ACCENDERLO!};
+			
+			\node (pro3) [process_red, below of=dec2, text width=4cm,  yshift=-4.2cm] {Seguire i suoi consigli};
+			
+			\node (pro4) [process_red, left of=dec2, text width=12cm, xshift=-8.5cm, yshift=-1.5cm] {Non accettare consigli da sedicenti esperti};
+			
+			\node (pro4a) [process, below of=pro4, text width=12cm] {Filmare, fotografare, prendere nota di tutto quello che è visibile a video e delle operazioni svolte};
+			
+			\node (pro4b) [process, below of=pro4a, yshift=-0.5cm, text width=12cm] {Rimuovere prima la batteria (se presente) e/o il cavo di alimentazione dall'apparato (e non dalla presa a muro o dalla ciabatta)};
+			
+			\node (pro5) [process, below of=pro4b, yshift=-1cm, text width=24cm ] {Etichettare e fotografare e filmare ciascun componente presente sulla scena, avendo cura di controllare anche come siano collegati i cavi delle periferiche esterne};
+			
+			\node (pro5a) [process, below of=pro5, text width=24cm, yshift=0.3cm ] {Rimuovere i cavi di collegamento dalle rispettive prese a parete};
+			
+			\node (pro5b) [process, below of=pro5a, text width=24cm, yshift=0.3cm  ] {Imballare con cura ciascun dispositivo ritenuto di interesse per le indagini, annotandone gli eventuali numeri di serie che andranno riportati nel verbale di sequestro. Gli imballi dovranno essere accuratamente etichettati.};
+			
+			\node (pro5c) [process, below of=pro5b, text width=24cm, yshift=0.3cm  ] {Ricercare o richiedere alla parte in causa password e passphrase per accedere alle risorse};
+			
+			\draw [arrow] (start) -- (pro1);
+			\draw [arrow] (pro1) -- (dec1);
+			\draw [arrow] (dec1) -- node[anchor=east] {NO} (pro2);
+			\draw [arrow] (dec1) -- node[anchor=south] {SI} (dec2);
+			\draw [arrow] (dec2) -- node[anchor=west] {SI} (pro3);
+			\draw [arrow] (dec2) -- node[anchor=south] {NO} (pro4);
+			\draw [arrow] (pro4) -- (pro4a);
+			\draw [arrow] (pro4a) -- (pro4b);
+			\draw [arrow] (pro4b) -- (pro5);
+			\draw [arrow] (pro2) -- (pro5);
+			\draw [arrow] (pro3) -- (pro5);
+			\draw [arrow] (pro5) -- (pro5a);
+			\draw [arrow] (pro5a) -- (pro5b);
+			\draw [arrow] (pro5b) -- (pro5c);
+			
+			
+			\end{tikzpicture}
+		\end{adjustbox}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Una regola fondamentale}
+		Sprechiamo una diapositiva per sottolineare l'ovvio:
+		\vfill
+		
+		\centering{\Large Un dispositivo spento non va \textbf{mai e poi mai }acceso in sede di sopralluogo.}
+		\vfill
+		\justifying
+		Chiaro?
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Caso 1: computer spento}
+		Come repertare un computer o un dispositivo non attivo:
+		
+			\begin{itemize}
+				\item verificare che sia effettivamente spento;
+				\item scollegare tutti i cavi, etichettandoli e fotografando lo stato iniziale;		
+				\item annotare numeri di serie;
+%					\begin{tikzpicture}[remember picture,overlay]
+%						\node [xshift=-3.2cm,yshift=-0.3cm] at (current page.east)
+%							{\includegraphics[width=0.4\linewidth]{pics/label1}};
+%							\label{fig:label1}
+%					\end{tikzpicture}
+				\item impacchettare con cura ed etichettare i plichi;
+				\item \textbf{cercare password, PIN, appunti;}
+				\item valutare la necessità di rilievi dattiloscopici.
+			\end{itemize}		
+		In questa fase inizia la \textit{catena di custodia} del materiale fisico.
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\linewidth]{pics/label1}
+			
+			\label{fig:label1}
+		\end{figure}
 
+			
+	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Si può obbligare qualcuno a rivelare una password?}
+		
+		Nel corso della perquisizione potrà essere chiesto di rivelare password, PIN o altre informazioni utili per accedere ai dati.
+		\vfill
+		La P.G. è tenuta ad informare sul diritto a non rispondere di cui agli artt. 60 co. 3 e 350 c.p.p., altrimenti il dato ottenuto sarà \textbf{inutilizzabile}.
+		\vfill
+		\centering
+		\Large\textbf{``Nemo tenetur se detegere''}
+		
+		\scriptsize(nessuno può essere obbligato ad autoaccusarsi)
+		
+	\end{frame}
 	
+	\begin{frame}
+		\frametitle{Caso 2: computer acceso}
+
+		Come procedere:
+		\begin{itemize}
+			\item \textbf{non staccare subito la spina:} si perderebbero dati preziosi;
+			\item visualizzare ``a mano'' finestre aperte, pagine web attive, processi, ecc. o con apposito software;
+			\item documentare tutta l'attività svolta sul computer, anche filmando il monitor e registrando una nota vocale che descriva le operazioni (come nei film americani!). 
+			
+		\end{itemize}
+		\vfill
+		\textit{Ogni atto svolto con queste modalità è di natura irripetibile!}
+
+		\vfill
+		Terminate le operazioni di \textit{``live forensic''} si può spegnere il dispositivo: \textbf{staccando la spina e MAI effettuando la procedura di arresto prevista dal sistema operativo!}
+	\end{frame}
 	
-	\begin{adjustbox}{max totalsize={\textwidth}{\textheight},center,valign=M}
-		\Large
-		\begin{tikzpicture}[node distance=1.8cm]
+	\begin{frame}
+		\frametitle{Sincronizziamo gli orologi}
+		Qualora si operi su un dispositivo acceso, vanno sempre annotate l'ora e la data correnti del sistema, rapportandole a quelle effettive dell'intervento.
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\linewidth]{pics/dataora}
+			\label{fig:dataora}
+		\end{figure}
+		Questo è di fondamentale importanza per mettere in relazione gli orari delle operazioni della P.G. con i dati che verranno estratti dall'analisi \textit{post mortem}.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Caso 3: server o apparecchiatura di rete}
 		
-		\node (start) [startstop, text width=15cm ] {Individuare il computer o il dispositivo da sequestrare};
+		Come mettere in sicurezza dati conservati su un server:
 		
-		\node (pro1) [process, below of=start, text width=18cm, yshift=0.3cm ] {Mettere in sicurezza l'area e la scena del delitto facendo allontanare gli estranei dalle apparecchiature e dai quadri elettrici};
+		\begin{itemize}
+			\item capire se l'apparecchiatura in questione sia o meno nella completa disponibilità dell'indagato;
+			\item limitare i ``danni collaterali'' provocati a persone non coinvolte nell'attività dell'indagato;
+			\item se non è presente un tecnico, affidarsi all'amministratore del sistema per estrapolare al meglio il materiale di interesse.
+			
+		\end{itemize} 		
+		Sequestrare tutto per poi scremare \textit{a posteriori} può andare bene per i computer  di una privata abitazione: fermare l'attività di un'azienda, incolpevole delle attività criminali degli utenti, dimostra una mancanza di professionalità. 
+		\vfill
+		\textbf{Non dimenticare mai che più materiale viene sequestrato, più dati si devono analizzare!}
 		
-		\node (dec1) [decision, below of=pro1, yshift=-0.7cm, xshift=-10cm, text width=3cm ] {Il bersaglio è acceso?};
-		
-		\node (dec2) [decision, right of=dec1, xshift=19cm, text width=3cm] {C'è un esperto a disposizione?};
-		
-		\node (pro2) [process_red, below of=dec1, yshift=-4.2cm, text width=4cm] {NON ACCENDERLO!};
-		
-		\node (pro3) [process_red, below of=dec2, text width=4cm,  yshift=-4.2cm] {Seguire i suoi consigli};
-		
-		\node (pro4) [process_red, left of=dec2, text width=12cm, xshift=-8.5cm, yshift=-1.5cm] {Non accettare consigli da sedicenti esperti};
-		
-		\node (pro4a) [process, below of=pro4, text width=12cm] {Filmare, fotografare, prendere nota di tutto quello che è visibile a video e delle operazioni svolte};
-		
-		\node (pro4b) [process, below of=pro4a, yshift=-0.5cm, text width=12cm] {Rimuovere prima la batteria (se presente) e/o il cavo di alimentazione dall'apparato (e non dalla presa a muro o dalla ciabatta)};
-		
-		\node (pro5) [process, below of=pro4b, yshift=-1cm, text width=24cm ] {Etichettare e fotografare e filmare ciascun componente presente sulla scena, avendo cura di controllare anche come siano collegati i cavi delle periferiche esterne};
-		
-		\node (pro5a) [process, below of=pro5, text width=24cm, yshift=0.3cm ] {Rimuovere i cavi di collegamento dalle rispettive prese a parete};
-		
-		\node (pro5b) [process, below of=pro5a, text width=24cm, yshift=0.3cm  ] {Imballare con cura ciascun dispositivo ritenuto di interesse per le indagini, annotandone gli eventuali numeri di serie che andranno riportati nel verbale di sequestro. Gli imballi dovranno essere accuratamente etichettati.};
-		
-		\node (pro5c) [process, below of=pro5b, text width=24cm, yshift=0.3cm  ] {Ricercare o richiedere alla parte in causa password e passphrase per accedere alle risorse};
-		
-		\draw [arrow] (start) -- (pro1);
-		\draw [arrow] (pro1) -- (dec1);
-		\draw [arrow] (dec1) -- node[anchor=east] {NO} (pro2);
-		\draw [arrow] (dec1) -- node[anchor=south] {SI} (dec2);
-		\draw [arrow] (dec2) -- node[anchor=west] {SI} (pro3);
-		\draw [arrow] (dec2) -- node[anchor=south] {NO} (pro4);
-		\draw [arrow] (pro4) -- (pro4a);
-		\draw [arrow] (pro4a) -- (pro4b);
-		\draw [arrow] (pro4b) -- (pro5);
-		\draw [arrow] (pro2) -- (pro5);
-		\draw [arrow] (pro3) -- (pro5);
-		\draw [arrow] (pro5) -- (pro5a);
-		\draw [arrow] (pro5a) -- (pro5b);
-		\draw [arrow] (pro5b) -- (pro5c);
-		
-		
-		\end{tikzpicture}
-	\end{adjustbox}
 	\end{frame}
 	
 	
@@ -301,8 +396,18 @@ text width= 3.5cm ]
 	\begin{frame}
 		\frametitle{Ringraziamento}
 		\centering
-		\Large Grazie per l'attenzione!
+		\Large Grazie per l'attenzione.
 		\vfill
-		 \scriptsize \textbf{Nota:} questa presentazione \textbf{non} è stata realizzata con Microsoft Powerpoint\textsuperscript\textcopyright bensì con \textsf{\LaTeX}.
+		\dots e ora: \textit{question time}!
+		\vfill	
+		\tiny \textbf{Nota:} questa presentazione \textbf{non} è stata realizzata con Microsoft~Powerpoint\textsuperscript\textcopyright bensì con \textsf{\LaTeX}.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Riferimenti}
+		\tiny
+		\bibliographystyle{plain}
+		\setbeamertemplate{bibliography item}{\insertbiblabel}
+		\bibliography{forensics}
 	\end{frame}
 \end{document}
