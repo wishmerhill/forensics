@@ -301,7 +301,9 @@ text width= 3.5cm ]
 		\centering{\Large Un dispositivo spento non va \textbf{mai e poi mai }acceso in sede di sopralluogo.}
 		\vfill
 		\justifying
-		Chiaro?
+		Chiaro?\footnote[frame]{In realtà, ci sono delle eccezioni, che vedremo.}
+		
+
 	\end{frame}
 	
 	\begin{frame}
@@ -398,7 +400,7 @@ text width= 3.5cm ]
 		Le modalità di sequestro di tali apparati necessitano a loro volta di alcuni accorgimenti particolari e richiedono un minimo di preparazione da parte degli operatori.
 	\end{frame}
 	
-	\begin{frame}[shrink]
+	\begin{frame}[shrink]\label{frame:Dispositivo_mobile_acceso}
 		\frametitle{Dispositivo acceso}
 		Per spegnerlo è necessario staccare la batteria: questa operazione spesso comporta la perdita delle informazioni volatili, per cui è necessario annotare (se possibile):
 		\begin{itemize}
@@ -417,7 +419,145 @@ text width= 3.5cm ]
 	
 	\begin{frame}
 		\frametitle{Dispositivo spento}
+		\begin{itemize}
+			\item non accendere mai gli apparecchi rinvenuti spenti;
+			\item cercare e sequestrare SIM card e schede di memoria contenute nel telefono, annotando numeri di serie e altri dati utili;
+			\item cercare i codici di accesso al telefono (PIN, PUK e altro);
+		\end{itemize}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.4\linewidth]{pics/samsung_example}
+			\label{fig:samsung_example}
+		\end{figure}
+				
+		Nel caso sia necessario rimuovere la batteria, ricordiamo che ciò spesso azzera la memoria volatile: si deve valutare la priorità e l'importanza delle informazioni ricercate.
 	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Le analisi forensi sugli \textit{smartphone}}
+		\centering 
+		
+		\textbf{Le analisi forensi sui telefoni di nuova generazione sono generalmente non ripetibili.} 
+		\vfill
+		\justifying
+		Per effettuare la copia forense (che non è nemmeno sempre possibilie) di terminali Android o iOS (Apple iPhone e iPad) è necessario installarvi un apposito software dopo aver effettuato il \textit{rooting} o il \textit{jailbreak} del dispositivo. 
+		\vfill
+
+		Si deve \textbf{modificare} il contenuto della memoria, alterando la prova! 
+		\vfill
+		\centering
+		\textbf{\'{E} evidente che ciò non è ``forensically sound''.}
+	\end{frame}		
+	
+	\section{Analisi forense}
+	
+	\begin{frame}
+		\frametitle{I principi dell'analisi forense}
+		\begin{enumerate}
+			\item \textbf{Tracciabilità della catena di custodia (\textit{chain of custody}) dei reperti}: ogni passaggio di mano, ogni apertura dei plichi sigillati, ogni operazione svolta deve essere registrata.
+			\item \textbf{Integrità dei dati}: in nessun momento dell'analisi devono essere in alcun modo modificati i dati contenuti nei reperti.
+			\item \textbf{Verificabilità e ripetibilità di tutte le operazioni svolte}: chiunque deve essere in grado di riprodurre, avendo gli strumenti adeguati, le operazioni svolte nell'analisi ottenendo gli stessi risultati.
+		\end{enumerate}
+
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Competenze necessarie per l'analisi forense}
+		
+		\begin{enumerate}
+			\item Concetto di memoria volatile e persistente.
+			\item Architettura hardware di un computer.
+			\item Concetto di BIOS.
+			\item Concetto di periferiche e memorie di massa.
+			\item Concetto di \textit{hash}.
+			\item Architettura base dei sistemi operativi Microsoft (cartelle utente e di sistema, file di log, file temporanei, registro).
+			\item Architettura base dei sistemi Apple (idem).
+			\item Funzionalità base dei sistemi GNU/Linux (soprattutto per l'utilizzo dei tool per il ``\textit{live forensic}'').
+			
+		\end{enumerate}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Non tutti gli informatici sono esperti forensi}
+		\begin{center}
+
+		\textbf{\`{E} sufficiente un buon informatico per fare una analisi forense?}
+		
+		Non sempre...
+		\end{center}
+		
+		Un buon esempio è il referente telematico: per quanto bravo, non necessariamente conosce i principi base dell'analisi forense. 
+		
+		Anche sedicenti esperti informatici esterni spesso non sono affatto tali in ambito forense.
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{I software per l'analisi forense}
+		\begin{enumerate}
+			\item Software commerciali:
+			\begin{itemize}
+				\item \textbf{EnCase Forensic} della Guidance Software (\textit{computer forensic});
+				\item \textbf{UFED} della Cellebrite (\textit{mobile forensic});
+				\item \textellipsis
+			\end{itemize}
+			\item Software liberi (basati su GNU/Linux):
+			\begin{itemize}
+				\item \textbf{CAINE} (\textbf{C}omputer \textbf{A}ided \textbf{IN}vestigative \textbf{E}nvironment), distribuzione italiana, relativamente facile da utilizzare e completa;
+				\item \textbf{DEFT} (\textbf{D}igital \textbf{E}vidence \& \textbf{F}orensic \textbf{T}oolkit), distribuzione italiana completa e aggiornata;
+				\item molte altre distribuzioni di GNU/Linux concepite per le esigenze degli investigatori forensi, alcune dedicate a specifici settori quali l'analisi e l'acquisizione di computer Apple, dispositivi mobili o altre particolarità.
+			\end{itemize}
+		\end{enumerate}
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{Pregi del software libero [1/2]}
+		La più interessante caratteristica delle distribuzioni GNU/Linux citate (CAINE e DEFT) è quella di poter essere masterizzate su un CD/DVD o eseguite direttamente da chiavetta USB, permettendo di operare sul posto \textbf{con la certezza di accedere ai dati in sola lettura} senza compromettere l'integrità dei dati. 
+		
+		Avendone la possibilità (e i supporti per il riversamento), si può procedere direttamente alla copia forense \textit{on the fly} delle memorie di massa.
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Pregi del software libero [2/2]}
+		\framesubtitle{Una questione di controllo e di etica}
+		
+		In ogni settore, la pubblica amministrazione e in particolare le forze di polizia dovrebbero, per quanto possibile, tendere all'utilizzo di software libero (a sorgente aperto).
+		
+		Questo, oltre a ridurre i costi, dà il controllo completo s
+		
+	\end{frame}
+	
+	\begin{frame} %mettiamola per ultima questa
+		\frametitle{La ``perquisizione informatica''}
+		In alcuni, specifici casi, è possibile accendere un dispositivo spento senza strumenti forensi per verificare il contenuto. 
+		\vfill
+		Si può parlare di perquisizione informatica:
+		\begin{itemize}
+			\item è attività tipica (art. 352 c.p.p);
+			\item è accertamento tecnico non ripetibile e richiede la presenza del difensore (360 c.p.p.);
+			\item \textbf{deve essere concordata con il magistrato di turno.}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}[shrink]
+		\frametitle{Perquisizione informatica: un esempio}
+		Per decidere se sequestrare o meno un portatile (reato ipotizzato: \textit{truffa tramite la stampa di assegni falsi}), si è proceduto alla perquisizione informatica con la presenza del legale.
+		\vfill
+		Tra i ``\texttt{Documenti recenti}'' era presente il file ``\texttt{seriale\_f.psd}'' che però rimandava a una chiavetta USB e quindi non era accessibile.
+		\vfill
+		Il nome del file era interessante e suggestivo e sufficiente per il sequestro. In sede di analisi tra i file cancellati si è trovato proprio un assegno!
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\textheight]{pics/assegno_psd}
+			\label{fig:assegno_psd}
+		\end{figure}
+	\end{frame}
+		
+	
 	
 	\section{Conclusioni}	
 	\begin{frame}
@@ -425,7 +565,7 @@ text width= 3.5cm ]
 		\centering
 		\Large Grazie per l'attenzione.
 		\vfill
-		\dots e ora: \textit{question time}!
+		\huge Domande?
 		\vfill	
 		\tiny \textbf{Nota:} questa presentazione \textbf{non} è stata realizzata con Microsoft~Powerpoint\textsuperscript\textcopyright bensì con \textsf{\LaTeX}.
 	\end{frame}
