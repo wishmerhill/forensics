@@ -487,7 +487,7 @@
 					}
 				(e quindi, generalmente, a sorgente aperto). Sullo specifico argomento, ovviamente, la questione è molto dibattuta e tende a essere più una dissertazione filosofica che una pragmatica presa di posizione ed esula decisamente dallo scopo della presente trattazione.
 				
-				Che si usi uno strumento o un altro, l'aspetto fondamentale è indipendenza del risultato ottenuto dallo strumento utilizzato per ottenerlo: per quanto il software commerciale sia elaborato e sofisticato, gli stessi risultati si possono ottenere con software libero.
+				Che si usi uno strumento o un altro, l'aspetto fondamentale è l'indipendenza del risultato ottenuto dallo strumento utilizzato per ottenerlo: per quanto il software commerciale sia elaborato e sofisticato, gli stessi risultati si possono ottenere con software libero.
 				
 				Tra i software commerciali deve essere citato quello che è riconosciuto unanimemente come lo standard industriale: \textit{EnCase Forensic} della Guidance Software. Si tratta di un software completo per l'analisi e il reporting su computer, dispositivi mobili, memorie di massa, ecc.. Il costo della licenza e l'assenza di una versione \textit{demo} non permettono di testalo e quindi chi scrive non è in grado di interloquire nel merito dandone una descrizione più dettagliata.
 				
@@ -532,7 +532,7 @@
 			\subsubsection{Hash, impronta digitale elettronica}
 				La generazione dell'\textit{hash} di una evidenza forense è estremamente importante ed è considerata come la prova dell'integrità dei dati acquisiti: chiunque si approccia all'analisi dei dati effettua, per prima cosa, il calcolo dell'\textit{hash}: se esso differisce da quello calcolato i sede di acquisizione, il secondo perito non procederà con il lavoro ed eccepirà l'integrità del dato: infatti, una modifica ancorché minima del contenuto di una evidenza digitale farà sì che l'impronta risultante sarà completamente diversa.
 				
-				Come è stato detto in precedenza, la funzione di hashing è induttiva e non reversibile e la probabilità di collisioni (ovvero di due serie di dati che forniscano la stessa sequenza di bit) è estremamente remota sebbene non impossibile ed è inversamente proporzionale alla complessità dell'algoritmo di calcolo.
+				Come è stato detto in precedenza, la funzione di hashing è \textit{non iniettiva} e quindi non reversibile e la probabilità di collisioni (ovvero di due serie di dati che forniscano la stessa sequenza di bit) è estremamente remota sebbene non impossibile ed è inversamente proporzionale alla complessità dell'algoritmo di calcolo.
 				
 				In tabella \ref{tab:hashtest} è riportato un semplice esempio pratico, generando gli hash MD5 e SHA1 tramite un servizio on-line (\url{www.md5.cz} e \url{www.sha1.cz}) delle parole ``Carabinieri'' e ``carabineri'', differenziando solo la prima lettera maiuscola o minuscola.
 				
@@ -561,7 +561,7 @@
 					\caption{Un semplice esempio di hash}
 				\end{table}
 				
-			\subsubsection{Sequenza delle operazioni di preliminari all'analisi}
+			\subsubsection{Sequenza delle operazioni preliminari all'analisi}
 				L'intera operazione di analisi è estremamente complessa e variegata ed esula ampiamente da questa trattazione; tuttavia, è utile fornire una traccia di quali sono, di norma, le operazioni da eseguire: alcune di esse sono state già accennate, altre invece saranno oggetto di un'altra lezione. Nell'ordine:
 				
 				\begin{enumerate}

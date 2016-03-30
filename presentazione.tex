@@ -8,7 +8,9 @@
 \usepackage{scrextend}
 \usepackage{tikz}
 \usepackage{adjustbox}
-\AtBeginSection[]{\subsection{}}
+\usepackage{multirow}
+\AtBeginSection[]{\frame{\Huge \centering \insertsection} \subsection{} }
+%\AtBeginSection[]{\subsection{}}
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, 
 rounded corners, 
@@ -76,11 +78,11 @@ text width= 3.5cm ]
 \begin{document}
 	\maketitle
 	
-%	\begin{frame}
-%		\frametitle{Table of Contents}
-%		\tableofcontents
-%	\end{frame}
-	
+	\begin{frame}
+		\frametitle{Indice dei contenuti}
+		\tableofcontents
+	\end{frame}
+
 	\section{Premessa}
 	\begin{frame}
 		\frametitle{I reati informatici}
@@ -117,6 +119,7 @@ text width= 3.5cm ]
 		Nessun tecnico puro, nemmeno il più bravo, può sostituirsi all'investigatore nell'analizzare i dati ricavati da un sistema informatico: \textit{gli mancano la sensibilità e l'intuito dello sbirro!}
 		
 	\end{frame}
+	
 	
 	\section{Fonti normative}
 	\begin{frame}
@@ -203,7 +206,7 @@ text width= 3.5cm ]
 		Qui si approfondiranno le procedure di identificazione e prelievo, trattando in maniera più rapida quelle relative agli altri tre aspetti, che di norma sono di competenza di organi e reparti specializzati o di personale in possesso di competenze specifiche.
 	\end{frame}
 	
-	\section{I princip\^{i} del repertamento}
+	\section[Repertamento]{I principi del repertamento}
 	
 	\begin{frame}
 		\frametitle{In un mondo perfetto\dots}
@@ -292,7 +295,9 @@ text width= 3.5cm ]
 			\end{tikzpicture}
 		\end{adjustbox}
 	\end{frame}
-	\section{Dispositivi fissi}
+	
+	\section[Disp. fissi]{Dispositivi fissi}
+	
 	\begin{frame}
 		\frametitle{Una regola fondamentale}
 		Sprechiamo una diapositiva per sottolineare l'ovvio:
@@ -392,7 +397,8 @@ text width= 3.5cm ]
 		\textbf{Non dimenticare mai che più materiale viene sequestrato, più dati si devono analizzare!}
 		
 	\end{frame}
-	\section{Dispositivi mobili}
+		
+	\section[Disp. mobili]{Dispositivi mobili}
 	\begin{frame}
 		\frametitle{Come operare sui dispositivi mobili}
 		I dispositivi mobili sono sempre più simili a computer che non a semplici dispositivi di comunicazione quali erano i ``vecchi'' cellulari: ormai, infatti, \textit{smartphone} e \textit{tablet} hanno capacità di archiviazione tra i 32 o 64 GB dei modelli di punta e i 4-8 GB dei modelli più economici. Possono contenere moltissime informazioni e il loro uso pervasivo fa si che, molto più del PC di casa, siano la principale piattaforma di archiviazione dati degli utenti.
@@ -526,9 +532,218 @@ text width= 3.5cm ]
 		\framesubtitle{Una questione di controllo e di etica}
 		
 		In ogni settore, la pubblica amministrazione e in particolare le forze di polizia dovrebbero, per quanto possibile, tendere all'utilizzo di software libero (a sorgente aperto).
+		\vfill
+		Questo, oltre a ridurre i costi, dà il controllo completo sulle funzionalità e permette di verificare, in ogni momento, se il software si comporta nel modo corretto.
+		\vfill
+		Il software libero è pubblicato sotto i termini di una licenza libera, ovvero che ne incoraggia l'utilizzo, lo studio, la modifica e la redistribuzione.
 		
-		Questo, oltre a ridurre i costi, dà il controllo completo s
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Software commerciale o libero?}
+		Che si usi uno strumento o un altro, l'aspetto fondamentale è l'indipendenza del risultato ottenuto dallo strumento utilizzato per ottenerlo: per quanto il software commerciale sia elaborato e sofisticato, gli stessi risultati si possono ottenere con software libero.
+	\end{frame}
+	
+	
+	\begin{frame}
+		\frametitle{La copia forense [1/2]}
+		Prima ancora di iniziare a analizzare il contenuto di un computer o comunque di un dispositivo digitale con al suo interno dei dati immagazzinati, è necessario effettuarne una \textbf{copia forense}.
 		
+		\vfill
+		La copia forense (o bit-stream image), nel lessico forense, indica l'acquisizione di documenti in formato digitale che genera una copia bit a bit da un dispositivo di memoria di massa a un altro.\cite{wiki:Copia_forense}
+		
+		\vfill
+		
+		Essa comporta la duplicazione di tutte le zone del disco, anche quelle che non contengono alcun file direttamente visibile all'utente, definite tecnicamente aree non allocate -- ovvero i file cancellati.
+			
+	\end{frame}
+	
+	\begin{frame}[shrink]
+		\frametitle{La copia forense [2/2]}
+		Effettuare un copia forense necessita di alcuni accorgimenti tecnici fondamentali: \textbf{la protezione in scrittura del disco da copiare.}
+		
+		Per ottenerla ci sono due possibilità:
+		\begin{itemize}
+			\item un dispositivo che faccia il blocco a livello hardware;
+			\item una workstation con a bordo un sistema operativo pensato per le analisi forensi.
+		\end{itemize}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.25\linewidth]{pics/800px-Portable_forensic_tableau}
+		
+			\label{fig:800px-Portable_forensic_tableau}
+		\end{figure}
+		Quello che \emph{non si deve fare} è collegare il disco da copiare al proprio computer e ``trascinare le cartelle'' da un'altra parte -- già solo collegandolo ad un computer non predisposto per l'analisi forense, ci sto scrivendo informazioni, ``sporcando'' la prova.
+				
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Hash, l'impronta digitale elettronica [1/2]}
+		Una volta effettuata la copia -- o immagine -- forense è indispensabile procedere al calcolo dell'\textit{hash}.
+		\vfill
+		La generazione dell'\textit{hash} di una evidenza forense è estremamente importante ed è la prova dell'integrità dei dati acquisiti: chiunque si approccia all'analisi dei dati effettua, per prima cosa, il calcolo dell'\textit{hash}: se esso differisce da quello calcolato i sede di acquisizione, il secondo perito non procederà con il lavoro ed eccepirà l'integrità del dato. Infatti, una modifica ancorché minima del contenuto di una evidenza digitale farà sì che l'impronta risultante sarà completamente diversa.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Hash, l'impronta digitale elettronica [2/2]}
+		
+		Come è stato detto in precedenza, la funzione di hashing è \textit{non iniettiva} e quindi non reversibile e la probabilità di collisioni (ovvero di due serie di dati che forniscano la stessa sequenza di bit) è estremamente remota sebbene non impossibile ed è inversamente proporzionale alla complessità dell'algoritmo di calcolo.
+		
+		
+		\begin{table}
+			\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				
+				Stringa & Tipo di \textit{hash} & valore \\
+				\hline
+				\multirow{2}{*}{\texttt{Carabinieri}} 
+				& \texttt{MD5} & \texttt{dae05abfa4bfb7d7adcc696ee55a38de} \\
+				\cline{2-3}
+				& \texttt{SHA1} & \texttt{88df4a0528da6b42987bd6542ee8d1d9f9457ec7} \\
+				
+				\hline
+				\multirow{2}{*}{\texttt{carabinieri}}
+				& \texttt{MD5} & \texttt{30ef5966704603d09f86bf35f2005e48} \\
+				\cline{2-3}
+				& \texttt{SHA1} & \texttt{2db401a3d74fe36b974de779be8c5b726a2de64c} \\
+			\end{tabular}
+			
+		\end{table}
+		
+		L'\textit{hash} può essere effettuato su qualsiasi dato, sia esso un singolo file o l'immagine di una partizione o di un disco.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Sequenza delle operazioni preliminari all'analisi}
+		
+		\begin{enumerate}
+			\item verifica dell'integrità fisica dei reperti;
+			\item individuazione delle memorie di massa;
+			\item disconnessione fisica delle memorie di massa dai dispositivi;
+			\item collegamento delle memorie di massa al sistema di analisi forense -- se possibile tramite un \textit{write blocker} fisico;
+			\item clonazione dell'evidenza digitale su un supporto apposito;
+			\item generazione dell'\textit{hash} del dispositivo sorgente e dell'immagine generata e confronto dei risultati;
+			\item sigillatura e archiviazione dei dispositivi originali;
+			\item copia di lavoro dell'immagine acquisita;
+			\item archiviazione della prima copia, a disposizione dell'A.G. e delle eventuali ulteriori perizie di parte o del P.M.;
+			\item analisi della copia di lavoro.
+		\end{enumerate}
+		
+	\end{frame}
+	
+	\begin{frame}[allowframebreaks]
+		\frametitle{Cenni sull'analisi forense}
+		Le fasi della generica analisi forense dei dati sono sinteticamente elencate di seguito. L'opportunità di svolgerle tutte, nell'ordine che di volta in volta si ritiene più opportuno, viene valutata sulla base di quello che si vuole ricercare. L'elenco non è e non vuole essere completo.
+		
+		
+		\begin{itemize}
+			\item analisi del contenuto della ``S.M.A.R.T. area''  del disco rigido, qualora presente, al fine di avere informazioni sull'età del disco e su eventuali ipotizzabili sostituzioni recenti dello stesso;
+			\item annotazione del software di base rinvenuto installato sul supporto di memoria, con particolare riferimento alla configurazione del Sistema Operativo;
+			\item valutazione della dimensione ed analisi del contenuto della ``Unused Disk Area'';
+			\item recupero delle ``cartelle orfane'' ed analisi dei file in esse indicizzati;
+			\item analisi delle cartelle e dei file rinvenuti cancellati;
+			\item analisi dell'area di memoria non allocata per ciascuna partizione rilevata sul supporto;
+			\item rilevazione di eventuali file con estensione alterata;
+			\item analisi storica delle date di creazione, modifica, ecc. dei file;
+			\item ricerca di specifici contenuti testuali;
+			\item visualizzazione dei file contenenti immagini fotografiche;
+			\item visualizzazione dei file contenenti materiale audiovisivo;
+			\item analisi dei file di archivio compressi;
+			\item analisi della posta elettronica rinvenuta archiviata;
+			\item analisi delle tracce della navigazione in Internet;
+			
+		\end{itemize}
+	\end{frame}
+	
+	\section{Live forensic}
+	
+	\begin{frame}
+		\frametitle{Perchè operare \textit{live}}
+		Fino a qualche anno fa, in presenza di un computer acceso, si diceva di spegnerlo brutalmente e repertarlo.
+		\vfill
+		Lo spegnimento forzato di una macchina attiva determina perdite di dati, principalmente di quanto contenuto nella RAM: si riteneva che il costo di queste perdite fosse minimo rispetto al rischio di far interagire un NON specialista con la macchina per ottenere direttamente informazioni, riducendo al minimo la sovrascrittura dei dati sulle memorie di massa attive.
+		\vfill
+		A volte, però, i dati volatili sono estremamente importanti e gli operatori dovrebbero saperli assicurare.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Quando operare \textit{live}}
+			Molte delle possibili prove presenti nella memoria RAM non vengono registrate sui supporti persistenti. Tra i motivi che possono indirizzare verso l'approccio \textit{live} possiamo menzionare:
+			
+			\begin{enumerate}
+				
+				\item{\textbf{comunicazioni con dati non persistenti,}} come le chat, che nello spegnimento forzato vengono completamente perse;
+				\item{\textbf{crittografia}}: dopo lo spegnimento del sistema, l'accesso a partizioni criptate può risultare complicata se non impossibile, richiedendo di solito l'immissione di una password o di una passphrase;
+				\item{\textbf{server:}} per grandi sistemi l'idea di spegnerli per repertarli è frutto solo dell'ignoranza;
+				\item{\textbf{necessità}} di analizzare qualsiasi servizio o applicazione attivo sulla macchina.
+			\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Limiti dell'analisi \textit{live}}
+		Se si ammette la possibilità di interagire sulla scena del crimine con la macchina, si accetta che:
+		\begin{itemize}
+			
+			\item il repertamento dei dati sia parziale e incompleto;
+			
+			\item alcuni dati di interesse possano emergere durante l'interazione con la macchina per cui il repertamento avviene a fasi incrementali;
+			
+			\item preparazione ed analisi siano ridotti al minimo durante l'interazione con il sistema per diminuire la possibilità di causare cambiamenti importanti nelle memorie digitali in analisi e lasciare la parte approfondita di essi all'approccio statico;
+			
+			\item il \textit{reporting} non sia quello del \textit{forensic} statico, che si propone di spiegare le operazioni in dettaglio e presentarle in dibattimento.
+			Si tratta di una sorta di perquisizione;
+			
+			\item \textbf{l'attività sia irripetibile}.
+			
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{A proposito di irripetibilità}
+		
+		Essa è:
+		\begin{itemize}
+			
+			\item \textbf{di natura tecnica:} non esiste infatti possibilità di realizzare analisi e repertamento dati live senza modificare almeno una parte della memoria del sistema.
+			
+			\item \textbf{di natura temporale:} la situazione della macchina all'atto dell'attività è frutto del momento e la sua complessità è tale da non poter essere riprodotta.
+			
+			\item \textbf{relativa all'osservabilità:} lo stato di un computer reperto attivo, in tutte le sue variabili, non è completamente osservabile perché la sonda che si dovrebbe inserire per compiere tale osservazione andrebbe a modificarne proprio lo stato.
+			\end{itemize}
+	\end{frame}
+	
+	\begin{frame}[shrink]
+			\frametitle{Uno strumento per il \textit{live forensic}}			
+			\textbf{Win-UFO} (\url{http://win-ufo.org/about.shtml}) è un software libero che può essere installato su una chiavetta USB da inserire nel computer oggetto dell'attività \textit{live} e permette di estrapolare e salvare dati relativi allo stato di funzionamento della macchina sulla quale viene fatto girare.
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=.4\linewidth]{pics/winufo1}
+						
+			\end{figure}
+
+			
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Pro e contro del \textit{live forensic}}
+	Pro:
+	\begin{itemize}
+		\item i dati forensi raccolti in un sistema live possono produrre prove che non emergerebbero in sede di analisi \textit{post mortem};
+		\item buona velocità di esecuzione (magistratura e i legali apprezzano);
+	\end{itemize}
+	\vfill
+	Contro:
+	\begin{itemize}
+		\item standard in evoluzione;
+		\item pochi precedenti legali;
+		\item rischio di contaminazione delle prove;
+		\item non sempre magistrati e avvocati comprendono la problematica;
+		\item \textbf{procedimento assolutamente irripetibile}.
+	\end{itemize}
+
 	\end{frame}
 	
 	\begin{frame} %mettiamola per ultima questa
@@ -542,6 +757,8 @@ text width= 3.5cm ]
 			\item \textbf{deve essere concordata con il magistrato di turno.}
 		\end{itemize}
 	\end{frame}
+	
+
 	
 	\begin{frame}[shrink]
 		\frametitle{Perquisizione informatica: un esempio}
@@ -559,9 +776,9 @@ text width= 3.5cm ]
 		
 	
 	
-	\section{Conclusioni}	
+	\section*{}	
 	\begin{frame}
-		\frametitle{Ringraziamento}
+		\vfill
 		\centering
 		\Large Grazie per l'attenzione.
 		\vfill
